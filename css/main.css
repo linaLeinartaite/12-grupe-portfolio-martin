@@ -1,5 +1,6 @@
 @import './reset.min.css';
 @import './variables.min.css';
+@import './variables.css';
 
 @import './font-awesome.min.css';
 
@@ -15,3 +16,4 @@
 @import './testimonials.min.css';
 
 @import './custom.min.css';
+@import './custom.css';

@@ -1,14 +1,129 @@
-// custom
+// custom  
 
-.bg-primary {
-    background-color: var(--primary-color);
+//mainStyleClasses (pagrindines klases elementu naudojamu neviena karta)
+//main colors (pagrindines spalvos naudojamos zemiau apybreztos variables.css)
+
+
+//lygiavimo klases
+.center {
+    text-align: center;
 }
-.bg-secondary {
-    background-color: var(--secondary-color);
+
+.left{
+    text-align: left;
 }
-.bg-primary-light {
-    background-color: var(--primary-light-color);
+
+
+//style for columns
+//stilius stulpeliu (seselis ir bazinis formatas)
+.boxShadow{
+    padding: 30px;
+    border-radius: 3px;
+    background-color: var(--third-color);    
+    box-shadow: 0px 8px 15px var(--first-color);
+    font-size: 20px;
+
+    //jei stulpelyje yra <h3> jis tures raudonos spalvos texta ir didziasias raides:
+     h3{        
+        text-transform: uppercase;
+        color: var(--second-color);   
+    }
+
+     //jei stulpelyje yra <h4> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+     h4{
+        padding-top: 25px;
+        text-transform: uppercase;
+    }
+    //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
+     p {
+        padding: 3px 0;
+        color: var(--first-color);
+    }
 }
+//cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
+.boxShadow-{
+    box-shadow: none;
+}
+
+//style buttons (stilius mygtukams) 
+// bendras stilius:
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    box-shadow: 0px 8px 15px var(--first-color);
+    cursor: pointer;
+}
+
+// jei raudonas:
+.btn-red{
+    background-color: var(--second-color);
+    border: 1px solid var(--second-color);
+    color: var(--third-color);
+}   
+
+// jei uzvaziuoji ant raudono (jis tampa juodas ir t.t):
+.btn-red:hover{
+    background-color: var(--fourth-color);
+    border: 1px solid var(--fourth-color);
+    box-shadow: 1px 15px 25px 2px var(--second-color-tr);    
+    transition: ease-in;
+    transition-duration: 500ms;
+}
+
+// jei baltas:
+.btn-white{
+    background-color: var(--third-color);
+    color: var(--second-color);
+    border: 1px solid var(--third-color);    
+}
+
+// jei uzvaziuoji ant balto (jis tampa raudonas ir t.t):
+.btn-white:hover{
+    background-color: var(--second-color);
+    color: var(--third-color);
+    border: 1px solid var(--third-color);
+    box-shadow: 1px 15px 25px 2px var(--first-color);
+    transition: ease-in;
+    transition-duration: 500ms;
+}
+
+
+//style for headers (stilius antrastems pagrindinems)
+.head {
+    > h2 {
+padding-top: 60px; 
+padding-bottom: 10px;
+font-size: 35px;
+line-height: 45px;
+text-transform: uppercase;
+color: var(--fourth-color); 
+}
+> h2 > span{
+color: var(--second-color);
+ }
+
+ .line { 
+width:100%;
+display: inline-block;
+background-color: black;
+height: 3px;
+width: 60px;
+}
+}
+
+//for not having uppercase (nuimti didziasias raides is .head, cia reikia tik 'About Me' sekcijoje )
+.head-{
+    >h2 {
+    text-transform: capitalize;
+    }
+}
+
 
 
 // header

@@ -42,7 +42,6 @@
 .container {
   display: inline-block;
   width: 100%;
-  background-color: var(--primary-color);
   text-align: center;
   border: 2px solid grey;
 }
@@ -51,7 +50,6 @@
   display: inline-block;
   width: 1200px;
   margin: 10px calc(50% - 600px);
-  background-color: #00ccff;
   text-align: center;
 }
 
@@ -61,7 +59,6 @@
   margin-left: var(--margin);
   margin-right: var(--margin);
   float: left;
-  background-color: pink;
 }
 
 .unit-1-col {

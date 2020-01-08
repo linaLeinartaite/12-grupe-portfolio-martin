@@ -108,4 +108,9 @@
 .head- > h2 {
   text-transform: capitalize;
 }
+
+footer {
+  width: 100%;
+  background-color: green;
+}
 /*# sourceMappingURL=custom.css.map */

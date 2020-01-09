@@ -6,7 +6,7 @@
   text-align: left;
 }
 
-.boxShadow {
+.block {
   padding: 30px;
   border-radius: 3px;
   background-color: var(--third-color);
@@ -15,23 +15,36 @@
   font-size: 20px;
 }
 
-.boxShadow h3 {
+.block h4 {
   text-transform: uppercase;
   color: var(--second-color);
 }
 
-.boxShadow h4 {
+.block h5 {
   padding-top: 25px;
   text-transform: uppercase;
 }
 
-.boxShadow p {
+.block h3 {
+  padding-top: 25px;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.block .ico {
+  color: var(--second-color);
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.block p {
   font-size: 18px;
   padding: 3px 0;
   color: var(--first-color);
 }
 
-.boxShadow- {
+.block- {
   -webkit-box-shadow: none;
           box-shadow: none;
 }

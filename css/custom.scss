@@ -16,24 +16,38 @@
 
 //style for columns
 //stilius stulpeliu (seselis ir bazinis formatas)
-.boxShadow{
+.block{
     padding: 30px;
     border-radius: 3px;
     background-color: var(--third-color);    
     box-shadow: 0px 8px 15px var(--first-color-tr);
     font-size: 20px;
 
-    //jei stulpelyje yra <h3> jis tures raudonos spalvos texta ir didziasias raides:
-     h3{        
+    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+    h4{        
         text-transform: uppercase;
         color: var(--second-color);   
     }
 
-     //jei stulpelyje yra <h4> jis tures juodos spalvos(paveldes) texta ir didziasias raides
-     h4{
+     //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+    h5{
         padding-top: 25px;
         text-transform: uppercase;
     }
+    h3{
+        padding-top: 25px;
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: bold; 
+    
+    }
+
+    .ico{
+        color: var(--second-color);
+        font-size: 40px;
+        line-height: 60px;
+    }
+   
     //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
      p {
       font-size: 18px;
@@ -42,7 +56,7 @@
     }
 }
 //cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
-.boxShadow-{
+.block-{
     box-shadow: none;
 }
 

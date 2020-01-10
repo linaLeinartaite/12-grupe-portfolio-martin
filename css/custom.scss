@@ -22,8 +22,9 @@
     background-color: var(--third-color);    
     box-shadow: 0px 8px 15px var(--first-color-tr);
     font-size: 20px;
+    border: 4px solid transparent;
 
-    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+       //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
     h4{        
         text-transform: uppercase;
         color: var(--second-color);   
@@ -55,8 +56,18 @@
         color: var(--first-color);
     }
 }
+//klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
+.block-hover:hover{
+    border: 4px solid var(--second-color);
+    position: relative;
+    top: -12px;
+    transition: ease-in-out ;
+    transition-duration: 0.5s;    
+}
+
 //cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
 .block-{
+
     box-shadow: none;
 }
 

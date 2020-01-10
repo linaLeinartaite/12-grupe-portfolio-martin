@@ -1,5 +1,39 @@
 "use strict";
 
+const titles = [
+//Apie sia sekcija dar teks pagalvoti (ar galima ja generuoti)
+    {
+id: 'about-me',
+span: "me",
+main: "about"
+},
+    {
+id: 'my-services',        
+span: "my",
+main: "services"
+    },
+{
+id: 'my-resume',        
+span: "my",
+main: "resume"
+    },
+    {
+id: 'my-portfolio',
+span: "my",
+main: "portfolio"
+    },
+    {
+id: 'my-blogs',
+span: "my",
+main: "blogs"
+    },
+        {
+id: "contact-me",
+span: "me",
+main: "contact"
+    }
+]
+
 const resume = [
     {
          //KAIP DARYT JEI exp ILGESNIS??? 

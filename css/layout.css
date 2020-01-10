@@ -43,7 +43,6 @@
   display: inline-block;
   width: 100%;
   text-align: center;
-  border: 2px solid grey;
 }
 
 .row {
@@ -702,4 +701,3 @@
     margin-right: var(--m12);
   }
 }
-/*# sourceMappingURL=layout.css.map */

@@ -1,0 +1,25 @@
+function renderTitle(data){
+    let HTML="";
+    //patikrinam ar data yra arrejus
+    if(!Array.isArray(data)){
+        console.error("ERROR: data has to be an array.");
+        return;
+    };
+    
+    //patikrinam data nera tuscia (jei tuscia pasalinam sekcija)
+    if( data.length === 0){
+        console.error("ERROR: data is empty.");
+        return;
+        
+    //generuojam duomenis 
+    } 
+        for(let i=0; i<data.length; i++){
+            HTML += `<div class="row title" id="my-resume-title">
+            <div class="head col unit-12-col">
+                <h2 class=""><span>MY</span> RESUME</h2>
+                <div class="line"></div>
+            </div> 
+        </div> `;
+        document.querySelector('.title').innerHTML=HTML;    
+        }   
+}

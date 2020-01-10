@@ -16,32 +16,47 @@
 
 //style for columns
 //stilius stulpeliu (seselis ir bazinis formatas)
-.boxShadow{
+.block{
     padding: 30px;
     border-radius: 3px;
     background-color: var(--third-color);    
-    box-shadow: 0px 8px 15px var(--first-color);
+    box-shadow: 0px 8px 15px var(--first-color-tr);
     font-size: 20px;
 
-    //jei stulpelyje yra <h3> jis tures raudonos spalvos texta ir didziasias raides:
-     h3{        
+    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+    h4{        
         text-transform: uppercase;
         color: var(--second-color);   
     }
 
-     //jei stulpelyje yra <h4> jis tures juodos spalvos(paveldes) texta ir didziasias raides
-     h4{
+     //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+    h5{
         padding-top: 25px;
         text-transform: uppercase;
     }
+    h3{
+        padding-top: 25px;
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: bold; 
+    
+    }
+
+    .ico{
+        color: var(--second-color);
+        font-size: 40px;
+        line-height: 60px;
+    }
+   
     //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
      p {
+      font-size: 18px;
         padding: 3px 0;
         color: var(--first-color);
     }
 }
 //cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
-.boxShadow-{
+.block-{
     box-shadow: none;
 }
 
@@ -83,6 +98,7 @@
     border: 1px solid var(--third-color);    
 }
 
+
 // jei uzvaziuoji ant balto (jis tampa raudonas ir t.t):
 .btn-white:hover{
     background-color: var(--second-color);
@@ -103,6 +119,15 @@ font-size: 35px;
 line-height: 45px;
 text-transform: uppercase;
 color: var(--fourth-color); 
+
+// &::after { 
+//     content:"";
+//     width:100%;
+//     display: inline-block;
+//     background-color: black;
+//     height: 3px;
+//     width: 60px;
+//     }
 }
 > h2 > span{
 color: var(--second-color);
@@ -116,6 +141,8 @@ height: 3px;
 width: 60px;
 }
 }
+
+
 
 //for not having uppercase (nuimti didziasias raides is .head, cia reikia tik 'About Me' sekcijoje )
 .head-{

@@ -111,7 +111,6 @@
 
 footer {
   width: 100%;
-  border: none;
   background-color: #212121;
 }
 
@@ -132,6 +131,8 @@ footer {
 .links > a:hover {
   color: var(--third-color);
   background-color: var(--first-color--tr);
+  -webkit-transition-duration: 900ms;
+          transition-duration: 900ms;
 }
 
 .sp {
@@ -145,7 +146,7 @@ footer {
 .sp1 {
   border-top: 0.2px solid var(--first-color-tr);
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   padding-top: 26px;
   padding-bottom: 26px;
   color: #888885;

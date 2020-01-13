@@ -1,4 +1,6 @@
 :root {
+  --zero-color:#FFF;
+  --zero-color-anti:#171717;
   --first-color: #828282;
   --first-color-tr: #828282be;
   --first-color-anti: black;

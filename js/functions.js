@@ -118,3 +118,5 @@ function renderServices(data) {
     
     
 }
+    // contact me
+//    function renderContactme(" ");

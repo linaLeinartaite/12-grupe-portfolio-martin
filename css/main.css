@@ -1,19 +1,19 @@
-@import './reset.min.css';
-@import './variables.min.css';
+/* @import './reset.min.css'; */
+/* @import './variables.min.css'; */
 @import './variables.css';
 
 @import './font-awesome.min.css';
 
-@import './layout.min.css';
+/* @import './layout.min.css'; */
 @import './layout.css';
-@import './buttons.min.css';
-@import './blocks.min.css';
-@import './clients.min.css';
-@import './gallery.min.css';
-@import './header.min.css';
-@import './job-history.min.css';
-@import './progress-bars.min.css';
-@import './testimonials.min.css';
+/* @import './buttons.min.css'; */
+/* @import './blocks.min.css'; */
+/* @import './clients.min.css'; */
+/* @import './gallery.min.css'; */
+/* @import './header.min.css'; */
+/* @import './job-history.min.css'; */
+/* @import './progress-bars.min.css'; */
+/* @import './testimonials.min.css'; */
 
-@import './custom.min.css';
+/* @import './custom.min.css'; */
 @import './custom.css';

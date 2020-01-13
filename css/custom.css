@@ -69,9 +69,10 @@
   font-size: 18px;
   font-weight: bold;
   line-height: 25px;
-  -webkit-box-shadow: 0px 8px 15px var(--first-color);
-          box-shadow: 0px 8px 15px var(--first-color);
+  -webkit-box-shadow: 0px 8px 18px var(--first-color-tr);
+          box-shadow: 0px 8px 18px var(--first-color-tr);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-red {
@@ -132,6 +133,12 @@
 
 .head- > h2 {
   text-transform: capitalize;
+}
+
+
+
+.head- > h2 h3 {
+  font-weight: none;
 }
 
 

@@ -2,7 +2,7 @@
   --zero-color:#FFF;
   --zero-color-anti:#171717;
   --first-color: #828282;
-  --first-color-tr: #828282be;
+  --first-color-tr: #rgba(17, 17, 17, 0.1);
   --first-color-anti: black;
   --second-color: #f34236;
   --second-color-tr: #f34336be;

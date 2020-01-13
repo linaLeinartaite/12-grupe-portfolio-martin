@@ -118,3 +118,10 @@ function renderServices(data) {
     
     
 }
+
+function renderGallery(data){
+    let HTML ="";
+
+    
+    return HTML;
+}

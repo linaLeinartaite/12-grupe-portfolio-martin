@@ -134,6 +134,9 @@
   text-transform: capitalize;
 }
 
+.head- > h2 h3 {
+  font-weight: none;
+}
 
 footer {
   width: 100%;

@@ -45,6 +45,21 @@
   color: var(--first-color);
 }
 
+.block img {
+  width: 100%;
+  position: relative;
+}
+
+.block.block-img {
+  padding: 8px;
+}
+
+.block.block-img .cover {
+  background-color: var(--first-color-tr);
+  width: 100%;
+  height: 100%;
+}
+
 .block-hover:hover {
   border: 4px solid var(--second-color);
   position: relative;
@@ -58,56 +73,6 @@
 .block- {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 25px;
-  -webkit-box-shadow: 0px 8px 18px var(--first-color-tr);
-          box-shadow: 0px 8px 18px var(--first-color-tr);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.btn-red {
-  background-color: var(--second-color);
-  border: 1px solid var(--second-color);
-  color: var(--third-color);
-}
-
-.btn-red:hover {
-  background-color: var(--fourth-color);
-  border: 1px solid var(--fourth-color);
-  -webkit-box-shadow: 1px 15px 25px 2px var(--second-color-tr);
-          box-shadow: 1px 15px 25px 2px var(--second-color-tr);
-  -webkit-transition: ease-in;
-  transition: ease-in;
-  -webkit-transition-duration: 500ms;
-          transition-duration: 500ms;
-}
-
-.btn-white {
-  background-color: var(--third-color);
-  color: var(--second-color);
-  border: 1px solid var(--third-color);
-}
-
-.btn-white:hover {
-  background-color: var(--second-color);
-  color: var(--third-color);
-  border: 1px solid var(--third-color);
-  -webkit-box-shadow: 1px 15px 25px 2px var(--first-color);
-          box-shadow: 1px 15px 25px 2px var(--first-color);
-  -webkit-transition: ease-in;
-  transition: ease-in;
-  -webkit-transition-duration: 500ms;
-          transition-duration: 500ms;
 }
 
 .head > h2 {
@@ -173,6 +138,21 @@
 #about-me p {
   font-size: 16px;
   line-height: 24px;
+}
+
+@media (max-width: 1300px) {
+  #about-me img {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1100px) {
+  #about-me img {
+    margin-top: 0;
+  }
+  #about-me .block {
+    padding: 0;
+  }
 }
 
 .hire {
@@ -276,3 +256,4 @@ footer {
   padding-bottom: 26px;
   color: #888885;
 }
+/*# sourceMappingURL=custom.css.map */

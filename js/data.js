@@ -1,44 +1,46 @@
 "use strict";
 
 const titles = [
-//Apie sia sekcija dar teks pagalvoti (ar galima ja generuoti)
+    //Apie sia sekcija dar teks pagalvoti (ar galima ja generuoti)
     {
-id: 'about-me',
-span: "me",
-main: "about"
-},
-    {
-id: 'my-services',        
-span: "my",
-main: "services"
-    },
-{
-id: 'my-resume',        
-span: "my",
-main: "resume"
+        id: 'about-me',
+        span: "me",
+        main: "about"
     },
     {
-id: 'my-portfolio',
-span: "my",
-main: "portfolio"
+        id: 'my-services',        
+        span: "my",
+        main: "services"
     },
     {
-id: 'my-blogs',
-span: "my",
-main: "blogs"
+        id: 'my-resume',        
+        span: "my",
+        main: "resume"
     },
-        {
-id: "contact-me",
-span: "me",
-main: "contact"
+    {
+        id: 'my-portfolio',
+        span: "my",
+        main: "portfolio"
+    },
+    {
+        id: 'my-blogs',
+        span: "my",
+        main: "blogs"
+    },
+    {
+        id: "contact-me",
+        span: "me",
+        main: "contact"
     }
 ]
 
+//navigation bar data
+
 const resume = [
     {
-         //KAIP DARYT JEI exp ILGESNIS??? 
-         //KAIP DARYTI jei yra daugiau darbu?? (DAbar skeliu per puse i du stulpelius)
-         //ar imanoma palyginti stulpeliu aukscius?? el.clientHeight() >> duoda auksti
+        //KAIP DARYT JEI exp ILGESNIS??? 
+        //KAIP DARYTI jei yra daugiau darbu?? (DAbar skeliu per puse i du stulpelius)
+        //ar imanoma palyginti stulpeliu aukscius?? el.clientHeight() >> duoda auksti
         company: "aplle",
         dates: "OCT 2018 - present",
         exp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tincidunt sit amet erat malesuada interdum. Aenean sodales dui quis leo fermentum scelerisque."
@@ -74,7 +76,7 @@ const resume = [
 
 
 const services = [
-
+    
     //kaip padaryti, kad esant daugiau services isscentruotu paskutine eiluteje esantis ?? arba ka daryti kad paskutineje eiluteje nebutu tik vienas service??
     { 
         icon: "television",
@@ -131,3 +133,53 @@ const contact=[
         addres1:"Fax: +01 000 000 000"
     }
 ]
+
+//galery data
+const gallery = [
+    {
+        img: "./img/portfolio-1.jpg",
+        category: ["all", "branding", "product"]
+    },
+    {
+        img: "./img/portfolio-2.jpg",
+        category: ["all", "photoshop"]
+    },
+    {
+        img: "./img/portfolio-3.jpg",
+        category: ["all", "fashion", "product"]
+    },
+
+    {
+        img: "./img/portfolio-4.jpg",
+        category: ["all", "photoshop"]
+    },
+
+    {
+        img: "./img/portfolio-5.jpg",
+        category: ["all", "fashion", "product"]
+    },
+
+    {
+        img: "./img/portfolio-6.jpg",
+        category: ["all", "branding"]
+    },
+
+    {
+        img: "./img/portfolio-7.jpg",
+        category: ["all", "branding"]
+    },
+    {
+        img: "./img/portfolio-8.jpg",
+        category: ["all", "branding"]
+    },
+    
+    {
+        img: "./img/portfolio-1.jpg",
+        category: ["all", "branding", "product"]
+    }
+]
+
+//testimonial data
+
+
+//blogs data

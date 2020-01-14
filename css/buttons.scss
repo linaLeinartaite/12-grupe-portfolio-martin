@@ -1,0 +1,47 @@
+// bendras stilius:
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    box-shadow: 0px 8px 18px var(--first-color-tr-btn);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+// jei baltas:
+.btn-white{
+    background-color: var(--third-color);
+    color: var(--second-color);
+    border: 1px solid var(--third-color);    
+}
+// jei uzvaziuoji ant balto (jis tampa raudonas ir t.t):
+.btn-white:hover{
+    background-color: var(--second-color);
+    color: var(--third-color);
+    border: 1px solid var(--third-color);
+    box-shadow: 1px 15px 25px 2px var(--first-color);
+    transition: ease-in;
+    transition-duration: 500ms;
+}
+
+
+// jei raudonas:
+.btn-red{
+    background-color: var(--second-color);
+    border: 1px solid var(--second-color);
+    color: var(--third-color);
+}   
+// jei uzvaziuoji ant raudono (jis tampa juodas ir t.t):
+.btn-red:hover{
+    background-color: var(--fourth-color);
+    border: 1px solid var(--fourth-color);
+    box-shadow: 1px 15px 25px 2px var(--second-color-tr);    
+    transition: ease-in;
+    transition-duration: 500ms;
+}

@@ -23,14 +23,14 @@
     box-shadow: 0px 8px 15px var(--first-color-tr);
     font-size: 20px;
     border: 4px solid transparent;
-
-       //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+    
+    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
     h4{        
         text-transform: uppercase;
         color: var(--second-color);   
     }
-
-     //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+    
+    //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
     h5{
         padding-top: 25px;
         text-transform: uppercase;
@@ -40,18 +40,18 @@
         text-transform: capitalize;
         font-size: 18px;
         font-weight: bold; 
-    
+        
     }
-
+    
     .ico{
         color: var(--second-color);
         font-size: 40px;
         line-height: 60px;
     }
-   
+    
     //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
-     p {
-      font-size: 18px;
+    p {
+        font-size: 18px;
         padding: 3px 0;
         color: var(--first-color);
     }
@@ -59,264 +59,309 @@
         width:100%;
         position:relative;
         // &:hover {
-        //     z-index: -1;
-        //     transition: linear;
-        //     transition-duration: 1s;
-        // }       
-    }    
+            //     z-index: -1;
+            //     transition: linear;
+            //     transition-duration: 1s;
+            // }       
+        }    
+        
+        &.block-img{
+            padding: 8px;
+            position: relative;   
+        }
+        &.block-img>.cover{
+            opacity:0;
+            position: absolute;
+            text-align: bottom;
+            top:0;
+            bottom:0;
+            left:0;
+            right: 0;       
+            background-color: var(--first-color-tr);
+            margin: 8px; 
+            > div{        
+                position: absolute;  
+                padding:20px;
+                bottom:0;
+                left:0;
+                right: 0;       
+                background-color: var(--second-color);
+                color: var(--second-color-anti);            
+            }
+        
+        }
+        &.block-img>.cover:hover{
+            opacity:1; 
+            transition-duration: 1s;
+            transition: ease all;   
+        }     
+    }
     
-    &.block-img{
-        padding: 8px;   
-    }
-    &.block-img  .cover{
-        background-color: var(--first-color-tr);
-        width:100%; 
-        height: 100%;  
-    }
-
-
+    
+    
     // &.block-img:hover{
-    // background-color: var(--first-color-tr);       
+        // background-color: var(--first-color-tr);       
+        
+        // }
     
-    // }
-}
-//klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
-.block-hover:hover{
-    border: 4px solid var(--second-color);
-    position: relative;
-    top: -12px;
-    transition: ease-in-out ;
-    transition-duration: 0.5s;    
-}
-
-
-
-
-
-//cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
-.block-{
-    box-shadow: none;    
-}
-
-//style for headers (stilius antrastems pagrindinems)
-.head {
-    > h2 {
-padding-top: 60px; 
-padding-bottom: 10px;
-font-size: 35px;
-line-height: 45px;
-text-transform: uppercase;
-color: var(--fourth-color); 
-
-// &::after { 
-//     content:"";
-//     width:100%;
-//     display: inline-block;
-//     background-color: black;
-//     height: 3px;
-//     width: 60px;
-//     }
-}
-> h2 > span{
-color: var(--second-color);
- }
-
- .line { 
-width:100%;
-display: inline-block;
-background-color: black;
-height: 3px;
-width: 60px;
-}
-}
-
-
-//for not having uppercase (nuimti didziasias raides is .head, cia reikia tik 'About Me' sekcijoje )
-.head-{
-    >h2 {
-    text-transform: capitalize;
-    h3{
-        font-weight: none;
+    //klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
+    .block-hover:hover{
+        border: 4px solid var(--second-color);
+        position: relative;
+        top: -12px;
+        transition: ease-in-out ;
+        transition-duration: 0.5s;    
     }
+      
+    
+    //cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
+    .block-{
+        box-shadow: none;    
     }
-}
-
-// hero
-
-// clients
-
-// about me
-
-#about-me{
-    padding: 40px;
-    img{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 10px solid #fff;
-        box-shadow: 0px 8px 15px var(--first-color);
-    }
-    h2{
-        padding-top: 0;
-    }
-    h4{
-        text-transform: none;
-    }
-    p{
-        font-size: 16px;
-        line-height: 24px;
-    }
-}
-@media (max-width: 1300px){
-    #about-me{
-        img {
-            margin-top: 60px;
+    
+    //style for headers (stilius antrastems pagrindinems)
+    .head {
+        > h2 {
+            padding-top: 60px; 
+            padding-bottom: 10px;
+            font-size: 35px;
+            line-height: 45px;
+            text-transform: uppercase;
+            color: var(--fourth-color); 
+            
+            // &::after { 
+                //     content:"";
+                //     width:100%;
+                //     display: inline-block;
+                //     background-color: black;
+                //     height: 3px;
+                //     width: 60px;
+                //     }
+            }
+            > h2 > span{
+                color: var(--second-color);
+            }
+            
+            .line { 
+                width:100%;
+                display: inline-block;
+                background-color: black;
+                height: 3px;
+                width: 60px;
+            }
         }
-    }
-}
-@media (max-width: 1100px){
-    #about-me img {
-        margin-top: 0;
-    }
-
-    #about-me .block{
-        padding: 0;
-    }
-}
-
-// my services
-
-
-// my resume 
-
-
-// hire me now -> Gytis
-.hire {
-    display: inline-block;
-    width: 100%;
-    padding: 10px 30px;
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    line-height: 80px;
-    background-color: var(--second-color);
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-
-// portfolio
-
-
-
-// testimonials
-
-
-// my blogs
-
-
-
-// contact me
-  .contact{
-         display: inline-block;
-         background-color: greenyellow;
-
-  }
-        .contact-me-content {
-              
-            width: 80%;
-            padding-bottom: 100px;
-       
         
         
-        // height: 440px;  
-        // background-color: red;
+        //for not having uppercase (nuimti didziasias raides is .head, cia reikia tik 'About Me' sekcijoje )
+        .head-{
+            >h2 {
+                text-transform: capitalize;
+                h3{
+                    font-weight: none;
+                }
+            }
         }
-            .contact > h5{
-                
+        
+        // hero
+        
+        // clients
+        
+        // about me
+        
+        #about-me{
+            padding: 40px;
+            img{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 10px solid #fff;
+                box-shadow: 0px 8px 15px var(--first-color);
+            }
+            h2{
+                padding-top: 0;
+            }
+            h4{
                 text-transform: none;
-                color: black;
-                margin-bottom: 15px;
-                margin-right: 10px;
-                
             }
-            .contact.left{
-                height: 440px;
-                max-height: 440px;
-                background-color: var(--second-color-anti);
-
+            p{
+                font-size: 16px;
+                line-height: 24px;
             }
-            .contact.right{
-                height: 440px;
-                max-height: 440px;
-                background-color: var(--second-color-anti);
-
-            }
-                .name>input{
-                    width:100%;
-                    height: 40px;
-                    font-size: 15px;
-                    // padding-right: 0px;
-                    // background-color: tomato;
-                }
-                .email>input{
-                    width: 100%;
-                    height: 40px;
-                    font-size: 15px;
-                    
-                    
-                    // bottom: 10px solid black;
-                    // background-color: turquoise;
-                }
-                .comment >input {
-                    width: 100%;
-                    height: 180px;
-                    font-size: 15px;
-                    // padding-top: 0;
-                    
-                    // background-color: yellow;
-                }
-// footer
-footer{   
-    width: 100%;
-    background-color:#212121;    
-}    
-    .links >a {      
-        width: 40px; 
-        height: 40px;
-        text-decoration:none;
-        color:var(--first-color);
-        font-size: 15px;
-        border-radius: 50%;
-        padding: 10px;
-        margin-bottom: 50px;
-        background-color:var(--fourth-color);
-        border:1px solid  black;
-         &:hover {
-            color:var(--third-color);
-            background-color:var(--first-color--tr);
-            transition-duration: 900ms;
         }
-    }
+        @media (max-width: 1300px){
+            #about-me{
+                img {
+                    margin-top: 60px;
+                }
+            }
+        }
+        @media (max-width: 1100px){
+            #about-me img {
+                margin-top: 0;
+            }
+            
+            #about-me .block{
+                padding: 0;
+            }
+        }
+        
+        // my services
+        
+        
+        // my resume 
+        
+        
+        // hire me now -> Gytis
+        .hire {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 30px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 80px;
+            background-color: var(--second-color);
+            text-transform: uppercase;
+            color: #FFF;
+        }
+        
+        
+        // portfolio
+        
+        
+        
+        // testimonials
+        
+        
+        // my blogs
+        
+        
+        
+        // contact me
+        // contact me
+  .contact{
+    display: inline-block;
+    background-color: greenyellow;
 
-    .sp {
-        margin-top: 35px;
-        margin-bottom: 10px;
-        color: #ffffff;
-        font-size: 43px;
-        font-weight:900;
-    }
-    .sp1{
-        border-top: 0.2px solid rgb(56, 56, 52);
-        text-align: center;
-        font-size: 15px;
-        padding-top: 26px;
-        padding-bottom: 26px;
-        color:rgb(136, 136, 133) ;
-    }
- 
+}
+   .contact-me-content {
+         
+       width: 80%;
+       padding-bottom: 100px;
+  
    
+   
+   // height: 440px;  
+   // background-color: red;
+   }
+       .contact > h5{
+           
+           text-transform: none;
+           color: black;
+           margin-bottom: 15px;
+           margin-right: 10px;
+           
+       }
+       .contact.left{
+           height: 440px;
+           max-height: 440px;
+           background-color: var(--second-color-anti);
 
+       }
+       .contact.right{
+           height: 440px;
+           max-height: 440px;
+           background-color: var(--second-color-anti);
 
-
+       }
+           .name>input{
+               width:100%;
+               height: 40px;
+               font-size: 15px;
+               // padding-right: 0px;
+               // background-color: tomato;
+           }
+           .email>input{
+               width: 100%;
+               height: 40px;
+               font-size: 15px;
+               
+               
+               // bottom: 10px solid black;
+               // background-color: turquoise;
+           }
+           .comment >input {
+               width: 100%;
+               height: 180px;
+               font-size: 15px;
+               // padding-top: 0;
+               
+               // background-color: yellow;
+           }
+        
+        
+        
+        // footer
+        footer{   
+            width: 100%;
+            // border: none;
+            background-color:#212121;    
+        }    
+        .links >a {      
+            width: 40px; 
+            height: 40px;
+            text-decoration:var(--first-color--tr);
+            color:var(--first-color);
+            font-size: 15px;
+            border-radius: 50%;
+            padding: 10px;
+            margin-bottom: 50px;
+            background-color:var(--fourth-color);
+            border:1px solid  black;
+            &:hover {
+                color:var(--third-color);
+                background-color:var(--first-color--tr);
+                transition-duration: 900ms;
+            }
+        }
+        .links-about >a {      
+            width: 40px; 
+            height: 40px;
+            margin: 20px 2px 40px;
+            text-decoration:none;
+            color:var(--zero-color);
+            background-color:var(--zero-color-anti);
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+            padding: 10px;
+            border:1px solid  var(--zero-color-anti);
+            &:hover {
+                color:var(--zero-color-anti);
+                background-color:var(--zero-color);
+                transition-duration: 900ms;
+            }
+        }    
+        
+        .sp {
+            margin-top: 35px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 43px;
+            font-weight:900;
+        }
+        .sp1{
+            border-top: 0.2px solid var( --first-color-tr) ;
+            text-align: center;
+            font-size: 15px;
+            padding-top: 26px;
+            padding-bottom: 26px;
+            color:rgb(136, 136, 133) ;
+        }
+        
+        
+        
+        
+        
+        

@@ -41,6 +41,10 @@ function renderTitles(data){
     }
 }
 
+//navigation bar
+
+
+
 function renderResume(data) {
     let HTML="";
     let box =``;
@@ -118,10 +122,20 @@ function renderServices(data) {
     
     
 }
-
+//my portfolio
 function renderGallery(data){
     let HTML ="";
 
     
     return HTML;
 }
+
+
+//my testimonial
+
+
+
+//my blogs
+
+
+

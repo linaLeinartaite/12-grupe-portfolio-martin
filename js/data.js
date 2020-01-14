@@ -34,6 +34,8 @@ const titles = [
     }
 ]
 
+//navigation bar data
+
 const resume = [
     {
         //KAIP DARYT JEI exp ILGESNIS??? 
@@ -115,7 +117,7 @@ const services = [
     
 ]
 
-
+//galery data
 const gallery = [
     {
         img: "./img/portfolio-1.jpg",
@@ -160,3 +162,7 @@ const gallery = [
     }
 ]
 
+//testimonial data
+
+
+//blogs data

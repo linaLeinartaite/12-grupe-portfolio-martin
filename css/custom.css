@@ -135,12 +135,9 @@
   text-transform: capitalize;
 }
 
-
-
 .head- > h2 h3 {
   font-weight: none;
 }
-
 
 #about-me {
   padding: 40px;
@@ -188,6 +185,52 @@
   color: #FFF;
 }
 
+.contact {
+  display: inline-block;
+  background-color: greenyellow;
+}
+
+.contact-me-content {
+  width: 80%;
+  padding-bottom: 100px;
+}
+
+.contact > h5 {
+  text-transform: none;
+  color: black;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.contact.left {
+  height: 440px;
+  max-height: 440px;
+  background-color: var(--second-color-anti);
+}
+
+.contact.right {
+  height: 440px;
+  max-height: 440px;
+  background-color: var(--second-color-anti);
+}
+
+.name > input {
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+}
+
+.email > input {
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+}
+
+.comment > input {
+  width: 100%;
+  height: 180px;
+  font-size: 15px;
+}
 
 footer {
   width: 100%;
@@ -197,8 +240,7 @@ footer {
 .links > a {
   width: 40px;
   height: 40px;
-  -webkit-text-decoration: var(--first-color--tr);
-          text-decoration: var(--first-color--tr);
+  text-decoration: none;
   color: var(--first-color);
   font-size: 15px;
   border-radius: 50%;
@@ -215,27 +257,6 @@ footer {
           transition-duration: 900ms;
 }
 
-.links-about > a {
-  width: 40px;
-  height: 40px;
-  margin: 20px 2px 40px;
-  text-decoration: none;
-  color: var(--zero-color);
-  background-color: var(--zero-color-anti);
-  font-size: 15px;
-  line-height: 20px;
-  text-align: center;
-  padding: 10px;
-  border: 1px solid var(--zero-color-anti);
-}
-
-.links-about > a:hover {
-  color: var(--zero-color-anti);
-  background-color: var(--zero-color);
-  -webkit-transition-duration: 900ms;
-          transition-duration: 900ms;
-}
-
 .sp {
   margin-top: 35px;
   margin-bottom: 10px;
@@ -245,7 +266,7 @@ footer {
 }
 
 .sp1 {
-  border-top: 0.2px solid var(--first-color-tr);
+  border-top: 0.2px solid #383834;
   text-align: center;
   font-size: 15px;
   padding-top: 26px;

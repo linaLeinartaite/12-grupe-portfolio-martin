@@ -114,3 +114,20 @@ const services = [
     // }
     
 ]
+const contact=[
+    {
+        titles:"Addres",
+        addres:"123 6th St. Melmourne,",
+        addres1:"FL 32904, USA",
+    },
+    {
+        titles:"Email",
+        addres:"info@yourdomain.com",
+        addres1:"sale@yourdomain.com",      
+    },
+    {
+        titles:"Phone",
+        addres:"Mob: +01 000 000 000",
+        addres1:"Fax: +01 000 000 000"
+    }
+]

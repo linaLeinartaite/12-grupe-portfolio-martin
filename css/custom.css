@@ -45,6 +45,21 @@
   color: var(--first-color);
 }
 
+.block img {
+  width: 100%;
+  position: relative;
+}
+
+.block.block-img {
+  padding: 8px;
+}
+
+.block.block-img .cover {
+  background-color: var(--first-color-tr);
+  width: 100%;
+  height: 100%;
+}
+
 .block-hover:hover {
   border: 4px solid var(--second-color);
   position: relative;
@@ -213,3 +228,4 @@ footer {
   padding-bottom: 26px;
   color: #888885;
 }
+/*# sourceMappingURL=custom.css.map */

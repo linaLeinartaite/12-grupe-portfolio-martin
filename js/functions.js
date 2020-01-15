@@ -17,12 +17,12 @@ function renderTitles(data){
         //generuojam duomenis 
     } 
     for(let i=0; i<data.length; i++){
-   
-    if(!document.querySelector(`#${data[i].id}-title`)){
-        console.error(`There is no element with id === #${data[i].id}-title.`)
-        continue;
-    }
-
+        
+        if(!document.querySelector(`#${data[i].id}-title`)){
+            console.error(`There is no element with id === #${data[i].id}-title.`)
+            continue;
+        }
+        
         if(data[i].span === "my") {            
             HTML = `<div class="head col unit-12-col">
             <h2 class=""><span>${data[i].span} </span>${data[i].main}</h2>
@@ -109,7 +109,7 @@ function renderServices(data) {
         //generuojam duomenis 
     } else {
         for(let i=0; i<data.length; i++){
-            HTML += `<div class="block  block-hover center cap col unit-4-col unit-6-col-sm unit-12-col-xxs">
+            HTML += `<div class="block  block-hover center col unit-4-col unit-6-col-sm unit-12-col-xxs">
             <i class=" ico fa fa-${data[i].icon}" aria-hidden="true"></i>
             <h3>${data[i].title}</h3>   
             <p>${data[i].description}</p>
@@ -124,10 +124,33 @@ function renderServices(data) {
 }
 //my portfolio
 function renderGallery(data){
-    let HTML ="";
-
     
-    return HTML;
+    let menuHTML =``;
+    let galleryHTML = ``;
+    let menu = [];
+    let categories = '';
+    data.forEach(item => {
+        //sugeneruojam meniu:
+        //paskleidziam category kiekvienos item(nuotraukos) arrejuje:
+        categories =[...item.category];
+        
+        //sujungiam arejus i bendra arreju (nesalinant atsikartojanciu elementu)
+        menu = menu.concat(categories); 
+        
+        //einam per data (gallery in data.js) ir istatom atitinkama nuotrauka:
+        galleryHTML +=`<div class="block block-img col unit-4-col"><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`         
+    });
+    //naudojam filter() kad paliktu tik unikalias categorijas ir forEach() sulipdyti kiekviena kategorija menuHTML (<div>'uose);
+    menu = menu.filter((a,b) => menu.indexOf(a)===b).forEach(item =>
+     {console.log(item, typeof(item)); menuHTML += `<div class="menu-item col">${item}</div>`});     
+    console.log(menuHTML);
+
+    //istatom menu div'us i 12-os unit'u stulpeli:
+    menuHTML = `<div class="col unit-12-col center menu">${menuHTML}</div>`;
+
+    //sujungiam menuHTML su GaleryHTML ir istatom i reikiama vieta html'e:    
+    document.querySelector('#my-portfolio-content').innerHTML=(menuHTML + galleryHTML);
+    return;
 }
 
 

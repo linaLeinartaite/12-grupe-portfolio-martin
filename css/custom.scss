@@ -214,8 +214,51 @@ width: 60px;
 
 
 // my blogs
+#my-blogs {
 
+    .block-blogs{
+        img{
+            width: 100%;
+        }
+        img:hover{
+            width: 110%;
+            margin-left: -5%;
+            margin-top: -5%;
+        }
 
+        // background-color: yellow;
+        margin: 20px 0 80px 0;
+        h6{
+            display: inline-block;
+            float: left;
+            font-size: 14px;
+            line-height: 20px;
+            margin-right: 10px;
+            color: var(--first-color-tr);
+        }
+            h6:nth-child(1){
+                padding-right: 10px;
+                border-right: 1px solid var(--first-color);
+            }
+        
+        a{
+            display: inline-block;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: left;
+            text-decoration: none;
+            padding: 16px 0;
+            // background-color: yellow;
+        }
+        p{
+            display: inline-block;
+            text-align: left;
+            padding: 20px 0;
+            color: var(--first-color-tr);
+        }
+    }
+}
 
 // contact me
 

@@ -10,6 +10,14 @@
   text-align: left;
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
 .block {
   padding: 30px;
   border-radius: 3px;
@@ -208,7 +216,7 @@
   position: relative;
 }
 
-.menu .menu-item::after {
+.menu .menu-item > div.line {
   content: "";
   position: absolute;
   left: 0;
@@ -221,6 +229,11 @@
 
 .menu .menu-item:hover {
   color: var(--second-color);
+  cursor: pointer;
+}
+
+.menu .menu-item:active::after {
+  display: inline-block;
 }
 
 footer {

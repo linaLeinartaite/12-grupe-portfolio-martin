@@ -157,7 +157,7 @@ const gallery = [
     },
     
     {
-        img: "portfolio-1.jpg",
+        img: "portfolio-9.jpg",
         category: ["all", "branding", "product"]
     }
 ]

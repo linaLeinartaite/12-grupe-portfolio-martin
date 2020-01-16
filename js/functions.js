@@ -122,37 +122,87 @@ function renderServices(data) {
     
     
 }
-//my portfolio
-function renderGallery(data){
-    
+//my portfolio renderGallery
+function renderGallery(data){    
     let menuHTML =``;
     let galleryHTML = ``;
     let menu = [];
     let categories = '';
+    
+        
+    //einam per data (gallery in data.js): 
     data.forEach(item => {
-        //sugeneruojam meniu:
-        //paskleidziam category kiekvienos item(nuotraukos) arrejuje:
-        categories =[...item.category];
+        //1. generuojam meniu (su duplikatais):
+        //1.a. paskleidziam category kiekvienos item(nuotraukos) arrejuje:
+        categories =[...item.category];       
         
-        //sujungiam arejus i bendra arreju (nesalinant atsikartojanciu elementu)
-        menu = menu.concat(categories); 
+        //1.b. sujungiam arejus i bendra arreju (nesalinant atsikartojanciu elementu)
+        menu = menu.concat(categories);        
         
-        //einam per data (gallery in data.js) ir istatom atitinkama nuotrauka:
-        galleryHTML +=`<div class="block block-img col unit-4-col"><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`         
+        //2. su generuojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
+        galleryHTML +=`<div class="gallery-item block block-img col  unit-4-col "><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`;   
+        
     });
-    //naudojam filter() kad paliktu tik unikalias categorijas ir forEach() sulipdyti kiekviena kategorija menuHTML (<div>'uose);
-    menu = menu.filter((a,b) => menu.indexOf(a)===b).forEach(item =>
-     {console.log(item, typeof(item)); menuHTML += `<div class="menu-item col">${item}</div>`});     
-    console.log(menuHTML);
-
+    
+    //1.c. baigiam construoti menu: naudojam .filter() kad paliktu tik unikalias categorijas ir sulipdom kiekviena kategorija  i menuHTML (<div>'uose);
+    /*
+    .filter() nekeicia pacio arejaus; .filter() sintax'e:
+    let newArray = arr.filter(callback(element[, index[, array]])[, thisArg]); a.indexOf(b) ==> randa pirmaji b elementa, arrejuje a;
+    */
+    
+    menu.filter((item,index) => {if(menu.indexOf(item)===index){
+        menuHTML += `<div class="menu-item col">${item}<div class="line hide"></div></div>`;         
+    }});     
+    
     //istatom menu div'us i 12-os unit'u stulpeli:
     menuHTML = `<div class="col unit-12-col center menu">${menuHTML}</div>`;
-
+    
     //sujungiam menuHTML su GaleryHTML ir istatom i reikiama vieta html'e:    
     document.querySelector('#my-portfolio-content').innerHTML=(menuHTML + galleryHTML);
+    
+    document.querySelector(".menu-item div.line").classList.add("show"); 
     return;
 }
 
+//my portfolio filterImg() function for categories
+function categoryList(data){        
+    let catList =[];    
+    let menu =["all", "branding", "product", "photoshop",
+    "fashion"];
+    
+    for(let i=0; i<menu.length; i++){
+        catList[i] = {catName: menu[i], imgList:[]};
+        data.forEach(item =>{           
+            if(item.category.includes(menu[i])){
+                catList[i].imgList.push(item.img);
+            };              
+        })             
+    }
+    document.querySelectorAll("#my-portfolio-content .menu-item").forEach(click => click.addEventListener('click', (event) =>
+    { 
+        // //paslepiam visas linijas po meniu-item'ais (nuimam klase .show) 
+            
+        document.querySelectorAll(".menu-item div.line").forEach(a => a.classList.remove("show"));
+        
+
+        // //parodom tik ta linija kuri yra po paspaustu meniu-item'u
+        click.querySelector(".menu-item div.line").classList.add("show");
+      
+
+        //einam per catList'a (turinti unikalias categorijas)
+        for(let i=0; i<catList.length; i++) {
+
+            //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento;
+            if(catList[i].catName === click.innerText.toLowerCase()) {
+                document.querySelectorAll("#my-portfolio .gallery-item").forEach(item => {item.classList.add("hide")});
+                
+                catList[i].imgList.forEach(img => {
+                    document.querySelector(`[alt="${img}"]`).closest("div").classList.remove("hide");
+                }); 
+            }                 
+        }             
+    }));
+}
 
 //my testimonial
 

@@ -10,6 +10,8 @@ renderServices(services);
 
 renderGallery(gallery);
 
+categoryList(gallery);
+
 //testimonial
 
 //blogs

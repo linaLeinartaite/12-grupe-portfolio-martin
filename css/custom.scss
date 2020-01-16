@@ -16,7 +16,13 @@
     text-align: left;
 }
 
+.hide{
+    display:none;
+}
 
+.show{
+    display: inline-block;
+}
 
 //style for columns
 //stilius stulpeliu (seselis ir bazinis formatas)
@@ -228,9 +234,20 @@
         .menu-item{
             display: inline-block;
             font-weight: bold;
-            position: relative;
-            &::after{
+            position: relative;            
+            // &::after{
+            //     content: "";
+            //     display: none;
+            //     position: absolute;
+            //     left:0;
+            //     right:0;
+            //     bottom: -10px;
+            //     width: 100%;
+            //     height:3px;
+            //     background-color: var(--second-color);
+            & >div.line{
                 content: "";
+                // display: inline-block;
                 position: absolute;
                 left:0;
                 right:0;
@@ -241,7 +258,11 @@
             }
             &:hover {
                 color: var(--second-color);
+                cursor: pointer;
             }  
+            &:active::after{
+                display: inline-block;
+            }
         }
     }
     

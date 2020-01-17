@@ -103,8 +103,6 @@
   bottom: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-transition-delay: 1s;
-          transition-delay: 1s;
 }
 
 .block.block-img > .cover::after {

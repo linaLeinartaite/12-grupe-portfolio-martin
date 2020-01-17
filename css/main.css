@@ -1,11 +1,15 @@
+
 @import './reset.css';
 @import './variables.css';
+
 @import './variables.css';
 
 @import './font-awesome.min.css';
 
 /* @import './layout.min.css'; */
 @import './layout.css';
+
+
 @import './buttons.css';
 @import './blocks.css';
 @import './clients.css';
@@ -14,6 +18,7 @@
 @import './job-history.css';
 @import './progress-bars.css';
 @import './testimonials.css';
+
 
 /* @import './custom.min.css'; */
 @import './custom.css';

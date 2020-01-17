@@ -122,6 +122,9 @@ function renderServices(data) {
     
     
 }
+    // contact me
+    // function renderContactme(data){
+        // let HTML="";
 //my portfolio
 function renderGallery(data){
     let HTML ="";

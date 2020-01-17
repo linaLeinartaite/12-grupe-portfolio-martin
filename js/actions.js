@@ -8,6 +8,7 @@ renderResume(resume);
 
 renderServices(services);
 
+// renderContactme(titles);
 renderGallery(gallery);
 
 //testimonial

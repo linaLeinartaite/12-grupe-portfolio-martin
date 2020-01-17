@@ -43,8 +43,6 @@ function renderTitles(data){
 
 //navigation bar
 
-
-
 function renderResume(data) {
     let HTML="";
     let box =``;
@@ -122,14 +120,14 @@ function renderServices(data) {
     
     
 }
-//my portfolio renderGallery
+//my portfolio renderGallery:
 function renderGallery(data){    
     let menuHTML =``;
     let galleryHTML = ``;
     let menu = [];
     let categories = '';
     
-        
+    
     //einam per data (gallery in data.js): 
     data.forEach(item => {
         //1. generuojam meniu (su duplikatais):
@@ -140,7 +138,7 @@ function renderGallery(data){
         menu = menu.concat(categories);        
         
         //2. su generuojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
-        galleryHTML +=`<div class="gallery-item block block-img col  unit-4-col "><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`;   
+        galleryHTML +=`<div class="gallery-item block block-img col  unit-4-col unit-6-col-sm unit-12-col-xxs"><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`;   
         
     });
     
@@ -149,50 +147,45 @@ function renderGallery(data){
     .filter() nekeicia pacio arejaus; .filter() sintax'e:
     let newArray = arr.filter(callback(element[, index[, array]])[, thisArg]); a.indexOf(b) ==> randa pirmaji b elementa, arrejuje a;
     */
+    const menuUq =  menu.filter((item,index) => menu.indexOf(item)===index);
     
-    menu.filter((item,index) => {if(menu.indexOf(item)===index){
-        menuHTML += `<div class="menu-item col">${item}<div class="line hide"></div></div>`;         
-    }});     
+    menuUq.forEach((cat) => {menuHTML += `<div class="menu-item col">${cat}<div class="line hide"></div></div>`}); 
     
     //istatom menu div'us i 12-os unit'u stulpeli:
     menuHTML = `<div class="col unit-12-col center menu">${menuHTML}</div>`;
     
-    //sujungiam menuHTML su GaleryHTML ir istatom i reikiama vieta html'e:    
+    //sujungiam menuHTML su galleryHTML ir istatom i reikiama vieta html'e:    
     document.querySelector('#my-portfolio-content').innerHTML=(menuHTML + galleryHTML);
     
+    //pirmai menu kategorijai "all" (t.y. jos pabraukimui) pridedame klase .show), kad paleidus psl. kai rodo visas nuotraukas "all" butu pabrauktas:
     document.querySelector(".menu-item div.line").classList.add("show"); 
-    return;
-}
-
-//my portfolio filterImg() function for categories
-function categoryList(data){        
-    let catList =[];    
-    let menu =["all", "branding", "product", "photoshop",
-    "fashion"];
     
-    for(let i=0; i<menu.length; i++){
-        catList[i] = {catName: menu[i], imgList:[]};
+    //filtravimas:
+    //sudarom objektu areju kur kiekvienai kategorijai isvardinam visas nuotraukas: catList = [{catName: category, imgList: [..., ..., ]}]
+    let catList =[]; 
+    for(let i=0; i<menuUq.length; i++){
+        catList[i] = {catName: menuUq[i], imgList:[]};
         data.forEach(item =>{           
-            if(item.category.includes(menu[i])){
+            if(item.category.includes(menuUq[i])){
                 catList[i].imgList.push(item.img);
             };              
         })             
     }
+    //selektinam ir pridedam reagavima i paspaudima visoms menu-item:
     document.querySelectorAll("#my-portfolio-content .menu-item").forEach(click => click.addEventListener('click', (event) =>
     { 
-        // //paslepiam visas linijas po meniu-item'ais (nuimam klase .show) 
-            
+        // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):        
         document.querySelectorAll(".menu-item div.line").forEach(a => a.classList.remove("show"));
         
-
-        // //parodom tik ta linija kuri yra po paspaustu meniu-item'u
+        
+        // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
         click.querySelector(".menu-item div.line").classList.add("show");
-      
-
-        //einam per catList'a (turinti unikalias categorijas)
+        
+        
+        //einam per catList'a (turinti unikalias categorijas):
         for(let i=0; i<catList.length; i++) {
-
-            //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento;
+            
+            //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
             if(catList[i].catName === click.innerText.toLowerCase()) {
                 document.querySelectorAll("#my-portfolio .gallery-item").forEach(item => {item.classList.add("hide")});
                 
@@ -202,6 +195,8 @@ function categoryList(data){
             }                 
         }             
     }));
+    
+    return;
 }
 
 //my testimonial

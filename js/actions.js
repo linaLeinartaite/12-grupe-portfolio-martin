@@ -8,9 +8,7 @@ renderResume(resume);
 
 renderServices(services);
 
-renderGallery(gallery);
-
-categoryList(gallery);
+renderGallery(gallery); 
 
 //testimonial
 

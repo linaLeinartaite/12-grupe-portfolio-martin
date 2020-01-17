@@ -107,7 +107,7 @@ function renderServices(data) {
         //generuojam duomenis 
     } else {
         for(let i=0; i<data.length; i++){
-            HTML += `<div class="block  block-hover center col unit-4-col unit-6-col-sm unit-12-col-xxs">
+            HTML += `<div class="block block-hover center col unit-4-col unit-6-col-sm unit-12-col-xxs">
             <i class=" ico fa fa-${data[i].icon}" aria-hidden="true"></i>
             <h3>${data[i].title}</h3>   
             <p>${data[i].description}</p>
@@ -127,7 +127,19 @@ function renderGallery(data){
     let galleryHTML = ``;
     let menu = [];
     let categories = '';
+
+    if(!Array.isArray(data)){
+        console.error("ERROR: data has to be an array.");
+        return;
+    };
     
+    //patikrinam data nera tuscia (jei tuscia pasalinam sekcija)
+   
+    if( data.length === 0){
+        console.error("ERROR: data is empty.");
+        document.querySelector('#my-portfolio').remove(); 
+        return;       
+    } 
     
     //einam per data (gallery in data.js): 
     data.forEach(item => {

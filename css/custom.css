@@ -25,7 +25,7 @@
   -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
           box-shadow: 0px 8px 15px var(--first-color-tr);
   font-size: 20px;
-  border: 4px solid transparent;
+  border: 5px solid transparent;
 }
 
 .block h4 {
@@ -119,14 +119,22 @@
   opacity: 1;
 }
 
-.block-hover:hover {
-  border: 4px solid var(--second-color);
-  position: relative;
-  top: -12px;
+.block-hover {
   -webkit-transition: ease-in-out all;
   transition: ease-in-out all;
+  -webkit-transition-duration: 0.35s;
+          transition-duration: 0.35s;
+}
+
+.block-hover:hover {
+  -webkit-transition: ease-in-out;
+  transition: ease-in-out;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
+  border: 5px solid var(--second-color);
+  position: relative;
+  -webkit-transform: translate(0, -10px);
+          transform: translate(0, -10px);
 }
 
 .block- {
@@ -211,6 +219,15 @@
   }
 }
 
+#my-services {
+  background-color: var(--first-color-f3);
+}
+
+#my-services .block {
+  -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
+          box-shadow: 0px 8px 15px var(--first-color-tr);
+}
+
 .hire {
   display: inline-block;
   width: 100%;
@@ -258,22 +275,17 @@
 }
 
 .contact-me {
-  display: inline-block;
   background-color: var(--first-color-f3);
 }
 
-.contact-me-content {
-  margin-bottom: 120px;
-}
-
-.contact-me-content .contact-me-left {
+.contact-me-left {
   border: 2px solid transparent;
   -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
           box-shadow: 0px 8px 15px var(--first-color-tr);
   background-color: var(--second-color-anti);
 }
 
-.contact-me-content .contact-me-left h1 {
+.contact-me-left h1 {
   font-weight: bold;
   font-size: 40px;
   color: black;
@@ -281,26 +293,26 @@
   padding-top: 15px;
 }
 
-.contact-me-content .contact-me-left p {
+.contact-me-left p {
   font-size: 20px;
   color: var(--first-color);
   text-align: left;
 }
 
-.contact-me-content .contact-me-left i {
+.contact-me-left i {
   float: right;
   font-size: 80px;
   color: whitesmoke;
 }
 
-.contact-me-content .contact-me-left input {
+.contact-me-left input {
   width: 100%;
   height: 60px;
   font-size: 30px;
   padding-left: 10px;
 }
 
-.contact-me-content .contact-me-left .yuor-com > textarea {
+.contact-me-left .yuor-com > textarea {
   width: 100%;
   height: 190px;
   padding-left: 10px;
@@ -308,19 +320,19 @@
   font-size: 20px;
 }
 
-.contact-me-content .contact-me-left button {
+.contact-me-left button {
   border: none;
   margin-bottom: 20px;
   -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
           box-shadow: 0px 8px 15px var(--first-color-tr);
 }
 
-.contact-me-content .contact-me-left button:hover {
+.contact-me-left button:hover {
   -webkit-box-shadow: 1px 15px 25px 2px var(--second-color-tr);
           box-shadow: 1px 15px 25px 2px var(--second-color-tr);
 }
 
-.contact-me-content .contact-me-right {
+.contact-me-right {
   border: 2px solid transparent;
   background-color: var(--second-color-anti);
   -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
@@ -329,16 +341,16 @@
   padding-top: 20px;
 }
 
-.contact-me-content .contact-me-right .data {
+.contact-me-right .data {
   height: 120px;
   margin-top: 5px;
 }
 
-.contact-me-content .contact-me-right .phone {
+.contact-me-right .phone {
   margin-bottom: 104px;
 }
 
-.contact-me-content .contact-me-right .icon {
+.contact-me-right .icon {
   width: 60px;
   height: 60px;
   float: left;
@@ -347,32 +359,32 @@
   background-color: black;
 }
 
-.contact-me-content .contact-me-right .icon i {
+.contact-me-right .icon i {
   line-height: 60px;
   font-size: 30px;
   color: white;
   text-align: center;
 }
 
-.contact-me-content .contact-me-right .section {
+.contact-me-right .section {
   width: 60%;
   margin-top: 10px;
   margin-left: 20px;
   float: left;
 }
 
-.contact-me-content .contact-me-right .section-title {
+.contact-me-right .section-title {
   width: 100%;
   font-size: 20px;
   float: left;
 }
 
-.contact-me-content .contact-me-right p {
+.contact-me-right p {
   float: left;
   text-align: left;
 }
 
-.contact-me-content .contact-me-right .section-information {
+.contact-me-right .section-information {
   padding-top: 20px;
   font-size: 23px;
 }

@@ -8,8 +8,10 @@ renderResume(resume);
 
 renderServices(services);
 
-renderGallery(gallery); 
+renderGallery(gallery);
 
 //testimonial
 
 //blogs
+
+//renderContactme(titles);

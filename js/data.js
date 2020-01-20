@@ -116,48 +116,65 @@ const services = [
     // }
     
 ]
+const contact=[
+    {
+        titles:"Addres",
+        addres:"123 6th St. Melmourne,",
+        addres1:"FL 32904, USA",
+    },
+    {
+        titles:"Email",
+        addres:"info@yourdomain.com",
+        addres1:"sale@yourdomain.com",      
+    },
+    {
+        titles:"Phone",
+        addres:"Mob: +01 000 000 000",
+        addres1:"Fax: +01 000 000 000"
+    }
+]
 
 //galery data
 const gallery = [
     {
-        img: "./img/portfolio-1.jpg",
+        img: "portfolio-1.jpg",
         category: ["all", "branding", "product"]
     },
     {
-        img: "./img/portfolio-2.jpg",
+        img: "portfolio-2.jpg",
         category: ["all", "photoshop"]
     },
     {
-        img: "./img/portfolio-3.jpg",
+        img: "portfolio-3.jpg",
         category: ["all", "fashion", "product"]
     },
 
     {
-        img: "./img/portfolio-4.jpg",
+        img: "portfolio-4.jpg",
         category: ["all", "photoshop"]
     },
 
     {
-        img: "./img/portfolio-5.jpg",
+        img: "portfolio-5.jpg",
         category: ["all", "fashion", "product"]
     },
 
     {
-        img: "./img/portfolio-6.jpg",
+        img: "portfolio-6.jpg",
         category: ["all", "branding"]
     },
 
     {
-        img: "./img/portfolio-7.jpg",
+        img: "portfolio-7.jpg",
         category: ["all", "branding"]
     },
     {
-        img: "./img/portfolio-8.jpg",
+        img: "portfolio-8.jpg",
         category: ["all", "branding"]
     },
     
     {
-        img: "./img/portfolio-1.jpg",
+        img: "portfolio-9.jpg",
         category: ["all", "branding", "product"]
     }
 ]

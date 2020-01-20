@@ -50,16 +50,6 @@
   position: relative;
 }
 
-.block.block-img {
-  padding: 8px;
-}
-
-.block.block-img .cover {
-  background-color: var(--first-color-tr);
-  width: 100%;
-  height: 100%;
-}
-
 .block-hover:hover {
   border: 4px solid var(--second-color);
   position: relative;
@@ -165,49 +155,78 @@
   color: #FFF;
 }
 
-#my-blogs .block-blogs {
-  margin: 20px 0 80px 0;
+.my_blogs {
+  display: inline-block;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
+          box-shadow: 0px 8px 15px var(--first-color-tr);
 }
 
-#my-blogs .block-blogs img {
+.my_blogs img {
   width: 100%;
 }
 
-#my-blogs .block-blogs img:hover {
-  width: 110%;
-  margin-left: -5%;
-  margin-top: -5%;
-}
-
-#my-blogs .block-blogs h6 {
+.my_blogs span {
   display: inline-block;
-  float: left;
-  font-size: 14px;
-  line-height: 20px;
-  margin-right: 10px;
+  font-size: 12px;
+  line-height: 14px;
   color: var(--first-color-tr);
 }
 
-#my-blogs .block-blogs h6:nth-child(1) {
-  padding-right: 10px;
-  border-right: 1px solid var(--first-color);
+.my_blogs span:nth-child(1) {
+  padding-right: 6px;
+  border-right: 1px solid var(--first-color-tr);
 }
 
-#my-blogs .block-blogs a {
+.my_blogs .blogs-make {
   display: inline-block;
   width: 100%;
-  font-size: 24px;
+  padding: 10px;
+  font-size: 22px;
   font-weight: bold;
   text-align: left;
   text-decoration: none;
-  padding: 16px 0;
+  color: var(--zero-color-anti);
 }
 
-#my-blogs .block-blogs p {
+.my_blogs .blogs-make:hover {
+  color: var(--second-color);
+}
+
+.my_blogs p {
   display: inline-block;
+  width: 100%;
   text-align: left;
-  padding: 20px 0;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 24px;
   color: var(--first-color-tr);
+}
+
+.my_blogs .blogs-read {
+  display: inline-block;
+  padding: 1px 0;
+  float: left;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--second-color);
+  border-bottom: 2px solid var(--second-color);
+}
+
+.my_blogs .blogs-read:hover {
+  color: var(--zero-color-anti);
+  border-bottom-color: var(--zero-color-anti);
+}
+
+.my_blogs:hover img {
+  width: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
 }
 
 footer {

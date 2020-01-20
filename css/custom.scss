@@ -65,19 +65,6 @@
         // }       
     }    
     
-    &.block-img{
-        padding: 8px;   
-    }
-    &.block-img  .cover{
-        background-color: var(--first-color-tr);
-        width:100%; 
-        height: 100%;  
-    }
-
-
-    // &.block-img:hover{
-    // background-color: var(--first-color-tr);       
-    
     // }
 }
 //klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
@@ -214,51 +201,74 @@ width: 60px;
 
 
 // my blogs
-#my-blogs {
+// #my-blogs {
+    .my_blogs{
+        display: inline-block;
+            overflow: hidden;
+            box-shadow: 0px 8px 15px var(--first-color-tr);
 
-    .block-blogs{
-        img{
-            width: 100%;
-        }
-        img:hover{
-            width: 110%;
-            margin-left: -5%;
-            margin-top: -5%;
-        }
-
-        // background-color: yellow;
-        margin: 20px 0 80px 0;
-        h6{
-            display: inline-block;
-            float: left;
-            font-size: 14px;
-            line-height: 20px;
-            margin-right: 10px;
-            color: var(--first-color-tr);
-        }
-            h6:nth-child(1){
-                padding-right: 10px;
-                border-right: 1px solid var(--first-color);
+            img{ width: 100%; }
+            span{
+                display: inline-block;
+                font-size: 12px;
+                line-height: 14px;
+                color: var(--first-color-tr);
             }
-        
-        a{
-            display: inline-block;
-            width: 100%;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: left;
-            text-decoration: none;
-            padding: 16px 0;
-            // background-color: yellow;
+            span:nth-child(1){
+                padding-right: 6px;
+                border-right: 1px solid var(--first-color-tr);
+            }
+            
+            .blogs-make{
+                display: inline-block;
+                width: 100%;
+                padding: 10px;
+                font-size: 22px;
+                font-weight: bold;
+                text-align: left;
+                text-decoration: none;
+                color: var(--zero-color-anti);
+                // background-color: yellow;
+            }
+            .blogs-make:hover{
+                color: var(--second-color);
+                // background-color: yellow;
+            }
+            p{
+                display: inline-block;
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+                font-size: 16px;
+                line-height: 24px;
+                color: var(--first-color-tr);
+            }
+            .blogs-read{
+                display: inline-block;
+                padding: 1px 0;
+                float: left;
+                margin: 10px;
+                font-size: 14px;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: var(--second-color);
+                border-bottom: 2px solid var(--second-color);
+            }
+            .blogs-read:hover{
+                color: var(--zero-color-anti);
+                border-bottom-color: var(--zero-color-anti);
+            }
+            &:hover{
+                img {
+                    width: 110%;
+                    margin-left: -5%;
+                    margin-top: -5%;
+                    transition-duration: 500ms;
+                }
+            }
         }
-        p{
-            display: inline-block;
-            text-align: left;
-            padding: 20px 0;
-            color: var(--first-color-tr);
-        }
-    }
-}
+// }  // #my-blogs end
 
 // contact me
 

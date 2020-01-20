@@ -7,127 +7,162 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
-    <!-- demo -->
-    <div class="container bg-primary">
+<body>    
+    
+    <!-- Navitation Bar-->
+    <div class="container">
+        <header class="row">
+            <div class="navBar col unit-12-col">
+                Navigation Bar
+                <a href="#my-resume">My Resume</a>
+            </div>            
+        </header>   
+        
+        <!-- hero (part after navigation bar ) -->       
         <div class="row">
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-2 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-3 bg-secondary">1</div>
-            <div class="col-4 bg-secondary">1</div>
-            <div class="col-5 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-6 bg-secondary">1</div>
-            <div class="col-6 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-7 bg-secondary">1</div>
-            <div class="col-5 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-8 bg-secondary">1</div>
-            <div class="col-4 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-9 bg-secondary">1</div>
-            <div class="col-3 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-10 bg-secondary">1</div>
-            <div class="col-2 bg-secondary">
-                asfdgjh
-                sfdh
-                gjhga
-                fdsg
-                asfdgjhas
-                g
-                a
-                fg
-
-                <datagrid>gallerydaf
-                    d
-                </datagrid>
-                hgfgc
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-11 bg-secondary">1</div>
-            <div class="col-1 bg-secondary">1</div>
-        </div>
-        <div class="row">
-            <div class="col-12 bg-secondary">1</div>
-        </div>
+            <div class="col unit-12-col">
+                HERO
+            </div>                
+        </div>       
     </div>
-    <!-- demo -->
+    
+    <!-- About Me section -->
+    <div class="container" id="about-me" data-nav="About Me">
+        <div class="row">
+            <div class="col unit-5-col unit-12-col-md">
+                <img src="./img/avatar/avtar-01.jpg" alt="Martins PHOTO">
+            </div>               
+            <div class="left head head- block block- col unit-7-col unit-12-col-md">
+                <h2 class="">About <span>Me</span></h2>
+                <div class="line"></div>
+                <h3>Hello! i'm Martin Luther</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="links-about">
+                    <a href="#" target="_blank" class=" fa fa-facebook"></a>
+                    <a href="#" target="_blank" class=" fa fa-twitter"></a>
+                    <a href="#" target="_blank" class=" fa fa-instagram"></a>
+                    <a href="#" target="_blank" class=" fa fa-linkedin"></a>
+                    <a href="#" target="_blank" class=" fa fa-pinterest"></a>
+                </div>            
+                <button class="btn btn-red">Contact Me</button>
+                <button class="btn btn-red">Download CV</button>  
+            </div> 
+        </div>
+    </div>   
+    
+    <!-- My Services section -->
+    <div class="container" id="my-services" data-nav="My Services">        
+        <div class="row title" id="my-services-title"><!-- renderTitle() cia istato suformatuota titla --></div> 
+        
+        <div class="row" id="my-services-content"></div> 
+    </div>
+    
+    <!-- MY RESUME section -->
+    <div class="container" id="my-resume" data-nav="My Resume">
+        <div class="row title" id="my-resume-title"><!-- renderTitle() cia istato suformatuota titla --></div>   
+        
+        <div class="row" id="my-resume-content"></div>
+    </div>
+    
+    
+    
+    <!-- hire me now -->
+    <div class="container hire boxShadow-">
+        <div class="row">I am available for freelance</div>
+        <a href="#" class="btn btn-white boxShadow-">Hire me now</a>
+    </div>
+    
+    <!-- my portfolio section -->
+    <div class="container" id="my-portfolio" data-nav="My Portfolio">
+        <div class="row" id="my-portfolio-title"><!-- renderTitles --></div>
+        <div class="row" id="my-portfolio-content"><!-- renderGallery(gallery) --></div>
+    </div>
+    <!-- testimonials section -->
+    <div class="container" id="testimonials" data-nav="Testimonials">
+        <div class="row">
+            <div class="col unit-12-col">TESTIMONIALS</div>      
+        </div> 
+    </div>
+    
+    <!-- My Blogs -->
+    <div class="container" id="my-blogs" data-nav="My Blogs">
+        <div class="row" id="my-blogs-title"></div> 
+    </div>
 
-    <!-- header start -->
-    HEADER
-    <!-- header end -->
-
-    <!-- hero start -->
-    HERO
-    <!-- hero end -->
-
-    <!-- clients start -->
-    clients
-    <!-- clients end -->
-
-    <!-- about me start -->
-    about me
-    <!-- about me end -->
-
-    <!-- achievements start -->
-    achievements
-    <!-- achievements end -->
-
-    <!-- skills start -->
-    skills
-    <!-- skills end -->
-
-    <!-- gallery start -->
-    gallery
-    <!-- gallery end -->
-
-    <!-- job history start -->
-    job history
-    <!-- job history end -->
-
-    <!-- services start -->
-    services
-    <!-- services end -->
-
-    <!-- testimonials start -->
-    testimonials
-    <!-- testimonials end -->
-
-    <!-- contact me start -->
-    contact me
-    <!-- contact me end -->
-
-    <!-- footer start -->
-    footer
-    <!-- footer end -->
+<!-- contact me -->
+    <div class="container contact-me" id="contact-me" data-nav="Contact Me">
+        <div class="row"id="contact-me-title"></div>   
+            <div class="row contact-me-content ">
+                <div class="contact-me-left col unit-7-col unit-12-col-lg">
+                    <i class="fa fa-paper-plane col unit-2-col" aria-hidden="true"></i>
+                    <h1 class=" col unit-10-col">  Drop us a line</h1>    
+                    <p class=" col unit-10-col">  We are here to answer any question you may have</p>
+                   
+                    <div class="col unit-6-col unit-12-col-sm ">                        
+                        <input  type="text" placeholder="Name"name="Name">
+                    </div>
+                    <div class="col unit-6-col unit-12-col-sm ">
+                        <input  type="email" placeholder="Email" name="Email">
+                    </div> 
+                    <div class="yuor-com col unit-12-col">
+                        <textarea type="text" placeholder="Your-Comment"name="Your-Comment required"></textarea>
+                    </div>
+                    <div class="contact-me-btn col unit-12-col-sm">
+                    <button class="btn btn-red">GET IN TOUCH</button>
+                    </div>  
+                </div>                                                                                                                                                
+                <div class="contact-me-right col unit-5-col unit-12-col-lg" >  
+                    <div class="data">
+                        <div class="icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        <div class="section">
+                            <p class="section-title">Address<p>
+                            <p class="section-information">123 6th St. Melbourne ,<br>FL 32904, USA</p> 
+                        </div>                      
+                    </div>
+                    <div class="data">
+                        <div class="icon">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="section">
+                            <p class="section-title">Email<p>
+                            <p class="section-information">info@yourdomain.com<br>sale@yourdomain.com</p> 
+                        </div>                      
+                    </div>
+                    <div class="data phone">
+                        <div class="icon">
+                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                        </div>
+                        <div class="section">
+                            <p class="section-title">Phone<p>
+                            <p class="section-information">Mob: +01 000 000 000<br>Fax :  +01 000 000 000</p> 
+                        </div>                      
+                    </div>                    
+                </div>                                
+            </div>         
+    </div> 
+    
+<!-- footer -->
+    <footer class="container">        
+            <div class="sp">
+                <p>Martin</p>
+            </div>       
+        <div class="row">
+            <div class="links  unit-col-12">
+                <a href="#" target="_blank" class=" fa fa-facebook"></a>
+                <a href="#" target="_blank" class=" fa fa-twitter"></a>
+                <a href="#" target="_blank" class=" fa fa-camera-retro"></a>               
+                <a href="#" target="_blank" class=" fa fa-linkedin"></a>
+                <a href="#" target="_blank" class=" fa fa-pinterest"></a>
+            </div>
+        </div>       
+        <div class="sp1">            
+            <p>© 2019 copyright all right reserved</p>
+        </div>        
+    </footer> 
+    
     
     <script src="./js/data.js"></script>
     <script src="./js/functions.js"></script>

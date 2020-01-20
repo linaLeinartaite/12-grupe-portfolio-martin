@@ -1,17 +1,182 @@
-// custom
+// custom  
 
-.bg-primary {
-    background-color: var(--primary-color);
-}
-.bg-secondary {
-    background-color: var(--secondary-color);
-}
-.bg-primary-light {
-    background-color: var(--primary-light-color);
-}
+//mainStyleClasses (pagrindines klases elementu naudojamu neviena karta)
+//main colors (pagrindines spalvos naudojamos zemiau apybreztos variables.css)
 
 
-// header
+//lygiavimo klases
+.center {
+    text-align: center;
+    .col {
+        float: none;        
+    }
+}
+
+.left{
+    text-align: left;
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display: inline-block;
+}
+
+//style for columns
+//stilius stulpeliu (seselis ir bazinis formatas)
+.block{
+    padding: 30px;
+    border-radius: 3px;
+    background-color: var(--third-color);    
+    box-shadow: 0px 8px 15px var(--first-color-tr);
+    font-size: 20px;
+    border: 5px solid transparent;
+    
+    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+    h4{        
+        text-transform: uppercase;
+        color: var(--second-color);   
+    }
+    
+    //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+    h5{
+        padding-top: 25px;
+        text-transform: uppercase;
+    }
+    h3{
+        padding-top: 25px;
+        padding-bottom: 15px;
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: bold;         
+    }
+    
+    .ico{
+        color: var(--second-color);
+        font-size: 40px;
+        line-height: 60px;
+    }
+    
+    //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
+    p {
+        font-size: 18px;
+        padding: 3px 0;
+        color: var(--first-color);
+    }
+    img{
+        width:100%;
+        position:relative;             
+    }    
+    
+    &.block-img{
+        padding: 8px;
+        position: relative;   
+    }
+    &.block-img>.cover{
+        opacity:0;
+        position: absolute;
+        text-align: bottom;
+        top:0;
+        bottom:0;
+        left:0;
+        right: 0;       
+        background-color: var(--first-color-tr);
+        margin: 8px;
+        transition: ease-in-out all;  
+        transition-duration: 0.8s;    
+        
+        > div{        
+            position: absolute;  
+            padding:20px;
+            bottom:0;
+            left:0;
+            right: 0;       
+            background-color: var(--second-color);
+            color: var(--second-color-anti);                        
+        }
+        &::before, &::after{
+            content: "";
+            display: inline-block;
+            position:absolute;            
+            background-color: var(--third-color);
+            top: 50%;
+            bottom: 50%;
+            transform: translate(-50%, -50%); 
+        }
+        
+        &::after{
+            height: 60px;
+            width: 2px;            
+        }
+        &::before{            
+            height: 2px;
+            width: 60px;            
+        }
+        
+    }
+    &.block-img>.cover:hover{
+        opacity:1; 
+        
+    }     
+}
+
+
+
+//klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
+.block-hover{
+    transition: ease-in-out all;
+    transition-duration: 0.35s;  
+&:hover{
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+    border: 5px solid var(--second-color);
+    position: relative;
+    transform: translate( 0, -10px);
+    // top: -10px;      
+}
+}
+
+//cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
+.block-{
+    box-shadow: none;    
+}
+
+//style for headers (stilius antrastems pagrindinems)
+.head {
+    > h2 {
+        padding-top: 60px; 
+        padding-bottom: 10px;
+        font-size: 35px;
+        line-height: 45px;
+        text-transform: uppercase;
+        color: var(--fourth-color);             
+        
+    }
+    > h2 > span{
+        color: var(--second-color);
+    }
+    
+    .line { 
+        width:100%;
+        display: inline-block;
+        background-color: black;
+        height: 3px;
+        width: 60px;
+    }
+}
+
+
+//for not having uppercase (nuimti didziasias raides is .head, cia reikia tik 'About Me' sekcijoje )
+.head-{
+    >h2 {
+        text-transform: capitalize;
+        h3{
+            font-weight: none;
+        }
+    }
+}
 
 // hero
 
@@ -19,19 +184,270 @@
 
 // about me
 
-// achievements
+#about-me{
+    padding: 40px;
+    img{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 10px solid #fff;
+        box-shadow: 0px 8px 15px var(--first-color);
+    }
+    h2{
+        padding-top: 0;
+    }
+    h4{
+        text-transform: none;
+    }
+    p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (max-width: 1300px){
+    #about-me{
+        img {
+            margin-top: 60px;
+        }
+    }
+}
+@media (max-width: 1100px){
+    #about-me img {
+        margin-top: 0;
+    }
+    
+    #about-me .block{
+        padding: 0;
+    }
+}
 
-// skills
+// my services
+#my-services{
+    background-color: var(--first-color-f3);
+    .block{
+box-shadow: 0px 8px 15px var(--first-color-tr);
+    }
+}   
 
-// gallery
+// my resume 
 
-// job history
 
-// services
+// hire me now -> Gytis
+.hire {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 80px;
+    background-color: var(--second-color);
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+// my-portfolio    
+.menu{
+    align-items: center;
+    text-transform: uppercase;
+    // background-color: red;
+    .menu-item{
+        display: inline-block;
+        font-weight: bold;
+        position: relative;  
+        
+        & >div.line{
+            content: "";
+            // display: inline-block;
+            position: absolute;
+            left:0;
+            right:0;
+            bottom: -10px;
+            width: 100%;
+            height:3px;
+            background-color: var(--second-color);
+        }
+        &:hover {
+            color: var(--second-color);
+            cursor: pointer;
+        }  
+        &:active::after{
+            display: inline-block;
+        }
+    }        
+}
 
 // testimonials
 
+
+// my blogs
+
+
+
 // contact me
 
+.contact-me{
+       background-color: var(--first-color-f3);
+}   
+
+.contact-me-left{         
+    border: 2px solid transparent;
+    box-shadow: 0px 8px 15px var(--first-color-tr);
+    background-color: var(--second-color-anti);
+    h1{
+        font-weight: bold;
+        font-size: 40px;
+        color: black;
+        text-align: left;   
+        padding-top: 15px;           
+    }
+    p{
+        font-size: 20px;
+        color: var(--first-color);
+        text-align: left;           
+    }
+    i{
+        float: right;
+        font-size: 80px;
+        color: whitesmoke;
+    }
+    
+    input{
+        width: 100%;
+        height: 60px;
+        font-size: 30px;
+        padding-left: 10px;
+    }
+    .yuor-com>textarea{
+        width: 100%;
+        height: 190px;
+        padding-left: 10px;
+        padding-top: 10px;
+        font-size: 20px;
+    }
+    button{
+        border: none;
+        margin-bottom: 20px;
+        box-shadow: 0px 8px 15px var(--first-color-tr);
+        &:hover{  
+            box-shadow: 1px 15px 25px 2px var(--second-color-tr);
+        }
+    }
+}
+
+.contact-me-right{
+    border: 2px solid transparent;
+    background-color: var(--second-color-anti);
+    box-shadow: 0px 8px 15px var(--first-color-tr);
+    padding-left: 30px;
+    padding-top: 20px;
+    .data{
+        height: 120px;
+        margin-top: 5px;           
+    }
+    .phone{
+        margin-bottom: 104px;
+    }
+    .icon{
+        width: 60px;
+        height: 60px;
+        float: left;
+        border-radius: 50%;
+        margin-top: 10px;
+        background-color: black;
+        
+        i{  
+            line-height: 60px;
+            font-size: 30px;
+            color: white;
+            text-align: center;  
+        }
+    }
+    .section{
+        width: 60%;
+        margin-top: 10px;
+        margin-left: 20px;
+        float: left;
+        
+    }
+    .section-title{
+        width: 100%;
+        font-size: 20px;            
+        float: left;
+    }
+    p{
+        float: left;
+        text-align: left;            
+    }
+    .section-information{
+        padding-top: 20px;
+        font-size: 23px;
+    }
+}
+
+
+
 // footer
+footer{   
+    width: 100%;
+    // border: none;
+    background-color:#212121;    
+}    
+.links >a {      
+    width: 40px; 
+    height: 40px;
+    text-decoration:var(--first-color--tr);
+    color:var(--first-color);
+    font-size: 15px;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 50px;
+    background-color:var(--fourth-color);
+    border:1px solid  black;
+    &:hover {
+        color:var(--third-color);
+        background-color:var(--first-color--tr);
+        transition-duration: 900ms;
+    }
+}
+.links-about >a {      
+    width: 40px; 
+    height: 40px;
+    margin: 20px 2px 40px;
+    text-decoration:none;
+    color:var(--zero-color);
+    background-color:var(--zero-color-anti);
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    padding: 10px;
+    border:1px solid  var(--zero-color-anti);
+    &:hover {
+        color:var(--zero-color-anti);
+        background-color:var(--zero-color);
+        transition-duration: 900ms;
+    }
+}    
+
+.sp {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 43px;
+    font-weight:900;
+}
+.sp1{
+    border-top: 0.2px solid var( --first-color-tr) ;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    color:rgb(136, 136, 133) ;
+}
+
+
+
+
+
 

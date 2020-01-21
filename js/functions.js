@@ -41,7 +41,40 @@ function renderTitles(data){
     }
 }
 
+
 //navigation bar
+ 
+// pakeiciame navBar stiliu nuskrolinus zemyn 300px;
+window.addEventListener("scroll", onScroll);
+
+function onScroll() {
+    let navBar =  document.querySelector("nav.row.nav-bar");  
+
+    let navBarList = document.querySelectorAll(".nav-items > a");
+
+    let navBarLogo = document.querySelector(".nav-bar > .logo > a");
+
+    //!!
+    // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
+    if( window.scrollY >= 300){ 
+navBar.classList.add("nav-bar-scroll");
+console.log(navBar.classList);
+navBarList.forEach((item => item.classList.add("a-scroll")));
+navBarLogo.classList.add("logo-scroll");
+  
+    }else {
+        navBar.classList.remove("nav-bar-scroll");
+        console.log(navBar.classList);
+        navBarList.forEach((item => item.classList.remove("a-scroll")));
+        navBarLogo.classList.remove("logo-scroll"); 
+    }
+    
+}
+
+function renderNavBar(){
+    return;
+}
+
 
 function renderResume(data) {
     let HTML="";
@@ -127,14 +160,14 @@ function renderGallery(data){
     let galleryHTML = ``;
     let menu = [];
     let categories = '';
-
+    
     if(!Array.isArray(data)){
         console.error("ERROR: data has to be an array.");
         return;
     };
     
     //patikrinam data nera tuscia (jei tuscia pasalinam sekcija)
-   
+    
     if( data.length === 0){
         console.error("ERROR: data is empty.");
         document.querySelector('#my-portfolio').remove(); 

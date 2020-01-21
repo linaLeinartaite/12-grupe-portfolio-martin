@@ -85,12 +85,12 @@
         
         &:hover::after{
             height: 60px;
-            transition-duration: 2s;
+            transition-duration: 1s;
             
         }
         &:hover::before{  
             width: 60px;    
-            transition-duration: 2s;
+            transition-duration: 1s;
             
         }
         
@@ -101,7 +101,6 @@
         
     }     
 }
-
 
 //klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
 .block-hover{

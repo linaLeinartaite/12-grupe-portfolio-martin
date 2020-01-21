@@ -89,14 +89,14 @@
 
 .block.block-img > .cover:hover::after {
   height: 60px;
-  -webkit-transition-duration: 2s;
-          transition-duration: 2s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
 
 .block.block-img > .cover:hover::before {
   width: 60px;
-  -webkit-transition-duration: 2s;
-          transition-duration: 2s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
 
 .block.block-img > .cover:hover {

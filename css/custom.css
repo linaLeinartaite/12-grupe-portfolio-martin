@@ -75,6 +75,10 @@
   text-decoration: none;
 }
 
+.container.hero .row.nav-bar .logo > .logo-scroll {
+  color: var(--second-color);
+}
+
 .container.hero .row.nav-bar .nav-items > a {
   text-decoration: none;
   text-transform: capitalize;
@@ -102,6 +106,21 @@
   transition: linear;
   -webkit-transition-duration: 0.35s;
           transition-duration: 0.35s;
+}
+
+.container.hero .row.nav-bar .nav-items > a.a-scroll {
+  color: var(--fourth-color);
+}
+
+.container.hero .row.nav-bar.nav-bar-scroll {
+  background-color: var(--third-color);
+  border-bottom: none;
+  -webkit-box-shadow: 0 0 15px var(--first-color-tr);
+          box-shadow: 0 0 15px var(--first-color-tr);
+}
+
+.container.hero .row.nav-bar.nav-bar-scroll .nav-items > a::after {
+  background-color: var(--second-color);
 }
 
 #about-me {

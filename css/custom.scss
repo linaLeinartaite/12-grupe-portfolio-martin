@@ -85,6 +85,9 @@
             color: white;
             text-decoration: none;
         }  
+        .logo > .logo-scroll{
+            color: var(--second-color);
+        }
         .nav-items > a{
             text-decoration: none;
             text-transform: capitalize;
@@ -109,12 +112,26 @@
                 width: calc(100% - 25px);
                 height:2px; 
                 transition:linear;
-transition-duration: 0.35s;
-            }
+                transition-duration: 0.35s;
+            }         
             
         }
+        .nav-items > a.a-scroll{
+            color: var(--fourth-color);
+        }
+       
     }
+    .row.nav-bar.nav-bar-scroll{
+        background-color: var(--third-color);
+        border-bottom: none;
+        box-shadow: 0 0  15px var(--first-color-tr);
+        .nav-items > a::after{
+            background-color: var(--second-color);
+        }
+    }
+
 }  
+
 
 // hero
 

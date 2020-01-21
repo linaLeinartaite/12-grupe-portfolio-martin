@@ -12,6 +12,6 @@ renderGallery(gallery);
 
 //testimonial
 
-//blogs
+renderMyBlogs(blogs);
 
 //renderContactme(titles);

@@ -217,6 +217,23 @@ function renderGallery(data){
 
 
 //my blogs
+function renderMyBlogs ( data ) {
+    console.log ( data);
+    let list = [];
+    HTML = '';
 
+    for (let i=0; i<data.length; i++) {
+        console.log( data [i], data [i].category);
+        HTML += `<div> ${data [i].img} </div>`
+                // `<div> data [i].date </div>`,
+                // `<div> data [i].category </div>`,
+                // `<div> data [i].purpose </div>`,
+                // `<div> data [i].coment </div>`;
+    }
+
+
+    return HTML
+
+}
 
 

@@ -92,20 +92,23 @@
 .container.hero .row.nav-bar .nav-items > a::after {
   position: absolute;
   left: 20px;
-  bottom: -30px;
+  bottom: -28px;
   content: "";
   width: 0;
-  height: 2px;
+  height: 3px;
   background-color: var(--third-color);
+  -webkit-transition: linear;
+  transition: linear;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 
 .container.hero .row.nav-bar .nav-items > a:hover::after {
   width: calc(100% - 25px);
-  height: 2px;
   -webkit-transition: linear;
   transition: linear;
-  -webkit-transition-duration: 0.35s;
-          transition-duration: 0.35s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 
 .container.hero .row.nav-bar .nav-items > a.a-scroll {
@@ -190,7 +193,7 @@
   line-height: 80px;
   background-color: var(--second-color);
   text-transform: uppercase;
-  color: #FFF;
+  color: #fff;
 }
 
 .menu {
@@ -357,7 +360,7 @@ footer {
   padding: 10px;
   margin-bottom: 50px;
   background-color: var(--fourth-color);
-  border: 1px solid  black;
+  border: 1px solid black;
 }
 
 .links > a:hover {

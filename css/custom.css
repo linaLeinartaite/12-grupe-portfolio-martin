@@ -289,23 +289,26 @@
   display: inline-block;
   font-size: 12px;
   line-height: 14px;
+  margin-top: 14px;
   color: var(--first-color-tr);
 }
 
 .my_blogs span:nth-child(1) {
-  padding-right: 6px;
+  padding-right: 10px;
+  margin-right: 4px;
   border-right: 1px solid var(--first-color-tr);
 }
 
 .my_blogs .blogs-make {
   display: inline-block;
   width: 100%;
-  padding: 10px;
+  padding: 10px 18px;
   font-size: 22px;
+  line-height: 30px;
   font-weight: bold;
   text-align: left;
   text-decoration: none;
-  color: var(--zero-color-anti);
+  color: var(--fourth-color);
 }
 
 .my_blogs .blogs-make:hover {
@@ -316,7 +319,7 @@
   display: inline-block;
   width: 100%;
   text-align: left;
-  padding: 10px;
+  padding: 0 18px;
   font-size: 16px;
   line-height: 24px;
   color: var(--first-color-tr);
@@ -326,7 +329,7 @@
   display: inline-block;
   padding: 1px 0;
   float: left;
-  margin: 10px;
+  margin: 18px;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
@@ -336,8 +339,8 @@
 }
 
 .my_blogs .blogs-read:hover {
-  color: var(--zero-color-anti);
-  border-bottom-color: var(--zero-color-anti);
+  color: var(--fourth-color);
+  border-bottom-color: var(--fourth-color);
 }
 
 .my_blogs:hover img {

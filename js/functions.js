@@ -220,20 +220,23 @@ function renderGallery(data){
 function renderMyBlogs ( data ) {
     console.log ( data);
     let list = [];
-    HTML = '';
+    let HTML = '';
 
     for (let i=0; i<data.length; i++) {
         console.log( data [i], data [i].category);
-        HTML += `<div> ${data [i].img} </div>`
-                // `<div> data [i].date </div>`,
-                // `<div> data [i].category </div>`,
-                // `<div> data [i].purpose </div>`,
-                // `<div> data [i].coment </div>`;
+        HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
+            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i+1}">
+            <div class="blogs-make">
+                <span>${data[i].date}</span>
+                <span>${data[i].category}</span>
+            </div>
+            <a href="#" class="blogs-make">${data[i].purpose}</a>
+            <p class="title">${data[i].comment}</p>
+            <a href="#" class="blogs-read">Read more</a>
+        </div>`;
+        document.querySelector(`#my-blogs-body`).innerHTML =HTML
     }
-
-
     return HTML
-
 }
 
 

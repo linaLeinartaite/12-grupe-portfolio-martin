@@ -3,6 +3,7 @@
 renderTitles(titles);
 
 //nav bar
+renderNavBar(titles);
 
 renderResume(resume);
 

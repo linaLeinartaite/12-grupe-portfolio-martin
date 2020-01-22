@@ -45,9 +45,11 @@ function renderNavBar(data) {
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
-    HTML += `<a href="#${data[i].id}">${sections[i].dataset.nav
-      .charAt(0)
-      .toUpperCase() + sections[i].dataset.nav.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
+    console.log(sections[i].dataset.nav);
+    const text = sections[i].dataset.nav;
+
+    HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
+      text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
   return;

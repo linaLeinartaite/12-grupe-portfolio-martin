@@ -89,6 +89,10 @@
   position: relative;
 }
 
+.container.hero .row.nav-bar .nav-items > a.activeSection {
+  color: var(--second-color);
+}
+
 .container.hero .row.nav-bar .nav-items > a::after {
   position: absolute;
   left: 20px;
@@ -352,8 +356,8 @@ footer {
 .links > a {
   width: 40px;
   height: 40px;
-  -webkit-text-decoration: var(--first-color--tr);
-          text-decoration: var(--first-color--tr);
+  -webkit-text-decoration: var(--first-color-tr);
+          text-decoration: var(--first-color-tr);
   color: var(--first-color);
   font-size: 15px;
   border-radius: 50%;
@@ -365,7 +369,7 @@ footer {
 
 .links > a:hover {
   color: var(--third-color);
-  background-color: var(--first-color--tr);
+  background-color: var(--first-color-tr);
   -webkit-transition-duration: 900ms;
           transition-duration: 900ms;
 }
@@ -404,7 +408,6 @@ footer {
   text-align: center;
   font-size: 15px;
   padding-top: 26px;
-  padding-bottom: 26px;
   color: #888885;
 }
 /*# sourceMappingURL=custom.css.map */

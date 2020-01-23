@@ -4,6 +4,7 @@ renderTitles(titles);
 
 //nav bar
 renderNavBar(titles);
+activeSection(titles);
 
 renderResume(resume);
 

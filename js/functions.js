@@ -41,15 +41,24 @@ function renderTitles(data) {
 
 //navigation bar
 function renderNavBar(data) {
-  let HTML = `<a href="#home">home</a>`;
+  let HTML = `<a class="activeSection" href="#home">home</a>`;
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
-    console.log(sections[i].dataset.nav);
     const text = sections[i].dataset.nav;
 
-    HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
-      text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
+    /*
+    as pasiemiau id  is titles (data.js) nes ten jie buvo naudoti title generavimui;
+    kitas budas (ir AKIVAIZDZIAI GERESNIS !!!) >>
+
+    !!!           `<a href="#${sections[i].id}">`
+    
+    tokiu budu PASIEKIAMAS atitinkamas ID (querySelectorAll grazina arrejuje esancius html'elementus ir taip iseina kad ju atributai  (bent kai kurie (ne class pav)) gali buti pasiekti per taska??):
+    */
+
+    HTML += `<a class="activeSection" href="#${
+      data[i].id
+    }">${text[0].toUpperCase() + text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
   return;
@@ -60,12 +69,16 @@ window.addEventListener("scroll", onScroll);
 
 function onScroll() {
   let navBar = document.querySelector("nav.row.nav-bar");
-
   let navBarList = document.querySelectorAll(".nav-items > a");
-
   let navBarLogo = document.querySelector(".nav-bar > .logo > a");
 
   //!!
+
+  //el.getBoundingClientRect() >>//grazina objekta turinti info apie tai kur tas elementas yra;
+  //.getBoundingClientRect().right
+  //screenHeight==window.innerHeight;
+  //el.offsetTop ==>>palygina kiek zemai yra elementas lyginant su visu body ellementu;
+  //window.scrollBy windowscrollTo
   // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
   if (window.scrollY >= 300) {
     navBar.classList.add("nav-bar-scroll");
@@ -75,6 +88,29 @@ function onScroll() {
     navBar.classList.remove("nav-bar-scroll");
     navBarList.forEach((item) => item.classList.remove("a-scroll"));
     navBarLogo.classList.remove("logo-scroll");
+  }
+}
+
+function activeSection(data) {
+  const sections = document.querySelectorAll("[data-nav]");
+  let sectionT = 0;
+  let sectionB = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    sectionT = sections[i].getBoundingClientRect().top;
+    sectionB = sections[i].getBoundingClientRect().bottom;
+    //cia reikia dar vieno ciklo; t.y. sectionT ir sectionB reikia sudeti i arejus du atitinkama tvarka;
+    window.addEventListener("scroll", (event) => {
+      if (window.scrollY > sectionT && window.scrollY < sectionB) {
+        document.querySelectorAll(`[href="#${data[i].id}"]`).forEach((item) => {
+          item.classList.add("activeSection");
+        });
+      } else {
+        document.querySelectorAll(`[href="#${data[i].id}"]`).forEach((item) => {
+          item.classList.remove("activeSection");
+        });
+      }
+    });
   }
 }
 

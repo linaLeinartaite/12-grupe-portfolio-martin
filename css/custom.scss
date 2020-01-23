@@ -63,6 +63,8 @@
   background-position: center; //duoda kad mazetu mazinant ekrana
   background-repeat: no-repeat;
 
+  //nav-bar
+
   .row.nav-bar {
     float: right;
     width: 100%;
@@ -92,6 +94,9 @@
       padding: 0 0 0 20px;
       font-size: 16px;
       position: relative;
+      &.activeSection {
+        color: var(--second-color);
+      }
       &::after {
         position: absolute;
         left: 20px;
@@ -335,7 +340,7 @@ footer {
 .links > a {
   width: 40px;
   height: 40px;
-  text-decoration: var(--first-color--tr);
+  text-decoration: var(--first-color-tr);
   color: var(--first-color);
   font-size: 15px;
   border-radius: 50%;
@@ -345,7 +350,7 @@ footer {
   border: 1px solid black;
   &:hover {
     color: var(--third-color);
-    background-color: var(--first-color--tr);
+    background-color: var(--first-color-tr);
     transition-duration: 900ms;
   }
 }
@@ -380,6 +385,5 @@ footer {
   text-align: center;
   font-size: 15px;
   padding-top: 26px;
-  padding-bottom: 26px;
   color: rgb(136, 136, 133);
 }

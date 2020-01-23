@@ -11,7 +11,7 @@ renderServices(services);
 
 renderGallery(gallery);
 
-//testimonial
+// renderTestimonials("#testimonials-block", testimonialdata);
 
 renderMyBlogs(blogs);
 

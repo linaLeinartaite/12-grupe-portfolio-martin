@@ -56,9 +56,8 @@ function renderNavBar(data) {
     tokiu budu PASIEKIAMAS atitinkamas ID (querySelectorAll grazina arrejuje esancius html'elementus ir taip iseina kad ju atributai  (bent kai kurie (ne class pav)) gali buti pasiekti per taska??):
     */
 
-    HTML += `<a class="activeSection" href="#${
-      data[i].id
-    }">${text[0].toUpperCase() + text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
+    HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
+      text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
   return;

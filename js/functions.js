@@ -267,7 +267,6 @@ function renderTestimonial(data) {
 
   const HTML = `<div class="testimonial-list">${testimonialHTML}</div>`;
 
-  console.log(testimonialHTML);
   document.querySelector(`#testimonials-block`).innerHTML = HTML;
   return;
 }

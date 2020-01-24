@@ -188,31 +188,31 @@ const gallery = [
 //testimonial data
 const testimonialdata = [
   {
-    autor: "Nancy Bayers",
+    autor: "Nancy Bayers",
     img: "team-1.jpg",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
     pozition: "Co-founder"
   },
   {
-    autor: "Marta Bayers",
+    autor: "Marta Bayers",
     img: "team-2.jpg",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
     pozition: "Co-founder"
   },
   {
-    autor: "Ewa Bayers",
+    autor: "Ewa Bayers",
     img: "team-3.jpg",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
-    pozition: "Co-founder"
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
+    pozicion: "Co-founder"
   },
   {
-    autor: "Barbara Bayers",
+    autor: "Barbara Bayers",
     img: "team-4.jpg",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
     pozition: "Co-founder"
   }
 ];

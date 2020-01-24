@@ -254,40 +254,39 @@ function renderGallery(data) {
 
 //my testimonial
 
-function renderTestimonial(target, data) {
+function renderTestimonial(data) {
   let testimonialHTML = "";
+  let testimonialList = "";
 
   // for (let i = 0; i < data.length; i++) {
   // testimonialHTML += generateTestimonials(data[i]);
   // }
-
   const initialindex = Math.floor(Math.random() * data.length);
-  testimonialHTML = generateTestimonials(data[initialindex]);
 
-  const HTML = `<div class="testimonial">
-              <div class="testimonial-list">${testimonialHTML}</div>
-              </div>`;
-  document.querySelector(target).innerHTML = HTML;
+  testimonialHTML = generateTestimonial(data[initialindex]);
+
+  const HTML = `<div class="testimonial-list">${testimonialHTML}</div>`;
+
+  console.log(testimonialHTML);
+  document.querySelector(`#testimonials-block`).innerHTML = HTML;
   return;
 }
 
-function generateTestimonials(data) {
-  return `<div class="testimonial">
-        <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-        <div class="testimonial-text">${data.text}</div>
-        <div class="testimonial-autor">${data.autor}</div>
-        <div class="testimonial-pozicion">${data.pozicion}</div>
-        </div>`;
+function generateTestimonial(data) {
+  return `<div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+          <div class="testimonial-text">${data.text}</div>
+          <div class="testimonial-autor">${data.autor}</div>
+          <div class="testimonial-pozition">${data.pozition}</div>`;
 }
 
 //my blogs
 function renderMyBlogs(data) {
-  console.log(data);
+  // console.log(data);
   let list = [];
   let HTML = "";
 
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i], data[i].category);
+    // console.log(data[i], data[i].category);
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
             <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
             <div class="blogs-make">

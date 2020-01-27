@@ -41,7 +41,8 @@ function renderTitles(data) {
 
 //navigation bar
 function renderNavBar(data) {
-  let HTML = `<a class="activeSection" href="#home">home</a>`;
+  let HTML = "";
+  // let HTML = `<a class="activeSection" href="#home">home</a>`;
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
@@ -56,8 +57,12 @@ function renderNavBar(data) {
     tokiu budu PASIEKIAMAS atitinkamas ID (querySelectorAll grazina arrejuje esancius html'elementus ir taip iseina kad ju atributai  (bent kai kurie (ne class pav)) gali buti pasiekti per taska??):
     */
 
-    HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
-      text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
+    HTML += `<a href="#${sections[i].id}">${
+      text
+      // text[0].toUpperCase() +
+      // text.slice(1)
+    }
+      </a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
   return;
@@ -79,6 +84,7 @@ function onScroll() {
   //el.offsetTop ==>>palygina kiek zemai yra elementas lyginant su visu body ellementu;
   //window.scrollBy windowscrollTo
   // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
+
   if (window.scrollY >= 300) {
     navBar.classList.add("nav-bar-scroll");
     navBarList.forEach((item) => item.classList.add("a-scroll"));
@@ -92,22 +98,56 @@ function onScroll() {
 
 function activeSection(data) {
   const sections = document.querySelectorAll("[data-nav]");
-  let sectionT = 0;
-  let sectionB = 0;
+  const sectionsT = "";
+  const sectionsB = "";
+  // for (let i = 0; i < data.length; i++) {
+  //el.(.getBoundingClientRect().top + window.scrollY) >> duoda el. auksti re;letyviai nuo kairion virsutinio krasto;
 
-  for (let i = 0; i < data.length; i++) {
-    sectionT = sections[i].getBoundingClientRect().top;
-    sectionB = sections[i].getBoundingClientRect().bottom;
-    //cia reikia dar vieno ciklo; t.y. sectionT ir sectionB reikia sudeti i arejus du atitinkama tvarka;
+  // console.log("sectionsT", sectionsT);
+  // }
+
+  for (let i = 0; i < sections.length; i++) {
     window.addEventListener("scroll", (event) => {
-      if (window.scrollY > sectionT && window.scrollY < sectionB) {
-        document.querySelectorAll(`[href="#${data[i].id}"]`).forEach((item) => {
-          item.classList.add("activeSection");
-        });
-      } else {
-        document.querySelectorAll(`[href="#${data[i].id}"]`).forEach((item) => {
-          item.classList.remove("activeSection");
-        });
+      // console.log("sectionsT[i]", sectionsT[i], data[i].id);
+      // sectionsT.push(sections[i].getBoundingClientRect().top + window.scrollY);
+      // sectionsB.push(sections[i].getBoundingClientRect().bottom + window.scrollY);
+
+      // sectionsT = (sections[i].getBoundingClientRect().top + window.scrollY);
+      // sectionsB = sections[i].getBoundingClientRect().bottom + window.scrollY;
+
+      if (
+        window.scrollY >
+          sections[i].getBoundingClientRect().top + window.scrollY &&
+        window.scrollY <
+          sections[i].getBoundingClientRect().bottom + window.scrollY
+        //  && window.scrollY < sectionsB
+      ) {
+        document
+          .querySelectorAll(`[href="#${sections[i].id}"]`)
+          .forEach((item) => {
+            item.classList.add("activeSection");
+            // item.style.color = "var(--second-color)";
+            console.log(
+              `[href="#${sections[i].id}"]`,
+              window.scrollY,
+              sectionsT[i],
+              sectionsT,
+              item
+            );
+          });
+      } else if (
+        window.scrollY >
+          sections[i].getBoundingClientRect().bottom + window.scrollY ||
+        window.scrollY <
+          sections[i].getBoundingClientRect().top + window.scrollYectionsB
+      ) {
+        // else {
+        document
+          .querySelectorAll(`[href="#${sections[i].id}"]`)
+          .forEach((item) => {
+            item.classList.remove("activeSection");
+            // item.style.color = "inherit";
+          });
       }
     });
   }

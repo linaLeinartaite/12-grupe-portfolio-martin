@@ -115,7 +115,7 @@
           transition-duration: 0.5s;
 }
 
-.container.hero .row.nav-bar .nav-items > a.a-scroll {
+.container.hero .row.nav-bar a.a-scroll {
   color: var(--fourth-color);
 }
 

@@ -124,7 +124,79 @@
 }
 
 // hero
+.hero-content{
+  display: inline-block;
+  text-align: center;
 
+  >.col{
+    display: inline-block;
+    margin-top: 200px;
+    color: var(--third-color);
+
+    // position: absolute;
+    
+  }
+    .hello{
+      display: inline-block;
+      width: 100%;
+      margin-top: 100px;
+      font-size: 52px;
+      font-weight: 100;
+      line-height: 90px;
+    }
+    .ml{
+      display: inline-block;
+      width: 100%;
+      font-size: 92px;
+      letter-spacing: 5px;
+      line-height: 100px;
+    }
+    .categ{
+      display: inline-block;
+      width: 100%;
+      p{
+        display: inline-block;
+        margin: 20px 0 30px;
+        padding: 0 10px 0 6px;
+        border-right: 1px solid;
+        font-size: 15px;
+        line-height: 16px;
+        text-transform: uppercase;
+      }
+      p:nth-child(5){border: none;}
+    }
+    a{
+      display: inline-block;
+      margin-top: 8px;
+      padding: 16px 30px;
+      border-radius: 5px;
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    @media (max-width: 1100px) {
+      .hello {font-size: 40px;}
+      .ml{
+        font-size: 56px;
+        line-height: 60px;
+      }
+    }
+    @media (max-width: 900px) {
+      .hello {font-size: 34px;}
+      .ml{
+        font-size: 50px;
+        line-height: 60px;
+      }
+      .categ>p{
+        width: 100%;
+        margin: 10px;
+        border: none;
+      }
+    }
+    
+
+}
 // clients
 
 // about me

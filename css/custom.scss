@@ -226,12 +226,45 @@
 
 // my blogs
 .my_blogs{
-    display: inline-block;
-    overflow: hidden;
-    box-shadow: 0px 8px 15px var(--first-color-tr);
+  display: inline-block;
+  box-shadow: 0px 8px 15px var(--first-color-tr);
 
-    img{ width: 100%; }
-    span{
+  >.blogs_img{
+    display: inline-block;
+    height: 260px;
+    overflow: hidden;
+    img{
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  @media (max-width: 1300px) {
+    .blogs_img {
+      height: 210px;
+    }
+  }
+  @media (max-width: 1100px) {
+    .blogs_img {
+      height: 170px;
+    }
+  }
+  @media (max-width: 900px) {
+    .blogs_img {
+      height: 400px;
+    }
+  }
+  @media (max-width: 700px) {
+    .blogs_img {
+      height: 100%;
+    }
+  }
+// my blogs end
+  
+      #about-me .block {
+        padding: 0;
+      }
+    
+      span{
         display: inline-block;
         font-size: 12px;
         line-height: 14px;
@@ -283,15 +316,15 @@
             color: var(--fourth-color);
             border-bottom-color: var(--fourth-color);
         }
-            &:hover{
-                img {
-                    width: 110%;
-                    margin-left: -5%;
-                    margin-top: -5%;
-                    transition-duration: 500ms;
-                }
+          &:hover{
+            img {
+              width: 110%;
+              margin-left: -5%;
+              margin-top: -5%;
+              transition-duration: 500ms;
             }
-        }
+          }
+}
 // My Blogs end
 
 // contact me

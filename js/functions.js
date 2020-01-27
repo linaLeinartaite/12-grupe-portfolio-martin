@@ -62,9 +62,7 @@ function renderNavBar() {
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
   return;
 }
-
 // pakeiciame navBar stiliu nuskrolinus zemyn 300px;
-window.addEventListener("scroll", onScroll);
 
 function onScroll() {
   let navBar = document.querySelector("nav.row.nav-bar");
@@ -143,7 +141,6 @@ function renderResume(data) {
       <h4>Work</h4>
       ${box}
       </div>`;
-    //.clientHeight()
     box = "";
     for (let i = Math.ceil(data.length / 2); i < data.length; i++) {
       box += `

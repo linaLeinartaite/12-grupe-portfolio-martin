@@ -3,8 +3,9 @@
 renderTitles(titles);
 
 //nav bar
-renderNavBar(titles);
-activeSection(titles);
+renderNavBar();
+window.addEventListener("scroll", onScroll);
+activeSection();
 
 renderResume(resume);
 

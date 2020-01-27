@@ -12,8 +12,8 @@ renderServices(services);
 
 renderGallery(gallery);
 
-//testimonial
+renderTestimonial(testimonialdata);
 
-//blogs
+renderMyBlogs(blogs);
 
 //renderContactme(titles);

@@ -87,11 +87,11 @@ function onScroll() {
 
   if (window.scrollY >= 300) {
     navBar.classList.add("nav-bar-scroll");
-    navBarList.forEach((item) => item.classList.add("a-scroll"));
+    navBarList.forEach(item => item.classList.add("a-scroll"));
     navBarLogo.classList.add("logo-scroll");
   } else {
     navBar.classList.remove("nav-bar-scroll");
-    navBarList.forEach((item) => item.classList.remove("a-scroll"));
+    navBarList.forEach(item => item.classList.remove("a-scroll"));
     navBarLogo.classList.remove("logo-scroll");
   }
 }
@@ -248,7 +248,7 @@ function renderGallery(data) {
   }
 
   //einam per data (gallery in data.js):
-  data.forEach((item) => {
+  data.forEach(item => {
     //1. generuojam meniu (su duplikatais):
     //1.a. paskleidziam category kiekvienos item(nuotraukos) arrejuje:
     categories = [...item.category];
@@ -267,7 +267,7 @@ function renderGallery(data) {
     */
   const menuUq = menu.filter((item, index) => menu.indexOf(item) === index);
 
-  menuUq.forEach((cat) => {
+  menuUq.forEach(cat => {
     menuHTML += `<div class="menu-item col">${cat}<div class="line hide"></div></div>`;
   });
 
@@ -286,49 +286,92 @@ function renderGallery(data) {
   let catList = [];
   for (let i = 0; i < menuUq.length; i++) {
     catList[i] = { catName: menuUq[i], imgList: [] };
-    data.forEach((item) => {
+    data.forEach(item => {
       if (item.category.includes(menuUq[i])) {
         catList[i].imgList.push(item.img);
       }
     });
   }
   //selektinam ir pridedam reagavima i paspaudima visoms menu-item:
-  document
-    .querySelectorAll("#my-portfolio-content .menu-item")
-    .forEach((click) =>
-      click.addEventListener("click", (event) => {
-        // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
-        document
-          .querySelectorAll(".menu-item div.line")
-          .forEach((a) => a.classList.remove("show"));
+  document.querySelectorAll("#my-portfolio-content .menu-item").forEach(click =>
+    click.addEventListener("click", event => {
+      // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
+      document
+        .querySelectorAll(".menu-item div.line")
+        .forEach(a => a.classList.remove("show"));
 
-        // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
-        click.querySelector(".menu-item div.line").classList.add("show");
+      // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
+      click.querySelector(".menu-item div.line").classList.add("show");
 
-        //einam per catList'a (turinti unikalias categorijas):
-        for (let i = 0; i < catList.length; i++) {
-          //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
-          if (catList[i].catName === click.innerText.toLowerCase()) {
-            document
-              .querySelectorAll("#my-portfolio .gallery-item")
-              .forEach((item) => {
-                item.classList.add("hide");
-              });
-
-            catList[i].imgList.forEach((img) => {
-              document
-                .querySelector(`[alt="${img}"]`)
-                .closest("div")
-                .classList.remove("hide");
+      //einam per catList'a (turinti unikalias categorijas):
+      for (let i = 0; i < catList.length; i++) {
+        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
+        if (catList[i].catName === click.innerText.toLowerCase()) {
+          document
+            .querySelectorAll("#my-portfolio .gallery-item")
+            .forEach(item => {
+              item.classList.add("hide");
             });
-          }
+
+          catList[i].imgList.forEach(img => {
+            document
+              .querySelector(`[alt="${img}"]`)
+              .closest("div")
+              .classList.remove("hide");
+          });
         }
-      })
-    );
+      }
+    })
+  );
 
   return;
 }
 
 //my testimonial
 
+function renderTestimonial(data) {
+  let testimonialHTML = "";
+  let testimonialList = "";
+
+  // for (let i = 0; i < data.length; i++) {
+  // testimonialHTML += generateTestimonials(data[i]);
+  // }
+  const initialindex = Math.floor(Math.random() * data.length);
+
+  testimonialHTML = generateTestimonial(data[initialindex]);
+
+  const HTML = `<div class="testimonial-list">${testimonialHTML}</div>`;
+
+  document.querySelector(`#testimonials-block`).innerHTML = HTML;
+  return;
+}
+
+function generateTestimonial(data) {
+  return `<div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+          <div class="testimonial-text">${data.text}</div>
+          <div class="testimonial-autor">${data.autor}</div>
+          <div class="testimonial-pozition">${data.pozition}</div>`;
+}
+
 //my blogs
+function renderMyBlogs(data) {
+  // console.log(data);
+  let list = [];
+  let HTML = "";
+
+  for (let i = 0; i < data.length; i++) {
+    // console.log(data[i], data[i].category);
+    HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
+            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+            <div class="blogs-make">
+                <span>${data[i].date}</span>
+                <span>${data[i].category}</span>
+            </div>
+            <a href="#" class="blogs-make">${data[i].purpose}</a>
+            <p class="title">${data[i].comment}</p>
+            <a href="#" class="blogs-read">Read more</a>
+        </div>`;
+    document.querySelector(`#my-blogs-body`).innerHTML = HTML;
+  }
+  return HTML;
+}

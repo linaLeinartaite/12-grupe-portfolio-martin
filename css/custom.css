@@ -233,6 +233,82 @@
   display: inline-block;
 }
 
+.my_blogs {
+  display: inline-block;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
+          box-shadow: 0px 8px 15px var(--first-color-tr);
+}
+
+.my_blogs img {
+  width: 100%;
+}
+
+.my_blogs span {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 14px;
+  color: var(--first-color-tr);
+}
+
+.my_blogs span:nth-child(1) {
+  padding-right: 10px;
+  margin-right: 4px;
+  border-right: 1px solid var(--first-color-tr);
+}
+
+.my_blogs .blogs-make {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 18px;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: left;
+  text-decoration: none;
+  color: var(--fourth-color);
+}
+
+.my_blogs .blogs-make:hover {
+  color: var(--second-color);
+}
+
+.my_blogs p {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  padding: 0 18px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--first-color-tr);
+}
+
+.my_blogs .blogs-read {
+  padding: 1px 0;
+  float: left;
+  margin: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--second-color);
+  border-bottom: 2px solid var(--second-color);
+}
+
+.my_blogs .blogs-read:hover {
+  color: var(--fourth-color);
+  border-bottom-color: var(--fourth-color);
+}
+
+.my_blogs:hover img {
+  width: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+}
+
 .contact-me {
   background-color: var(--first-color-f3);
 }
@@ -281,14 +357,22 @@
 
 .contact-me-left button {
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: var(--second-color-anti);
+  background-color: var(--second-color-tr);
   -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
           box-shadow: 0px 8px 15px var(--first-color-tr);
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms;
 }
 
 .contact-me-left button:hover {
-  -webkit-box-shadow: 1px 15px 25px 2px var(--second-color-tr);
-          box-shadow: 1px 15px 25px 2px var(--second-color-tr);
+  border: none;
+  background-color: var(--first-color-anti);
+  -webkit-box-shadow: 0px 8px 55px var(--second-color);
+          box-shadow: 0px 8px 55px var(--second-color);
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
 }
 
 .contact-me-right {
@@ -301,7 +385,7 @@
 }
 
 .contact-me-right .data {
-  height: 120px;
+  height: 123px;
   margin-top: 5px;
 }
 
@@ -410,4 +494,3 @@ footer {
   padding-top: 26px;
   color: #888885;
 }
-/*# sourceMappingURL=custom.css.map */

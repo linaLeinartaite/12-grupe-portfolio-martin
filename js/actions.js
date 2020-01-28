@@ -13,7 +13,7 @@ renderServices(services);
 
 renderGallery(gallery);
 
-//testimonial
+renderTestimonial(testimonialdata);
 
 renderMyBlogs(blogs);
 

@@ -39,13 +39,24 @@ function renderTitles(data) {
   }
 }
 
+// hero
+function renderHero(hero) {
+  console.log (hero);
+
+  let HTML = ''
+  for (let i=0; i<hero.length; i++){
+    HTML += `<p>${hero[i].categ}</p>`
+  }
+  document.querySelector(`#categ`).innerHTML =HTML
+}
+
 //navigation bar
 function renderNavBar(data) {
   let HTML = `<a href="#home">home</a>`;
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
-    console.log(sections[i].dataset.nav);
+    // console.log(sections[i].dataset.nav);
     const text = sections[i].dataset.nav;
 
     HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
@@ -258,11 +269,8 @@ function renderGallery(data) {
 
 //my blogs
 function renderMyBlogs ( data ) {
-  console.log ( data);
   let HTML = '';
-
   for (let i=0; i<data.length; i++) {
-        console.log( data [i], data [i].category);
         HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
           <div class="blogs_img">
             <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i+1}">
@@ -277,20 +285,6 @@ function renderMyBlogs ( data ) {
         </div>`;
         document.querySelector(`#my-blogs-body`).innerHTML =HTML
     }
-  //   for (let i=0; i<data.length; i++) {
-  //     console.log( data [i], data [i].category);
-  //     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
-  //         <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i+1}">
-  //         <div class="blogs-make">
-  //             <span>${data[i].date}</span>
-  //             <span>${data[i].category}</span>
-  //         </div>
-  //         <a href="#" class="blogs-make">${data[i].purpose}</a>
-  //         <p class="title">${data[i].comment}</p>
-  //         <a href="#" class="blogs-read">Read more</a>
-  //     </div>`;
-  //     document.querySelector(`#my-blogs-body`).innerHTML =HTML
-  // }
     return
 }
 //my blogs end

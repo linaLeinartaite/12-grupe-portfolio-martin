@@ -5,6 +5,8 @@ renderTitles(titles);
 //nav bar
 renderNavBar(titles);
 
+renderHero(hero);
+
 renderResume(resume);
 
 renderServices(services);

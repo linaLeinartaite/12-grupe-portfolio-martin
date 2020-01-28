@@ -34,6 +34,16 @@ const titles = [
     }
 ]
 
+// hero
+const hero = [
+    {categ:'web design'},
+    {categ:'digital marketing'},
+    {categ:'ux design'},
+    {categ:'web development'},
+    {categ:'mobile apps'}
+]
+
+
 //navigation bar data
 
 const resume = [

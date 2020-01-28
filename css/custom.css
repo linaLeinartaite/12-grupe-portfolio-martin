@@ -327,6 +327,8 @@
 .my_blogs > .blogs_img img {
   display: inline-block;
   width: 100%;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
 }
 
 @media (max-width: 1300px) {
@@ -351,10 +353,6 @@
   .my_blogs .blogs_img {
     height: 100%;
   }
-}
-
-.my_blogs #about-me .block {
-  padding: 0;
 }
 
 .my_blogs span {
@@ -416,9 +414,9 @@
 }
 
 .my_blogs:hover img {
-  width: 110%;
-  margin-left: -5%;
-  margin-top: -5%;
+  width: 120%;
+  margin-left: -10%;
+  margin-top: -10%;
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
 }

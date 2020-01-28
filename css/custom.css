@@ -166,6 +166,11 @@
 }
 
 @media (max-width: 1100px) {
+  .container.hero .row.nav-bar {
+    width: calc(100% + 10px);
+    left: -5px;
+    padding-left: 10px;
+  }
   .container.hero .row.nav-bar button.nav-burger {
     display: inline-block;
     margin-top: 0;
@@ -208,6 +213,9 @@
   }
   .container.hero .row.nav-burger-row .nav-burger-items a:first-of-type {
     border-top: 1px solid var(--first-color-f3);
+  }
+  .container.hero .row.nav-burger-row .nav-burger-items a.activeSection {
+    color: var(--second-color);
   }
 }
 

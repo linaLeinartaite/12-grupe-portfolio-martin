@@ -127,14 +127,10 @@
 .hero-content{
   display: inline-block;
   text-align: center;
-
   >.col{
     display: inline-block;
     margin-top: 200px;
     color: var(--third-color);
-
-    // position: absolute;
-    
   }
     .hello{
       display: inline-block;
@@ -151,13 +147,13 @@
       letter-spacing: 5px;
       line-height: 100px;
     }
-    .categ{
+    #categ{
       display: inline-block;
       width: 100%;
       p{
         display: inline-block;
         margin: 20px 0 30px;
-        padding: 0 10px 0 6px;
+        padding: 0 8px;
         border-right: 1px solid;
         font-size: 15px;
         line-height: 16px;
@@ -188,7 +184,7 @@
         font-size: 50px;
         line-height: 60px;
       }
-      .categ>p{
+      #categ>p{
         width: 100%;
         margin: 10px;
         border: none;

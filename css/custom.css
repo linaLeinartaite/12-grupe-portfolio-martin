@@ -154,22 +154,22 @@
   line-height: 100px;
 }
 
-.hero-content .categ {
+.hero-content #categ {
   display: inline-block;
   width: 100%;
 }
 
-.hero-content .categ p {
+.hero-content #categ p {
   display: inline-block;
   margin: 20px 0 30px;
-  padding: 0 10px 0 6px;
+  padding: 0 8px;
   border-right: 1px solid;
   font-size: 15px;
   line-height: 16px;
   text-transform: uppercase;
 }
 
-.hero-content .categ p:nth-child(5) {
+.hero-content #categ p:nth-child(5) {
   border: none;
 }
 
@@ -202,7 +202,7 @@
     font-size: 50px;
     line-height: 60px;
   }
-  .hero-content .categ > p {
+  .hero-content #categ > p {
     width: 100%;
     margin: 10px;
     border: none;

@@ -34,14 +34,16 @@ const titles = [
     }
 ]
 
-// hero
+// hero data
 const hero = [
     {categ:'web design'},
     {categ:'digital marketing'},
     {categ:'ux design'},
     {categ:'web development'},
-    {categ:'mobile apps'}
+    {categ:'mobile apps'},
+    // {categ:'papildomas lievakas'},
 ]
+// hero data end
 
 
 //navigation bar data
@@ -216,26 +218,4 @@ const blogs = [
         comment: "Dolor ipsum lorem sit amet, consectetur adipisicing elit.",
     },
 ]
-// const blogs = [
-//     {
-//         img: "./img/gallery/blog-1.jpg",
-//         date: "2019 - 11 - 11",
-//         category: "Design",
-//         purpose: "Make your Marketing website",
-//         comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-//     },
-//     {
-//         img: "./img/gallery/blog-2.jpg",
-//         date: "2019 - 12 - 12",
-//         category: "Design",
-//         purpose: "Make your Marketing website",
-//         comment: "Ipsum dolor lorem sit amet, consectetur adipisicing elit.",
-//     },
-//     {
-//         img: "./img/gallery/blog-3.jpg",
-//         date: "2020 - 01 - 20",
-//         category: "Design",
-//         purpose: "Make your Marketing website",
-//         comment: "Dolor ipsum lorem sit amet, consectetur adipisicing elit.",
-//     },
-// ]
+// blogd data end

@@ -169,7 +169,7 @@
   text-transform: uppercase;
 }
 
-.hero-content #categ p:nth-child(5) {
+.hero-content #categ p:last-child {
   border: none;
 }
 

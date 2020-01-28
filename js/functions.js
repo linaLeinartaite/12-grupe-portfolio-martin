@@ -45,7 +45,7 @@ function renderNavBar(data) {
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
-    console.log(sections[i].dataset.nav);
+    // console.log(sections[i].dataset.nav);
     const text = sections[i].dataset.nav;
 
     HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
@@ -230,7 +230,8 @@ function renderGallery(data) {
 
       //einam per catList'a (turinti unikalias categorijas):
       for (let i = 0; i < catList.length; i++) {
-        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
+        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir
+        //  tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
         if (catList[i].catName === click.innerText.toLowerCase()) {
           document
             .querySelectorAll("#my-portfolio .gallery-item")
@@ -255,6 +256,7 @@ function renderGallery(data) {
 //my testimonial
 
 function renderTestimonial(data) {
+  let DOM = document.querySelector(`#testimonials-block`);
   let testimonialHTML = "";
   let testimonialList = "";
 
@@ -264,18 +266,50 @@ function renderTestimonial(data) {
   const initialindex = Math.floor(Math.random() * data.length);
 
   testimonialHTML = generateTestimonial(data[initialindex]);
+  console.log(initialindex);
+  const HTML = `<div class="col unit-12-col">${testimonialHTML}</div>`;
 
-  const HTML = `<div class="testimonial-list">${testimonialHTML}</div>`;
-
-  document.querySelector(`#testimonials-block`).innerHTML = HTML;
+  DOM.innerHTML = HTML;
+  const arrows = DOM.querySelectorAll(".testimonials-controls> .i0");
+  console.log(arrows);
+  arrows.forEach(arrow => arrow.addEventListener("click", updatetestimonials));
   return;
 }
-
 function generateTestimonial(data) {
-  return `<div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-          <div class="testimonial-text">${data.text}</div>
-          <div class="testimonial-autor">${data.autor}</div>
-          <div class="testimonial-pozition">${data.pozition}</div>`;
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let d = 0;
+  if (data.img == "team-1.jpg") {
+    (a = 1), (b = 0), (c = 0), (d = 0);
+  }
+  if (data.img == "team-2.jpg") {
+    (a = 0), (b = 1), (c = 0), (d = 0);
+  }
+  if (data.img == "team-3.jpg") {
+    (a = 0), (b = 0), (c = 1), (d = 0);
+  }
+  if (data.img == "team-4.jpg") {
+    (a = 0), (b = 0), (c = 0), (d = 1);
+  }
+
+  return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
+            <div class=" testimonial-list">
+              <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+              <div class="testimonial-text">${data.text}</div>
+              <div class="testimonial-autor">${data.autor}</div>
+              <div class="testimonial-pozition">${data.pozition}</div>
+            </div>
+          </div>
+          <div class="testimonials-controls unit-7-col">
+            <div class="i${a} is-0"></div>
+            <div class="i${b} is-1"></div>
+            <div class="i${c} is-2"></div>
+            <div class="i${d} is-3"></div>            
+          </div>`;
+}
+function updatetestimonials() {
+  console.log("tectim...");
 }
 
 //my blogs

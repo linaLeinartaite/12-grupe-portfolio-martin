@@ -206,7 +206,7 @@ const testimonialdata = [
     img: "team-3.jpg",
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
-    pozicion: "Co-founder"
+    pozition: "Co-founder"
   },
   {
     autor: "Barbara Bayers",

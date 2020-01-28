@@ -60,6 +60,7 @@ function renderNavBar() {
     </a>`;
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
+  document.querySelector(".nav-burger-items").innerHTML = HTML;
   return;
 }
 // pakeiciame navBar stiliu nuskrolinus zemyn 300px;
@@ -77,7 +78,7 @@ function onScroll() {
   //window.scrollBy windowscrollTo
   // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
 
-  if (window.scrollY >= 300) {
+  if (window.scrollY >= 250) {
     navBar.classList.add("nav-bar-scroll");
     navBarList.forEach((item) => item.classList.add("a-scroll"));
     navBarLogo.classList.add("logo-scroll");
@@ -114,6 +115,24 @@ function activeSection() {
       }
     });
   }
+}
+
+function navBurgerTogle() {
+  let burgerBtn = document.querySelector("button.nav-burger");
+  let burgerItemsA = document.querySelectorAll(".nav-burger-items a");
+  let burgerItems = document.querySelector(".nav-burger-items");
+
+  burgerBtn.addEventListener("click", () => {
+    burgerItems.classList.toggle("active");
+  });
+
+  burgerItemsA.forEach((item) => {
+    item.addEventListener("click", () => {
+      burgerItems.classList.remove("active");
+    });
+  });
+
+  return;
 }
 
 function renderResume(data) {

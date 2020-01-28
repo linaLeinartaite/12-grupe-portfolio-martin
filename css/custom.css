@@ -100,7 +100,7 @@
 .container.hero .row.nav-bar .nav-items > a {
   text-decoration: none;
   text-transform: capitalize;
-  color: white;
+  color: var(--third-color);
   font-weight: bold;
   padding-left: 20px;
   font-size: 16px;
@@ -112,10 +112,14 @@
   color: var(--second-color);
 }
 
+.container.hero .row.nav-bar .nav-items > a.activeSection:first-of-type {
+  color: var(--third-color);
+}
+
 .container.hero .row.nav-bar .nav-items > a::after {
   position: absolute;
   left: 20px;
-  bottom: -28px;
+  bottom: -26px;
   content: "";
   width: 0;
   height: 3px;
@@ -138,6 +142,10 @@
   color: var(--fourth-color);
 }
 
+.container.hero .row.nav-bar a.a-scroll:first-of-type {
+  color: var(--fourth-color);
+}
+
 .container.hero .row.nav-bar.nav-bar-scroll {
   background-color: var(--third-color);
   border-bottom: none;
@@ -149,12 +157,57 @@
   background-color: var(--second-color);
 }
 
+.container.hero .row.nav-bar.nav-bar-scroll a.a-scroll:first-of-type {
+  color: var(--fourth-color);
+}
+
+.container.hero .nav-burger-items a {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .container.hero .row.nav-bar button.nav-burger {
     display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .container.hero .row.nav-bar .nav-items {
     display: none;
+  }
+  .container.hero .row.nav-burger-row {
+    margin: 0;
+    padding: 0;
+    width: calc(100% + 20px);
+    float: left;
+    position: fixed;
+    top: 66px;
+    right: 0;
+    left: -10px;
+    bottom: 0;
+    z-index: 1;
+  }
+  .container.hero .row.nav-burger-row .nav-burger-items {
+    display: none;
+  }
+  .container.hero .row.nav-burger-row .nav-burger-items.active {
+    display: inline-block;
+  }
+  .container.hero .row.nav-burger-row .nav-burger-items a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 25px;
+    border-bottom: 1px solid var(--first-color-f3);
+    font-weight: bold;
+    padding: 15px;
+    font-size: 12px;
+    font-weight: 850;
+    color: var(--fourth-color);
+    background-color: var(--third-color);
+  }
+  .container.hero .row.nav-burger-row .nav-burger-items a:first-of-type {
+    border-top: 1px solid var(--first-color-f3);
   }
 }
 

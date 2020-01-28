@@ -6,6 +6,7 @@ renderTitles(titles);
 renderNavBar();
 window.addEventListener("scroll", onScroll);
 activeSection();
+navBurgerTogle();
 
 renderResume(resume);
 

@@ -39,6 +39,17 @@ function renderTitles(data) {
   }
 }
 
+// hero
+function renderHero(hero) {
+  console.log(hero);
+
+  let HTML = "";
+  for (let i = 0; i < hero.length; i++) {
+    HTML += `<p>${hero[i].categ}</p>`;
+  }
+  document.querySelector(`#categ`).innerHTML = HTML;
+}
+
 //navigation bar
 function renderNavBar(data) {
   let HTML = `<a href="#home">home</a>`;
@@ -230,8 +241,7 @@ function renderGallery(data) {
 
       //einam per catList'a (turinti unikalias categorijas):
       for (let i = 0; i < catList.length; i++) {
-        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir
-        //  tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
+        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
         if (catList[i].catName === click.innerText.toLowerCase()) {
           document
             .querySelectorAll("#my-portfolio .gallery-item")
@@ -314,14 +324,12 @@ function updatetestimonials() {
 
 //my blogs
 function renderMyBlogs(data) {
-  // console.log(data);
-  let list = [];
   let HTML = "";
-
   for (let i = 0; i < data.length; i++) {
-    // console.log(data[i], data[i].category);
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
+          <div class="blogs_img">
             <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+          </div>
             <div class="blogs-make">
                 <span>${data[i].date}</span>
                 <span>${data[i].category}</span>
@@ -332,5 +340,6 @@ function renderMyBlogs(data) {
         </div>`;
     document.querySelector(`#my-blogs-body`).innerHTML = HTML;
   }
-  return HTML;
+  return;
 }
+//my blogs end

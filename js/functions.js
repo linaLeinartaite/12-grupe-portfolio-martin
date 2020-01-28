@@ -41,13 +41,13 @@ function renderTitles(data) {
 
 // hero
 function renderHero(hero) {
-  console.log (hero);
+  console.log(hero);
 
-  let HTML = ''
-  for (let i=0; i<hero.length; i++){
-    HTML += `<p>${hero[i].categ}</p>`
+  let HTML = "";
+  for (let i = 0; i < hero.length; i++) {
+    HTML += `<p>${hero[i].categ}</p>`;
   }
-  document.querySelector(`#categ`).innerHTML =HTML
+  document.querySelector(`#categ`).innerHTML = HTML;
 }
 
 //navigation bar
@@ -80,11 +80,11 @@ function onScroll() {
   // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
   if (window.scrollY >= 300) {
     navBar.classList.add("nav-bar-scroll");
-    navBarList.forEach((item) => item.classList.add("a-scroll"));
+    navBarList.forEach(item => item.classList.add("a-scroll"));
     navBarLogo.classList.add("logo-scroll");
   } else {
     navBar.classList.remove("nav-bar-scroll");
-    navBarList.forEach((item) => item.classList.remove("a-scroll"));
+    navBarList.forEach(item => item.classList.remove("a-scroll"));
     navBarLogo.classList.remove("logo-scroll");
   }
 }
@@ -184,7 +184,7 @@ function renderGallery(data) {
   }
 
   //einam per data (gallery in data.js):
-  data.forEach((item) => {
+  data.forEach(item => {
     //1. generuojam meniu (su duplikatais):
     //1.a. paskleidziam category kiekvienos item(nuotraukos) arrejuje:
     categories = [...item.category];
@@ -203,7 +203,7 @@ function renderGallery(data) {
     */
   const menuUq = menu.filter((item, index) => menu.indexOf(item) === index);
 
-  menuUq.forEach((cat) => {
+  menuUq.forEach(cat => {
     menuHTML += `<div class="menu-item col">${cat}<div class="line hide"></div></div>`;
   });
 
@@ -222,58 +222,113 @@ function renderGallery(data) {
   let catList = [];
   for (let i = 0; i < menuUq.length; i++) {
     catList[i] = { catName: menuUq[i], imgList: [] };
-    data.forEach((item) => {
+    data.forEach(item => {
       if (item.category.includes(menuUq[i])) {
         catList[i].imgList.push(item.img);
       }
     });
   }
   //selektinam ir pridedam reagavima i paspaudima visoms menu-item:
-  document
-    .querySelectorAll("#my-portfolio-content .menu-item")
-    .forEach((click) =>
-      click.addEventListener("click", (event) => {
-        // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
-        document
-          .querySelectorAll(".menu-item div.line")
-          .forEach((a) => a.classList.remove("show"));
+  document.querySelectorAll("#my-portfolio-content .menu-item").forEach(click =>
+    click.addEventListener("click", event => {
+      // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
+      document
+        .querySelectorAll(".menu-item div.line")
+        .forEach(a => a.classList.remove("show"));
 
-        // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
-        click.querySelector(".menu-item div.line").classList.add("show");
+      // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
+      click.querySelector(".menu-item div.line").classList.add("show");
 
-        //einam per catList'a (turinti unikalias categorijas):
-        for (let i = 0; i < catList.length; i++) {
-          //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
-          if (catList[i].catName === click.innerText.toLowerCase()) {
-            document
-              .querySelectorAll("#my-portfolio .gallery-item")
-              .forEach((item) => {
-                item.classList.add("hide");
-              });
-
-            catList[i].imgList.forEach((img) => {
-              document
-                .querySelector(`[alt="${img}"]`)
-                .closest("div")
-                .classList.remove("hide");
+      //einam per catList'a (turinti unikalias categorijas):
+      for (let i = 0; i < catList.length; i++) {
+        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
+        if (catList[i].catName === click.innerText.toLowerCase()) {
+          document
+            .querySelectorAll("#my-portfolio .gallery-item")
+            .forEach(item => {
+              item.classList.add("hide");
             });
-          }
+
+          catList[i].imgList.forEach(img => {
+            document
+              .querySelector(`[alt="${img}"]`)
+              .closest("div")
+              .classList.remove("hide");
+          });
         }
-      })
-    );
+      }
+    })
+  );
 
   return;
 }
 
 //my testimonial
 
+function renderTestimonial(data) {
+  let DOM = document.querySelector(`#testimonials-block`);
+  let testimonialHTML = "";
+  let testimonialList = "";
+
+  // for (let i = 0; i < data.length; i++) {
+  // testimonialHTML += generateTestimonials(data[i]);
+  // }
+  const initialindex = Math.floor(Math.random() * data.length);
+
+  testimonialHTML = generateTestimonial(data[initialindex]);
+  console.log(initialindex);
+  const HTML = `<div class="col unit-12-col">${testimonialHTML}</div>`;
+
+  DOM.innerHTML = HTML;
+  const arrows = DOM.querySelectorAll(".testimonials-controls> .i0");
+  console.log(arrows);
+  arrows.forEach(arrow => arrow.addEventListener("click", updatetestimonials));
+  return;
+}
+function generateTestimonial(data) {
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let d = 0;
+  if (data.img == "team-1.jpg") {
+    (a = 1), (b = 0), (c = 0), (d = 0);
+  }
+  if (data.img == "team-2.jpg") {
+    (a = 0), (b = 1), (c = 0), (d = 0);
+  }
+  if (data.img == "team-3.jpg") {
+    (a = 0), (b = 0), (c = 1), (d = 0);
+  }
+  if (data.img == "team-4.jpg") {
+    (a = 0), (b = 0), (c = 0), (d = 1);
+  }
+
+  return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
+            <div class=" testimonial-list">
+              <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+              <div class="testimonial-text">${data.text}</div>
+              <div class="testimonial-autor">${data.autor}</div>
+              <div class="testimonial-pozition">${data.pozition}</div>
+            </div>
+          </div>
+          <div class="testimonials-controls unit-7-col">
+            <div class="i${a} is-0"></div>
+            <div class="i${b} is-1"></div>
+            <div class="i${c} is-2"></div>
+            <div class="i${d} is-3"></div>            
+          </div>`;
+}
+function updatetestimonials() {
+  console.log("tectim...");
+}
+
 //my blogs
-function renderMyBlogs ( data ) {
-  let HTML = '';
-  for (let i=0; i<data.length; i++) {
-        HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
+function renderMyBlogs(data) {
+  let HTML = "";
+  for (let i = 0; i < data.length; i++) {
+    HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
           <div class="blogs_img">
-            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i+1}">
+            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
           </div>
             <div class="blogs-make">
                 <span>${data[i].date}</span>
@@ -283,10 +338,8 @@ function renderMyBlogs ( data ) {
             <p class="title">${data[i].comment}</p>
             <a href="#" class="blogs-read">Read more</a>
         </div>`;
-        document.querySelector(`#my-blogs-body`).innerHTML =HTML
-    }
-    return
+    document.querySelector(`#my-blogs-body`).innerHTML = HTML;
+  }
+  return;
 }
 //my blogs end
-
-

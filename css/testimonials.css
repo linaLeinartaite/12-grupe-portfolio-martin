@@ -1,1 +1,89 @@
-/* No CSS */
+@charset "UTF-8";
+.testimonials-fonas {
+  display: inline-block;
+  padding: 90px 0 90px;
+  background-color: var(--first-color-f3);
+}
+
+.testimonials-content {
+  display: inline-block;
+  background-color: var(--third-color);
+  padding-bottom: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0px 8px 15px var(--first-color-tr);
+  box-shadow: 0px 8px 15px var(--first-color-tr);
+}
+
+.testimonials-content .testimonial-list {
+  width: 100%;
+}
+
+.testimonials-content .testimonial-list .testimonial-foto {
+  padding-top: 70px;
+}
+
+.testimonials-content .testimonial-list .testimonial-foto > img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+.testimonials-content .testimonial-list .testimonial-foto > img:hover {
+  width: 90%;
+  height: 90%;
+  border-radius: 1%;
+}
+
+.testimonials-content .testimonial-list .testimonial-text {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 0 25px;
+  font-size: 20px;
+  color: var(--first-color-tr);
+}
+
+.testimonials-content .testimonial-list .testimonial-autor {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.testimonials-content .testimonial-list .testimonial-pozition {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: var(--first-color-tr);
+}
+
+.testimonials-controls {
+  display: inline-block;
+  margin-top: 35px;
+}
+
+.testimonials-controls .i0 {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 3px 5px;
+  border: 1px solid var(--second-color);
+  background-color: var(--third-color);
+  cursor: pointer;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+
+.testimonials-controls .i1 {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 3px 5px;
+  border: 1px solid var --second-color;
+  background-color: var(--second-color);
+  cursor: pointer;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}

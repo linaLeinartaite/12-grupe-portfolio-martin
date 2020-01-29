@@ -180,6 +180,7 @@
     display: none;
   }
   .container.hero .row.nav-burger-row {
+    display: none;
     margin: 0;
     padding: 0;
     width: calc(100% + 20px);
@@ -191,10 +192,7 @@
     bottom: 0;
     z-index: 1;
   }
-  .container.hero .row.nav-burger-row .nav-burger-items {
-    display: none;
-  }
-  .container.hero .row.nav-burger-row .nav-burger-items.active {
+  .container.hero .row.nav-burger-row.active {
     display: inline-block;
   }
   .container.hero .row.nav-burger-row .nav-burger-items a {

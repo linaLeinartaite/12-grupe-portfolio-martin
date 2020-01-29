@@ -3,3 +3,5 @@
 // suziureti kad padding-bottom butu tvarkoje (eitu nuo konteinerio)
 
 //dava-nav = Cantact Me (nuimti me);
+
+//prideti toki dalyka kad tik uzlaudinus puslapi ir paspaudus burger'i Home (ar sekcija kurioj esi) iskart butut raudonas 

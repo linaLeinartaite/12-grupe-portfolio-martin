@@ -120,15 +120,15 @@ function activeSection() {
 function navBurgerTogle() {
   let burgerBtn = document.querySelector("button.nav-burger");
   let burgerItemsA = document.querySelectorAll(".nav-burger-items a");
-  let burgerItems = document.querySelector(".nav-burger-items");
+  let burgerRow = document.querySelector(".row.nav-burger-row");
 
   burgerBtn.addEventListener("click", () => {
-    burgerItems.classList.toggle("active");
+    burgerRow.classList.toggle("active");
   });
 
   burgerItemsA.forEach((item) => {
     item.addEventListener("click", () => {
-      burgerItems.classList.remove("active");
+      burgerRow.classList.remove("active");
     });
   });
 

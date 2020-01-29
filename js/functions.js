@@ -282,7 +282,7 @@ function renderTestimonial(data) {
   DOM.innerHTML = HTML;
   const arrows = DOM.querySelectorAll(".testimonials-controls> .i0");
   console.log(arrows);
-  arrows.forEach(arrow => arrow.addEventListener("click", updatetestimonials));
+  arrows.forEach(arrow => arrow.addEventListener("click", updateTestimonials));
   return;
 }
 function generateTestimonial(data) {
@@ -318,7 +318,7 @@ function generateTestimonial(data) {
             <div class="i${d} is-3"></div>            
           </div>`;
 }
-function updatetestimonials() {
+function updateTestimonials() {
   console.log("tectim...");
 }
 

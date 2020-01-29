@@ -9,27 +9,39 @@
   </head>
   <body>
     <!-- Navitation Bar-->
-    <div class="container hero" id="home">
+    <div class="container hero" id="home" data-nav="home">
       <nav class="row nav-bar">
-        <div class="col unit-1-col logo">
+        <div class="col unit-2-col unit-9-col-md logo left">
           <a class="a " href="#">martin</a>
         </div>
-        <div class="col unit-7-col unit-4-ml nav-items">
+        <div class="col unit-3-ml unit-1-ml-md"></div>
+        <div class="col unit-7-col nav-items right">
           <!-- renderNavBar(data) -->
         </div>
+        <button class="nav-burger col unit-2-col-md">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
       </nav>
-      
-<!-- hero (part after navigation bar ) -->
+      <div class="row nav-burger-row">
+        <div class="col unit-12-col-md nav-burger-items left">
+          <!-- renderNavBar(data) -->
+        </div>
+      </div>
+
+      <!-- hero (part after navigation bar ) -->
+
       <div class="row hero-content">
         <div class="col unit-12-col">
           <span class="hello">Hello! i'm</span>
           <span class="ml">Martin Luther</span>
-          <span ID="categ"></span> <!-- funcija sudeda darbuotojo kategorijas is "data.js" const HERO = [] -->
+          <span ID="categ"></span>
+          <!-- funcija sudeda darbuotojo kategorijas is "data.js" const HERO = [] -->
           <a class="btn-red" href="#contact-me">Let's talk new</a>
         </div>
       </div>
     </div>
-<!-- hero end -->
+
+    <!-- hero end -->
 
     <!-- About Me section -->
     <div class="container" id="about-me" data-nav="about">
@@ -104,67 +116,84 @@
     </div>
 
     <!-- My Blogs -->
-    <div class="container" id="my-blogs" data-nav="My Blogs">
-        <div class="row" id="my-blogs-title"></div>
-        <div class="row" id="my-blogs-body"></div>
+
+    <div class="container" id="my-blogs" data-nav="blogs">
+      <div class="row" id="my-blogs-title"></div>
+      <div class="row" id="my-blogs-body"></div>
     </div>
-    
+
     <!-- contact me -->
+
     <div class="container contact-me" id="contact-me" data-nav="Contact">
-        <div class="row"id="contact-me-title"></div>   
-            <div class="row contact-me-content ">
-                <div class="contact-me-left col unit-7-col unit-12-col-lg">
-                    <i class="fa fa-paper-plane col unit-2-col" aria-hidden="true"></i>
-                    <h1 class=" col unit-10-col">  Drop us a line</h1>    
-                    <p class=" col unit-10-col">  We are here to answer any question you may have</p>
-                   
-                    <div class="col unit-6-col unit-12-col-sm ">                        
-                        <input  type="text" placeholder="Name"name="Name">
-                    </div>
-                    <div class="col unit-6-col unit-12-col-sm ">
-                        <input  type="email" placeholder="Email" name="Email">
-                    </div> 
-                    <div class="yuor-com col unit-12-col">
-                        <textarea type="text" placeholder="Your-Comment"name="Your-Comment required"></textarea>
-                    </div>
-                    <div class="contact-me-btn col unit-12-col-sm">
-                    <button class="btn btn-red">GET IN TOUCH</button>
-                    </div>  
-                </div>                                                                                                                                                
-                <div class="contact-me-right col unit-5-col unit-12-col-lg" >  
-                    <div class="data">
-                        <div class="icon">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </div>
-                        <div class="section">
-                            <p class="section-title">Address<p>
-                            <p class="section-information">123 6th St. Melbourne ,<br>FL 32904, USA</p> 
-                        </div>                      
-                    </div>
-                    <div class="data">
-                        <div class="icon">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        </div>
-                        <div class="section">
-                            <p class="section-title">Email<p>
-                            <p class="section-information">info@yourdomain.com<br>sale@yourdomain.com</p> 
-                        </div>                      
-                    </div>
-                    <div class="data phone">
-                        <div class="icon">
-                            <i class="fa fa-mobile" aria-hidden="true"></i>
-                        </div>
-                        <div class="section">
-                            <p class="section-title">Phone<p>
-                            <p class="section-information">Mob: +01 000 000 000<br>Fax :  +01 000 000 000</p> 
-                        </div>                      
-                    </div>                    
-                </div>                                
-            </div>         
-    </div> 
-    
-<!-- footer -->
-      <footer class="container">
+      <div class="row" id="contact-me-title"></div>
+      <div class="row contact-me-content ">
+        <div class="contact-me-left col unit-7-col unit-12-col-lg">
+          <i class="fa fa-paper-plane col unit-2-col" aria-hidden="true"></i>
+          <h1 class=" col unit-10-col">Drop us a line</h1>
+          <p class=" col unit-10-col">
+            We are here to answer any question you may have
+          </p>
+
+          <div class="col unit-6-col unit-12-col-sm ">
+            <input type="text" placeholder="Name" name="Name" />
+          </div>
+          <div class="col unit-6-col unit-12-col-sm ">
+            <input type="email" placeholder="Email" name="Email" />
+          </div>
+          <div class="yuor-com col unit-12-col">
+            <textarea
+              type="text"
+              placeholder="Your-Comment"
+              name="Your-Comment required"
+            ></textarea>
+          </div>
+          <div class="contact-me-btn col unit-12-col-sm">
+            <button class="btn btn-red">GET IN TOUCH</button>
+          </div>
+        </div>
+        <div class="contact-me-right col unit-5-col unit-12-col-lg">
+          <div class="data">
+            <div class="icon">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </div>
+            <div class="section">
+              <p class="section-title">Address</p>
+              <p></p>
+              <p class="section-information">
+                123 6th St. Melbourne ,<br />FL 32904, USA
+              </p>
+            </div>
+          </div>
+          <div class="data">
+            <div class="icon">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </div>
+            <div class="section">
+              <p class="section-title">Email</p>
+              <p></p>
+              <p class="section-information">
+                info@yourdomain.com<br />sale@yourdomain.com
+              </p>
+            </div>
+          </div>
+          <div class="data phone">
+            <div class="icon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+            </div>
+            <div class="section">
+              <p class="section-title">Phone</p>
+              <p></p>
+              <p class="section-information">
+                Mob: +01 000 000 000<br />Fax : +01 000 000 000
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="container">
       <div class="sp">
         <p>Martin</p>
       </div>

@@ -23,17 +23,17 @@ function renderTitles(data) {
 
     if (data[i].span === "my") {
       HTML = `<div class="head col unit-12-col">
-            <h2 class=""><span>${data[i].span} </span>${data[i].main}</h2>
-            <div class="line"></div>
-            </div>`;
+      <h2 class=""><span>${data[i].span} </span>${data[i].main}</h2>
+      <div class="line"></div>
+      </div>`;
       document.querySelector(`#${data[i].id}-title`).innerHTML = HTML;
     }
 
     if (data[i].span === "me") {
       HTML = `<div class="head col unit-12-col">
-            <h2 class="">${data[i].main} <span>${data[i].span}</span></h2>
-            <div class="line"></div>
-            </div>`;
+      <h2 class="">${data[i].main} <span>${data[i].span}</span></h2>
+      <div class="line"></div>
+      </div>`;
       document.querySelector(`#${data[i].id}-title`).innerHTML = HTML;
     }
   }
@@ -51,42 +51,99 @@ function renderHero(hero) {
 }
 
 //navigation bar
-function renderNavBar(data) {
-  let HTML = `<a href="#home">home</a>`;
+function renderNavBar() {
+  let HTML = "";
+  //pazymim visas sekcijas ir per jas ciklinam:
   const sections = document.querySelectorAll("[data-nav]");
 
   for (let i = 0; i < sections.length; i++) {
-    // console.log(sections[i].dataset.nav);
     const text = sections[i].dataset.nav;
+    /*
+    as pasiemiau id  is titles (data.js) nes ten jie buvo naudoti title generavimui;
+    kitas budas (ir AKIVAIZDZIAI GERESNIS !!!) >>
+    
+    !!!           `<a href="#${sections[i].id}">`
+    
+    tokiu budu PASIEKIAMAS atitinkamas ID (querySelectorAll grazina arrejuje esancius html'elementus ir taip iseina kad ju atributai  (bent kai kurie (ne class pav)) gali buti pasiekti per taska??):
+    */
 
-    HTML += `<a href="#${data[i].id}">${text[0].toUpperCase() +
-      text.slice(1)}</a>`; //this 'long thing starting charAt(0)' is needed to cappitalize (since Css does not work for that)??
+    HTML += `<a href="#${sections[i].id}">${text}
+    </a>`;
   }
   document.querySelector(".nav-bar .nav-items").innerHTML = HTML;
+  document.querySelector(".nav-burger-items").innerHTML = HTML;
   return;
 }
-
 // pakeiciame navBar stiliu nuskrolinus zemyn 300px;
-window.addEventListener("scroll", onScroll);
 
 function onScroll() {
   let navBar = document.querySelector("nav.row.nav-bar");
-
   let navBarList = document.querySelectorAll(".nav-items > a");
-
   let navBarLogo = document.querySelector(".nav-bar > .logo > a");
 
   //!!
+  //el.getBoundingClientRect() >>//grazina objekta turinti info apie tai kur tas elementas yra;
+  //.getBoundingClientRect().right
+  //screenHeight==window.innerHeight;
+  //el.offsetTop ==>>palygina kiek zemai yra elementas lyginant su visu body ellementu;
+  //window.scrollBy windowscrollTo
   // window.scrollY >>> parodo kiek px pasiskrolines ekranas:
-  if (window.scrollY >= 300) {
+
+  if (window.scrollY >= 250) {
     navBar.classList.add("nav-bar-scroll");
-    navBarList.forEach(item => item.classList.add("a-scroll"));
+    navBarList.forEach((item) => item.classList.add("a-scroll"));
     navBarLogo.classList.add("logo-scroll");
   } else {
     navBar.classList.remove("nav-bar-scroll");
-    navBarList.forEach(item => item.classList.remove("a-scroll"));
+    navBarList.forEach((item) => item.classList.remove("a-scroll"));
     navBarLogo.classList.remove("logo-scroll");
   }
+}
+
+function activeSection() {
+  const sections = document.querySelectorAll("[data-nav]");
+  const navBar = document.querySelector(".nav-bar");
+
+  for (let i = 0; i < sections.length; i++) {
+    window.addEventListener("scroll", (event) => {
+      if (
+        window.scrollY + navBar.clientHeight >
+          sections[i].getBoundingClientRect().top + window.scrollY &&
+        window.scrollY + navBar.clientHeight <
+          sections[i].getBoundingClientRect().bottom + window.scrollY
+      ) {
+        document
+          .querySelectorAll(`[href="#${sections[i].id}"]`)
+          .forEach((item) => {
+            item.classList.add("activeSection");
+          });
+      } else {
+        document
+          .querySelectorAll(`[href="#${sections[i].id}"]`)
+          .forEach((item) => {
+            item.classList.remove("activeSection");
+          });
+      }
+    });
+  }
+}
+
+function navBurgerTogle() {
+  let burgerBtn = document.querySelector("button.nav-burger");
+  let burgerItemsA = document.querySelectorAll(".nav-burger-items a");
+  let burgerRow = document.querySelector(".row.nav-burger-row");
+
+  burgerBtn.addEventListener("click", () => {
+    burgerRow.classList.toggle("active");
+  });
+
+  burgerItemsA.forEach((item) => {
+    item.addEventListener("click", () => {
+      burgerRow.classList.remove("active");
+    });
+  });
+
+  return;
 }
 
 function renderResume(data) {
@@ -105,28 +162,27 @@ function renderResume(data) {
   } else {
     for (let i = 0; i < data.length / 2; i++) {
       box += `
-            <h5>${data[i].company}</h5>
-            <i><p>${data[i].dates}</p></i>
-            <p>${data[i].exp}</p> `;
+        <h5>${data[i].company}</h5>
+        <i><p>${data[i].dates}</p></i>
+        <p>${data[i].exp}</p> `;
     }
     HTML += `
-        <div class="block left col unit-6-col unit-12-col-sm">
-        <h4>Work</h4>
-        ${box}
-        </div>`;
-    //.clientHeight()
+      <div class="block left col unit-6-col unit-12-col-sm">
+      <h4>Work</h4>
+      ${box}
+      </div>`;
     box = "";
     for (let i = Math.ceil(data.length / 2); i < data.length; i++) {
       box += `
-            <h5>${data[i].company}</h5>       
-            <i><p>${data[i].dates}</p></i>
-            <p>${data[i].exp}</p> `;
+        <h5>${data[i].company}</h5>       
+        <i><p>${data[i].dates}</p></i>
+        <p>${data[i].exp}</p> `;
     }
     HTML += `
-        <div class="block left col unit-6-col unit-12-col-sm">
-        <h4>Work</h4>
-        ${box}
-        </div>`;
+      <div class="block left col unit-6-col unit-12-col-sm">
+      <h4>Work</h4>
+      ${box}
+      </div>`;
 
     document.querySelector("#my-resume-content").innerHTML = HTML;
 
@@ -152,10 +208,10 @@ function renderServices(data) {
   } else {
     for (let i = 0; i < data.length; i++) {
       HTML += `<div class="block block-hover center col unit-4-col unit-6-col-sm unit-12-col-xxs">
-            <i class=" ico fa fa-${data[i].icon}" aria-hidden="true"></i>
-            <h3>${data[i].title}</h3>   
-            <p>${data[i].description}</p>
-            </div>`;
+        <i class=" ico fa fa-${data[i].icon}" aria-hidden="true"></i>
+        <h3>${data[i].title}</h3>   
+        <p>${data[i].description}</p>
+        </div>`;
     }
   }
 
@@ -184,7 +240,7 @@ function renderGallery(data) {
   }
 
   //einam per data (gallery in data.js):
-  data.forEach(item => {
+  data.forEach((item) => {
     //1. generuojam meniu (su duplikatais):
     //1.a. paskleidziam category kiekvienos item(nuotraukos) arrejuje:
     categories = [...item.category];
@@ -203,7 +259,7 @@ function renderGallery(data) {
     */
   const menuUq = menu.filter((item, index) => menu.indexOf(item) === index);
 
-  menuUq.forEach(cat => {
+  menuUq.forEach((cat) => {
     menuHTML += `<div class="menu-item col">${cat}<div class="line hide"></div></div>`;
   });
 
@@ -222,43 +278,45 @@ function renderGallery(data) {
   let catList = [];
   for (let i = 0; i < menuUq.length; i++) {
     catList[i] = { catName: menuUq[i], imgList: [] };
-    data.forEach(item => {
+    data.forEach((item) => {
       if (item.category.includes(menuUq[i])) {
         catList[i].imgList.push(item.img);
       }
     });
   }
   //selektinam ir pridedam reagavima i paspaudima visoms menu-item:
-  document.querySelectorAll("#my-portfolio-content .menu-item").forEach(click =>
-    click.addEventListener("click", event => {
-      // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
-      document
-        .querySelectorAll(".menu-item div.line")
-        .forEach(a => a.classList.remove("show"));
+  document
+    .querySelectorAll("#my-portfolio-content .menu-item")
+    .forEach((click) =>
+      click.addEventListener("click", (event) => {
+        // //ant paspaudimo: a) paslepiam visas linijas po meniu-item'ais  (nuimam klase .show):
+        document
+          .querySelectorAll(".menu-item div.line")
+          .forEach((a) => a.classList.remove("show"));
 
-      // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
-      click.querySelector(".menu-item div.line").classList.add("show");
+        // b) parodom tik ta linija kuri yra po paspaustu meniu-item'u:
+        click.querySelector(".menu-item div.line").classList.add("show");
 
-      //einam per catList'a (turinti unikalias categorijas):
-      for (let i = 0; i < catList.length; i++) {
-        //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
-        if (catList[i].catName === click.innerText.toLowerCase()) {
-          document
-            .querySelectorAll("#my-portfolio .gallery-item")
-            .forEach(item => {
-              item.classList.add("hide");
-            });
-
-          catList[i].imgList.forEach(img => {
+        //einam per catList'a (turinti unikalias categorijas):
+        for (let i = 0; i < catList.length; i++) {
+          //jei catList'as turi paspausta kategorija visoms gallery items pridedam klase hide ir tada nuimam toms kurios yra catList.imgList'e paspausto elemento:
+          if (catList[i].catName === click.innerText.toLowerCase()) {
             document
-              .querySelector(`[alt="${img}"]`)
-              .closest("div")
-              .classList.remove("hide");
-          });
+              .querySelectorAll("#my-portfolio .gallery-item")
+              .forEach((item) => {
+                item.classList.add("hide");
+              });
+
+            catList[i].imgList.forEach((img) => {
+              document
+                .querySelector(`[alt="${img}"]`)
+                .closest("div")
+                .classList.remove("hide");
+            });
+          }
         }
-      }
-    })
-  );
+      })
+    );
 
   return;
 }
@@ -282,7 +340,9 @@ function renderTestimonial(data) {
   DOM.innerHTML = HTML;
   const arrows = DOM.querySelectorAll(".testimonials-controls> .i0");
   console.log(arrows);
-  arrows.forEach(arrow => arrow.addEventListener("click", updateTestimonials));
+  arrows.forEach((arrow) =>
+    arrow.addEventListener("click", updateTestimonials)
+  );
   return;
 }
 function generateTestimonial(data) {
@@ -327,6 +387,7 @@ function renderMyBlogs(data) {
   let HTML = "";
   for (let i = 0; i < data.length; i++) {
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
+
           <div class="blogs_img">
             <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
           </div>

@@ -15,6 +15,10 @@
   text-align: left;
 }
 
+.right {
+  text-align: right;
+}
+
 .hide {
   display: none;
 }
@@ -63,8 +67,23 @@
   background-position: center; //duoda kad mazetu mazinant ekrana
   background-repeat: no-repeat;
 
+  //nav-bar
+  button.nav-burger {
+    display: none;
+    border: none;
+    border-radius: none;
+    font-size: 25px;
+    background-color: inherit;
+    cursor: pointer;
+
+    i {
+      padding: 10px 10px;
+      color: var(--third-color);
+      background-color: var(--second-color);
+    }
+  }
+
   .row.nav-bar {
-    float: right;
     width: 100%;
     margin-left: 0;
     padding: 20px calc(50% - 600px) 7px;
@@ -76,7 +95,7 @@
 
     .logo > a {
       font-size: 25px;
-      font-weight: 500;
+      font-weight: 700;
       text-transform: uppercase;
       color: white;
       text-decoration: none;
@@ -87,15 +106,22 @@
     .nav-items > a {
       text-decoration: none;
       text-transform: capitalize;
-      color: white;
+      color: var(--third-color);
       font-weight: bold;
-      padding: 0 0 0 20px;
+      padding-left: 20px;
       font-size: 16px;
+      line-height: 25px;
       position: relative;
+      &.activeSection {
+        color: var(--second-color);
+        &:first-of-type {
+          color: var(--third-color);
+        }
+      }
       &::after {
         position: absolute;
         left: 20px;
-        bottom: -28px;
+        bottom: -26px;
         content: "";
         width: 0;
         height: 3px;
@@ -109,8 +135,11 @@
         transition-duration: 0.5s;
       }
     }
-    .nav-items > a.a-scroll {
+    a.a-scroll {
       color: var(--fourth-color);
+      &:first-of-type {
+        color: var(--fourth-color);
+      }
     }
   }
   .row.nav-bar.nav-bar-scroll {
@@ -120,78 +149,152 @@
     .nav-items > a::after {
       background-color: var(--second-color);
     }
+    //sito cia reikia kad 'Home' spalva butu pirma balta o paskui juoda;
+    a.a-scroll {
+      &:first-of-type {
+        color: var(--fourth-color);
+      }
+    }
+  }
+  .nav-burger-items a {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container.hero {
+    .row.nav-bar {
+      width: calc(100% + 10px);
+      left: -5px;
+      padding-left: 10px;
+
+      button.nav-burger {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .nav-items {
+        display: none;
+      }
+    }
+    .row.nav-burger-row {
+      display: none;
+      margin: 0;
+      padding: 0;
+      width: calc(100% + 20px);
+      float: left;
+      position: fixed;
+      top: 66px;
+      right: 0;
+      left: -10px;
+      bottom: 0;
+      z-index: 1;
+      &.active {
+        display: inline-block;
+      }
+      .nav-burger-items {
+        // display: inline-block;
+        // &.active {
+        //   display: inline-block;
+        // }
+        a {
+          &:first-of-type {
+            border-top: 1px solid var(--first-color-f3);
+          }
+          &.activeSection {
+            color: var(--second-color);
+          }
+          display: inline-block;
+          width: 100%;
+          text-decoration: none;
+          text-transform: uppercase;
+          line-height: 25px;
+          border-bottom: 1px solid var(--first-color-f3);
+          font-weight: bold;
+          padding: 15px;
+          font-size: 12px;
+          font-weight: 850;
+          color: var(--fourth-color);
+          background-color: var(--third-color);
+        }
+      }
+    }
   }
 }
 
 // hero
-.hero-content{
+.hero-content {
   display: inline-block;
   text-align: center;
-  >.col{
+  > .col {
     display: inline-block;
     margin-top: 200px;
     color: var(--third-color);
   }
-    .hello{
+  .hello {
+    display: inline-block;
+    width: 100%;
+    margin-top: 100px;
+    font-size: 52px;
+    font-weight: 100;
+    line-height: 90px;
+  }
+  .ml {
+    display: inline-block;
+    width: 100%;
+    font-size: 92px;
+    letter-spacing: 5px;
+    line-height: 100px;
+  }
+  #categ {
+    display: inline-block;
+    width: 100%;
+    p {
       display: inline-block;
-      width: 100%;
-      margin-top: 100px;
-      font-size: 52px;
-      font-weight: 100;
-      line-height: 90px;
-    }
-    .ml{
-      display: inline-block;
-      width: 100%;
-      font-size: 92px;
-      letter-spacing: 5px;
-      line-height: 100px;
-    }
-    #categ{
-      display: inline-block;
-      width: 100%;
-      p{
-        display: inline-block;
-        margin: 20px 0 30px;
-        padding: 0 8px;
-        border-right: 1px solid;
-        font-size: 15px;
-        line-height: 16px;
-        text-transform: uppercase;
-      }
-      p:last-child{border: none;}
-    }
-    a{
-      display: inline-block;
-      margin-top: 8px;
-      padding: 16px 30px;
-      border-radius: 5px;
-      font-size: 14px;
-      line-height: 20px;
+      margin: 20px 0 30px;
+      padding: 0 8px;
+      border-right: 1px solid;
+      font-size: 15px;
+      line-height: 16px;
       text-transform: uppercase;
-      text-decoration: none;
     }
-    @media (max-width: 1100px) {
-      .hello {font-size: 40px;}
-      .ml{
-        font-size: 56px;
-        line-height: 60px;
-      }
+    p:last-child {
+      border: none;
     }
-    @media (max-width: 900px) {
-      .hello {font-size: 34px;}
-      .ml{
-        font-size: 50px;
-        line-height: 60px;
-      }
-      #categ>p{
-        width: 100%;
-        margin: 10px;
-        border: none;
-      }
+  }
+  a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 16px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  @media (max-width: 1100px) {
+    .hello {
+      font-size: 40px;
     }
-    
-
+    .ml {
+      font-size: 56px;
+      line-height: 60px;
+    }
+  }
+  @media (max-width: 900px) {
+    .hello {
+      font-size: 34px;
+    }
+    .ml {
+      font-size: 50px;
+      line-height: 60px;
+    }
+    #categ > p {
+      width: 100%;
+      margin: 10px;
+      border: none;
+    }
+  }
 }
 // clients
 
@@ -293,15 +396,15 @@
 // testimonials
 
 // my blogs
-.my_blogs{
+.my_blogs {
   display: inline-block;
   box-shadow: 0px 8px 15px var(--first-color-tr);
 
-  >.blogs_img{
+  > .blogs_img {
     display: inline-block;
     height: 260px;
     overflow: hidden;
-    img{
+    img {
       display: inline-block;
       width: 100%;
       transition-duration: 1s;
@@ -327,19 +430,19 @@
       height: 100%;
     }
   }
-  span{
+  span {
     display: inline-block;
     font-size: 12px;
     line-height: 14px;
     margin-top: 14px;
     color: var(--first-color-tr);
   }
-    span:nth-child(1){
-      padding-right: 10px;
-      margin-right: 4px;
-      border-right: 1px solid var(--first-color-tr);
-    }
-  .blogs-make{
+  span:nth-child(1) {
+    padding-right: 10px;
+    margin-right: 4px;
+    border-right: 1px solid var(--first-color-tr);
+  }
+  .blogs-make {
     display: inline-block;
     width: 100%;
     padding: 10px 18px;
@@ -350,10 +453,10 @@
     text-decoration: none;
     color: var(--fourth-color);
   }
-    .blogs-make:hover{
-      color: var(--second-color);
-    }
-  p{
+  .blogs-make:hover {
+    color: var(--second-color);
+  }
+  p {
     display: inline-block;
     width: 100%;
     text-align: left;
@@ -362,7 +465,7 @@
     line-height: 24px;
     color: var(--first-color-tr);
   }
-  .blogs-read{
+  .blogs-read {
     display: inline-block;
     padding: 1px 0;
     float: left;
@@ -374,18 +477,18 @@
     color: var(--second-color);
     border-bottom: 2px solid var(--second-color);
   }
-    .blogs-read:hover{
-      color: var(--fourth-color);
-      border-bottom-color: var(--fourth-color);
+  .blogs-read:hover {
+    color: var(--fourth-color);
+    border-bottom-color: var(--fourth-color);
+  }
+  &:hover {
+    img {
+      width: 120%;
+      margin-left: -10%;
+      margin-top: -10%;
+      transition-duration: 500ms;
     }
-      &:hover{
-        img {
-          width: 120%;
-          margin-left: -10%;
-          margin-top: -10%;
-          transition-duration: 500ms;
-        }
-      }
+  }
 }
 // My Blogs end
 
@@ -498,7 +601,7 @@ footer {
 .links > a {
   width: 40px;
   height: 40px;
-  text-decoration: var(--first-color--tr);
+  text-decoration: var(--first-color-tr);
   color: var(--first-color);
   font-size: 15px;
   border-radius: 50%;
@@ -508,7 +611,7 @@ footer {
   border: 1px solid black;
   &:hover {
     color: var(--third-color);
-    background-color: var(--first-color--tr);
+    background-color: var(--first-color-tr);
     transition-duration: 900ms;
   }
 }
@@ -543,6 +646,5 @@ footer {
   text-align: center;
   font-size: 15px;
   padding-top: 26px;
-  padding-bottom: 26px;
   color: rgb(136, 136, 133);
 }

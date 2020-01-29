@@ -3,7 +3,10 @@
 renderTitles(titles);
 
 //nav bar
-renderNavBar(titles);
+renderNavBar();
+window.addEventListener("scroll", onScroll);
+activeSection();
+navBurgerTogle();
 
 renderHero(hero);
 

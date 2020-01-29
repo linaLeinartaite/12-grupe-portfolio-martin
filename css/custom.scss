@@ -223,74 +223,78 @@
 }
 
 // hero
-.hero-content{
+.hero-content {
   display: inline-block;
   text-align: center;
-  >.col{
+  > .col {
     display: inline-block;
     margin-top: 200px;
     color: var(--third-color);
   }
-    .hello{
+  .hello {
+    display: inline-block;
+    width: 100%;
+    margin-top: 100px;
+    font-size: 52px;
+    font-weight: 100;
+    line-height: 90px;
+  }
+  .ml {
+    display: inline-block;
+    width: 100%;
+    font-size: 92px;
+    letter-spacing: 5px;
+    line-height: 100px;
+  }
+  #categ {
+    display: inline-block;
+    width: 100%;
+    p {
       display: inline-block;
-      width: 100%;
-      margin-top: 100px;
-      font-size: 52px;
-      font-weight: 100;
-      line-height: 90px;
-    }
-    .ml{
-      display: inline-block;
-      width: 100%;
-      font-size: 92px;
-      letter-spacing: 5px;
-      line-height: 100px;
-    }
-    #categ{
-      display: inline-block;
-      width: 100%;
-      p{
-        display: inline-block;
-        margin: 20px 0 30px;
-        padding: 0 8px;
-        border-right: 1px solid;
-        font-size: 15px;
-        line-height: 16px;
-        text-transform: uppercase;
-      }
-      p:last-child{border: none;}
-    }
-    a{
-      display: inline-block;
-      margin-top: 8px;
-      padding: 16px 30px;
-      border-radius: 5px;
-      font-size: 14px;
-      line-height: 20px;
+      margin: 20px 0 30px;
+      padding: 0 8px;
+      border-right: 1px solid;
+      font-size: 15px;
+      line-height: 16px;
       text-transform: uppercase;
-      text-decoration: none;
     }
-    @media (max-width: 1100px) {
-      .hello {font-size: 40px;}
-      .ml{
-        font-size: 56px;
-        line-height: 60px;
-      }
+    p:last-child {
+      border: none;
     }
-    @media (max-width: 900px) {
-      .hello {font-size: 34px;}
-      .ml{
-        font-size: 50px;
-        line-height: 60px;
-      }
-      #categ>p{
-        width: 100%;
-        margin: 10px;
-        border: none;
-      }
+  }
+  a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 16px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  @media (max-width: 1100px) {
+    .hello {
+      font-size: 40px;
     }
-    
-
+    .ml {
+      font-size: 56px;
+      line-height: 60px;
+    }
+  }
+  @media (max-width: 900px) {
+    .hello {
+      font-size: 34px;
+    }
+    .ml {
+      font-size: 50px;
+      line-height: 60px;
+    }
+    #categ > p {
+      width: 100%;
+      margin: 10px;
+      border: none;
+    }
+  }
 }
 // clients
 
@@ -392,15 +396,15 @@
 // testimonials
 
 // my blogs
-.my_blogs{
+.my_blogs {
   display: inline-block;
   box-shadow: 0px 8px 15px var(--first-color-tr);
 
-  >.blogs_img{
+  > .blogs_img {
     display: inline-block;
     height: 260px;
     overflow: hidden;
-    img{
+    img {
       display: inline-block;
       width: 100%;
       transition-duration: 1s;
@@ -426,19 +430,19 @@
       height: 100%;
     }
   }
-  span{
+  span {
     display: inline-block;
     font-size: 12px;
     line-height: 14px;
     margin-top: 14px;
     color: var(--first-color-tr);
   }
-    span:nth-child(1){
-      padding-right: 10px;
-      margin-right: 4px;
-      border-right: 1px solid var(--first-color-tr);
-    }
-  .blogs-make{
+  span:nth-child(1) {
+    padding-right: 10px;
+    margin-right: 4px;
+    border-right: 1px solid var(--first-color-tr);
+  }
+  .blogs-make {
     display: inline-block;
     width: 100%;
     padding: 10px 18px;
@@ -449,10 +453,10 @@
     text-decoration: none;
     color: var(--fourth-color);
   }
-    .blogs-make:hover{
-      color: var(--second-color);
-    }
-  p{
+  .blogs-make:hover {
+    color: var(--second-color);
+  }
+  p {
     display: inline-block;
     width: 100%;
     text-align: left;
@@ -461,7 +465,7 @@
     line-height: 24px;
     color: var(--first-color-tr);
   }
-  .blogs-read{
+  .blogs-read {
     display: inline-block;
     padding: 1px 0;
     float: left;
@@ -473,18 +477,18 @@
     color: var(--second-color);
     border-bottom: 2px solid var(--second-color);
   }
-    .blogs-read:hover{
-      color: var(--fourth-color);
-      border-bottom-color: var(--fourth-color);
+  .blogs-read:hover {
+    color: var(--fourth-color);
+    border-bottom-color: var(--fourth-color);
+  }
+  &:hover {
+    img {
+      width: 120%;
+      margin-left: -10%;
+      margin-top: -10%;
+      transition-duration: 500ms;
     }
-      &:hover{
-        img {
-          width: 120%;
-          margin-left: -10%;
-          margin-top: -10%;
-          transition-duration: 500ms;
-        }
-      }
+  }
 }
 // My Blogs end
 

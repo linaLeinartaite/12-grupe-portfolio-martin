@@ -39,6 +39,17 @@ function renderTitles(data) {
   }
 }
 
+// hero
+function renderHero(hero) {
+  console.log(hero);
+
+  let HTML = "";
+  for (let i = 0; i < hero.length; i++) {
+    HTML += `<p>${hero[i].categ}</p>`;
+  }
+  document.querySelector(`#categ`).innerHTML = HTML;
+}
+
 //navigation bar
 function renderNavBar() {
   let HTML = "";
@@ -313,6 +324,7 @@ function renderGallery(data) {
 //my testimonial
 
 function renderTestimonial(data) {
+  let DOM = document.querySelector(`#testimonials-block`);
   let testimonialHTML = "";
   let testimonialList = "";
 
@@ -322,39 +334,73 @@ function renderTestimonial(data) {
   const initialindex = Math.floor(Math.random() * data.length);
 
   testimonialHTML = generateTestimonial(data[initialindex]);
+  console.log(initialindex);
+  const HTML = `<div class="col unit-12-col">${testimonialHTML}</div>`;
 
-  const HTML = `<div class="testimonial-list">${testimonialHTML}</div>`;
-
-  document.querySelector(`#testimonials-block`).innerHTML = HTML;
+  DOM.innerHTML = HTML;
+  const arrows = DOM.querySelectorAll(".testimonials-controls> .i0");
+  console.log(arrows);
+  arrows.forEach((arrow) =>
+    arrow.addEventListener("click", updateTestimonials)
+  );
   return;
 }
-
 function generateTestimonial(data) {
-  return `<div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-    <div class="testimonial-text">${data.text}</div>
-    <div class="testimonial-autor">${data.autor}</div>
-    <div class="testimonial-pozition">${data.pozition}</div>`;
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let d = 0;
+  if (data.img == "team-1.jpg") {
+    (a = 1), (b = 0), (c = 0), (d = 0);
+  }
+  if (data.img == "team-2.jpg") {
+    (a = 0), (b = 1), (c = 0), (d = 0);
+  }
+  if (data.img == "team-3.jpg") {
+    (a = 0), (b = 0), (c = 1), (d = 0);
+  }
+  if (data.img == "team-4.jpg") {
+    (a = 0), (b = 0), (c = 0), (d = 1);
+  }
+
+  return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
+            <div class=" testimonial-list">
+              <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+              <div class="testimonial-text">${data.text}</div>
+              <div class="testimonial-autor">${data.autor}</div>
+              <div class="testimonial-pozition">${data.pozition}</div>
+            </div>
+          </div>
+          <div class="testimonials-controls unit-7-col">
+            <div class="i${a} is-0"></div>
+            <div class="i${b} is-1"></div>
+            <div class="i${c} is-2"></div>
+            <div class="i${d} is-3"></div>            
+          </div>`;
+}
+function updateTestimonials() {
+  console.log("tectim...");
 }
 
 //my blogs
 function renderMyBlogs(data) {
-  // console.log(data);
-  let list = [];
   let HTML = "";
-
   for (let i = 0; i < data.length; i++) {
-    // console.log(data[i], data[i].category);
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
-      <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
-      <div class="blogs-make">
-      <span>${data[i].date}</span>
-      <span>${data[i].category}</span>
-      </div>
-      <a href="#" class="blogs-make">${data[i].purpose}</a>
-      <p class="title">${data[i].comment}</p>
-      <a href="#" class="blogs-read">Read more</a>
-      </div>`;
+
+          <div class="blogs_img">
+            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+          </div>
+            <div class="blogs-make">
+                <span>${data[i].date}</span>
+                <span>${data[i].category}</span>
+            </div>
+            <a href="#" class="blogs-make">${data[i].purpose}</a>
+            <p class="title">${data[i].comment}</p>
+            <a href="#" class="blogs-read">Read more</a>
+        </div>`;
     document.querySelector(`#my-blogs-body`).innerHTML = HTML;
   }
-  return HTML;
+  return;
 }
+//my blogs end

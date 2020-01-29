@@ -8,6 +8,8 @@ window.addEventListener("scroll", onScroll);
 activeSection();
 navBurgerTogle();
 
+renderHero(hero);
+
 renderResume(resume);
 
 renderServices(services);

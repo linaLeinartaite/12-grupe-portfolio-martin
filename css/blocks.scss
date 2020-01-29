@@ -1,0 +1,122 @@
+//style for columns
+//stilius stulpeliu (seselis ir bazinis formatas)
+.block{
+    padding: 30px;
+    border-radius: 3px;
+    background-color: var(--third-color);    
+    box-shadow: 0px 8px 15px var(--first-color-tr);
+    font-size: 20px;
+    border: 5px solid transparent;
+    
+    //jei stulpelyje yra <h4> jis tures raudonos spalvos texta ir didziasias raides:
+    h4{        
+        text-transform: uppercase;
+        color: var(--second-color);   
+    }
+    
+    //jei stulpelyje yra <h5> jis tures juodos spalvos(paveldes) texta ir didziasias raides
+    h5{
+        padding-top: 25px;
+        text-transform: uppercase;
+    }
+    h3{
+        padding-top: 25px;
+        padding-bottom: 15px;
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: bold;         
+    }
+    
+    .ico{
+        color: var(--second-color);
+        font-size: 40px;
+        line-height: 60px;
+    }
+    
+    //jei stulpelyje yra <p> jis tures pilkos spalvos texta ir didziasias raides:
+    p {
+        font-size: 18px;
+        padding: 3px 0;
+        color: var(--first-color);
+    }
+    img{
+        width:100%;
+        position:relative;             
+    }    
+    
+    &.block-img{
+        padding: 8px;
+        position: relative;   
+    }
+    &.block-img>.cover{
+        opacity:0;
+        position: absolute;
+        text-align: bottom;
+        top:0;
+        bottom:0;
+        left:0;
+        right: 0;       
+        background-color: var(--first-color-tr);
+        margin: 8px;
+        transition: ease-in-out all;  
+        transition-duration: 0.8s;    
+        
+        > div{        
+            position: absolute;  
+            padding:20px;
+            bottom:0;
+            left:0;
+            right: 0;       
+            background-color: var(--second-color);
+            color: var(--second-color-anti);                        
+        }
+        &::before, &::after{
+            content: "";
+            display: inline-block;
+            position:absolute;            
+            background-color: var(--third-color);
+            top: 50%;
+            bottom: 50%;
+            transform: translate(-50%, -50%); 
+            //tai kad cia uzduotas aukstis lemia kad tas kryziukas graziai iseina 
+            height: 2px;
+            width: 2px;
+        }
+        
+        &:hover::after{
+            height: 60px;
+            transition-duration: 1s;
+            
+        }
+        &:hover::before{  
+            width: 60px;    
+            transition-duration: 1s;
+            
+        }
+        
+        
+    }
+    &.block-img>.cover:hover{
+        opacity:1; 
+        
+    }     
+}
+
+//klase kad uzvedus ant stulpelio/block'o jis pakiltu ivirsu ir igautu raudona borderi
+.block-hover{
+    transition: ease-in-out all;
+    transition-duration: 0.35s;  
+    &:hover{
+        transition: ease-in-out;
+        transition-duration: 0.5s;
+        border: 5px solid var(--second-color);
+        position: relative;
+        transform: translate( 0, -10px);
+        // top: -10px;      
+    }
+}
+
+//cia jei nuimti seseli (reikia tik Abaut Me sekcijoje)
+.block-{
+    box-shadow: none;    
+}

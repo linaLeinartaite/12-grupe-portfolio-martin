@@ -3,6 +3,12 @@
 renderTitles(titles);
 
 //nav bar
+renderNavBar();
+window.addEventListener("scroll", onScroll);
+activeSection();
+navBurgerTogle();
+
+renderHero(hero);
 
 renderResume(resume);
 
@@ -10,8 +16,8 @@ renderServices(services);
 
 renderGallery(gallery);
 
-//testimonial
+renderTestimonial(testimonialdata);
 
-//blogs
+renderMyBlogs(blogs);
 
 //renderContactme(titles);

@@ -321,6 +321,18 @@ function renderGallery(data) {
   return;
 }
 
+function displayGallery() {
+  let escBtn = document.querySelector("#gallery-display .esc-btn");
+  let gallDisplay = document.getElementById("gallery-display");
+  let galleryItems = document.querySelectorAll("#my-portfolio .gallery-item");
+  console.log(galleryItems);
+
+  escBtn.addEventListener("click", () => {
+    gallDisplay.classList.add("hide");
+  });
+  return;
+}
+
 //my testimonial
 
 function renderTestimonial(data) {

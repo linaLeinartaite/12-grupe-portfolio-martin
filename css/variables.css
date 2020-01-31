@@ -1,17 +1,18 @@
 :root {
-  --zero-color:#FFF;
-  --zero-color-anti:#171717;
+  --zero-color: #fff;
+  --zero-color-anti: #171717;
   --first-color: #828282;
   --first-color-tr: #828282be;
   --first-color-tr-btn: #rgba(17, 17, 17, 0.1);
   --first-color-anti: black;
-  --first-color-f3:#f3f3f3;
+  --first-color-f3: #f3f3f3;
   --second-color: #f34236;
   --second-color-tr: #f34336be;
   --second-color-anti: white;
   --third-color: white;
   --third-color-anti: black;
   --fourth-color: black;
+  --fourth-color-tr: rgba(0, 0, 0, 0.75);
   --fourth-color-anti: white;
 }
 /*# sourceMappingURL=variables.css.map */

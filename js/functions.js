@@ -223,6 +223,11 @@ function renderServices(data) {
 function renderGallery(data) {
   let menuHTML = ``;
   let galleryHTML = ``;
+  let displayHTML = `<div class="esc-btn">&times;</div>
+    <div class="next-btn"></div>
+    <div class="prev-btn"></div>
+    <img class="img-display" src="" alt="" />`;
+
   let menu = [];
   let categories = "";
 
@@ -248,8 +253,11 @@ function renderGallery(data) {
     //1.b. sujungiam arejus i bendra arreju (nesalinant atsikartojanciu elementu)
     menu = menu.concat(categories);
 
-    //2. su generuojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
+    //2. sugeneruojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
     galleryHTML += `<div class="gallery-item block block-img col  unit-4-col unit-6-col-sm unit-12-col-xxs"><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`;
+
+    // 3.sugeneruojam displayHTML: istatom atitinkama nuotrauka i <div><img></div>:
+    // displayHTML += `<img class="img-display" src="./img/gallery/${item.img}" alt="${item.img}">`;
   });
 
   //1.c. baigiam construoti menu: naudojam .filter() kad paliktu tik unikalias categorijas ir sulipdom kiekviena kategorija  i menuHTML (<div>'uose);
@@ -269,6 +277,9 @@ function renderGallery(data) {
   //sujungiam menuHTML su galleryHTML ir istatom i reikiama vieta html'e:
   document.querySelector("#my-portfolio-content").innerHTML =
     menuHTML + galleryHTML;
+
+  //idedam displayHTML i html'a:
+  document.querySelector("#gallery-display").innerHTML = displayHTML;
 
   //pirmai menu kategorijai "all" (t.y. jos pabraukimui) pridedame klase .show), kad paleidus psl. kai rodo visas nuotraukas "all" butu pabrauktas:
   document.querySelector(".menu-item div.line").classList.add("show");
@@ -323,12 +334,26 @@ function renderGallery(data) {
 
 function displayGallery() {
   let escBtn = document.querySelector("#gallery-display .esc-btn");
-  let gallDisplay = document.getElementById("gallery-display");
-  let galleryItems = document.querySelectorAll("#my-portfolio .gallery-item");
-  console.log(galleryItems);
+  let gallDisplay = document.querySelector(".img-display");
+  let gallDisplayBlock = document.querySelector("#gallery-display");
+  let galleryItems = document.querySelectorAll("#my-portfolio .cover");
+  gallDisplayBlock.classList.add("hide");
+
+  let clickedImgP = "";
+  let clickedImg = "";
+  galleryItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      clickedImgP = event.target.closest(".gallery-item ");
+      clickedImg = clickedImgP.querySelector("img");
+      gallDisplay.src = clickedImg.src;
+      gallDisplayBlock.classList.add("show");
+      gallDisplayBlock.classList.remove("hide");
+    });
+  });
 
   escBtn.addEventListener("click", () => {
-    gallDisplay.classList.add("hide");
+    gallDisplayBlock.classList.add("hide");
+    gallDisplayBlock.classList.remove("show");
   });
   return;
 }
@@ -376,19 +401,19 @@ function generateTestimonial(data) {
   }
 
   return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
-            <div class=" testimonial-list">
-              <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-              <div class="testimonial-text">${data.text}</div>
-              <div class="testimonial-autor">${data.autor}</div>
-              <div class="testimonial-pozition">${data.pozition}</div>
-            </div>
-          </div>
-          <div class="testimonials-controls unit-7-col">
-            <div class="i${a} is-0"></div>
-            <div class="i${b} is-1"></div>
-            <div class="i${c} is-2"></div>
-            <div class="i${d} is-3"></div>            
-          </div>`;
+    <div class=" testimonial-list">
+    <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+    <div class="testimonial-text">${data.text}</div>
+    <div class="testimonial-autor">${data.autor}</div>
+    <div class="testimonial-pozition">${data.pozition}</div>
+    </div>
+    </div>
+    <div class="testimonials-controls unit-7-col">
+    <div class="i${a} is-0"></div>
+    <div class="i${b} is-1"></div>
+    <div class="i${c} is-2"></div>
+    <div class="i${d} is-3"></div>            
+    </div>`;
 }
 function updateTestimonials() {
   console.log("tectim...");
@@ -399,18 +424,18 @@ function renderMyBlogs(data) {
   let HTML = "";
   for (let i = 0; i < data.length; i++) {
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
-
-          <div class="blogs_img">
-            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
-          </div>
-            <div class="blogs-make">
-                <span>${data[i].date}</span>
-                <span>${data[i].category}</span>
-            </div>
-            <a href="#" class="blogs-make">${data[i].purpose}</a>
-            <p class="title">${data[i].comment}</p>
-            <a href="#" class="blogs-read">Read more</a>
-        </div>`;
+      
+      <div class="blogs_img">
+      <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+      </div>
+      <div class="blogs-make">
+      <span>${data[i].date}</span>
+      <span>${data[i].category}</span>
+      </div>
+      <a href="#" class="blogs-make">${data[i].purpose}</a>
+      <p class="title">${data[i].comment}</p>
+      <a href="#" class="blogs-read">Read more</a>
+      </div>`;
     document.querySelector(`#my-blogs-body`).innerHTML = HTML;
   }
   return;

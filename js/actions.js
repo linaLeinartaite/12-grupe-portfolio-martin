@@ -16,7 +16,7 @@ renderServices(services);
 
 renderGallery(gallery);
 
-displayGallery();
+displayGallery(gallery);
 
 renderTestimonial(testimonialdata);
 

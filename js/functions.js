@@ -41,8 +41,6 @@ function renderTitles(data) {
 
 // hero
 function renderHero(hero) {
-  console.log(hero);
-
   let HTML = "";
   for (let i = 0; i < hero.length; i++) {
     HTML += `<p>${hero[i].categ}</p>`;
@@ -226,7 +224,11 @@ function renderGallery(data) {
   let displayHTML = `<div class="esc-btn">&times;</div>
     <div class="next-btn"></div>
     <div class="prev-btn"></div>
-    <img class="img-display" src="" alt="" />`;
+    <div class="img-div">   
+    <img class="img-display" src="" alt="">
+    <div class="img-no"><span></span> of 9</div>
+    </div>
+    `;
 
   let menu = [];
   let categories = "";
@@ -332,29 +334,65 @@ function renderGallery(data) {
   return;
 }
 
-function displayGallery() {
+function displayGallery(data) {
   let escBtn = document.querySelector("#gallery-display .esc-btn");
   let gallDisplay = document.querySelector(".img-display");
   let gallDisplayBlock = document.querySelector("#gallery-display");
   let galleryItems = document.querySelectorAll("#my-portfolio .cover");
-  gallDisplayBlock.classList.add("hide");
 
   let clickedImgP = "";
   let clickedImg = "";
+  let imgNo = "";
+
+  let count = 0;
+  let index = 0;
+  let nextBtn = document.querySelector("#gallery-display .next-btn");
+  let prevBtn = document.querySelector("#gallery-display .prev-btn");
+
+  gallDisplayBlock.classList.add("hide");
+
   galleryItems.forEach((item) => {
+    //paspaudus ant nuotraukos  ji padidinama;
     item.addEventListener("click", (event) => {
       clickedImgP = event.target.closest(".gallery-item ");
       clickedImg = clickedImgP.querySelector("img");
+      imgNo = document.querySelector("#gallery-display .img-no>span");
+
       gallDisplay.src = clickedImg.src;
-      gallDisplayBlock.classList.add("show");
+
       gallDisplayBlock.classList.remove("hide");
+
+      index = gallDisplay.src.indexOf("-");
+      count = parseInt(gallDisplay.src.slice(index + 1));
+      imgNo.innerHTML = count;
     });
   });
 
+  //paspaudus ant mygtuku i prieki ir atgal nuotraukos pasislenka:
+  nextBtn.addEventListener("click", () => {
+    count += 1;
+    if (count > data.length) {
+      count = 1;
+    }
+    gallDisplay.src = `./img/gallery/portfolio-${count}.jpg`;
+    imgNo.innerHTML = count;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    count -= 1;
+    if (count < 1) {
+      count = data.length;
+    }
+
+    gallDisplay.src = `./img/gallery/portfolio-${count}.jpg`;
+    imgNo.innerHTML = count;
+  });
+
+  //paspaudus ant x-iuko nuotraukos neberodo;
   escBtn.addEventListener("click", () => {
     gallDisplayBlock.classList.add("hide");
-    gallDisplayBlock.classList.remove("show");
   });
+
   return;
 }
 

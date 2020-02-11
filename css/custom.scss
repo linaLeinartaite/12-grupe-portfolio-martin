@@ -367,7 +367,6 @@ body {
   position: relative;
   #gallery-display {
     background-color: var(--fourth-color-tr);
-
     position: fixed;
     top: 0;
     left: 0;
@@ -375,31 +374,26 @@ body {
     bottom: 0;
     z-index: 1;
     .img-div {
-      widht: 100%;
-      height: 80%;
+      max-width: 550px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-    }
-    .img-display {
-      height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .img-no {
-      width: 40px;
-      position: absolute;
-      bottom: 0%;
-      right: 0%;
-      transform: translate(640%, 110%);
-      color: var(--first-color-f3);
-      font-size: 12px;
-      font-weight: 600;
-    }
 
+      .img-display {
+        height: calc(100% - 20px);
+        width: 100%;
+        display: block;
+      }
+      .img-no {
+        width: 40px;
+        float: right;
+        color: var(--first-color-f3);
+        padding-top: 8px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
     .esc-btn {
       font-size: 30px;
       position: absolute;
@@ -433,6 +427,17 @@ body {
   }
 }
 
+@media (max-width: 700px) {
+  #gallery-display {
+    .img-div {
+      max-width: 450px;
+    }
+    .next-btn,
+    .prev-btn {
+      z-index: 1;
+    }
+  }
+}
 #my-portfolio-content {
   .menu {
     align-items: center;

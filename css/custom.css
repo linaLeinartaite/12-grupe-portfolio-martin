@@ -385,8 +385,7 @@ body #gallery-display {
 }
 
 body #gallery-display .img-div {
-  widht: 100%;
-  height: 80%;
+  max-width: 550px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -394,23 +393,17 @@ body #gallery-display .img-div {
           transform: translate(-50%, -50%);
 }
 
-body #gallery-display .img-display {
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+body #gallery-display .img-div .img-display {
+  height: calc(100% - 20px);
+  width: 100%;
+  display: block;
 }
 
-body #gallery-display .img-no {
+body #gallery-display .img-div .img-no {
   width: 40px;
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  -webkit-transform: translate(640%, 110%);
-          transform: translate(640%, 110%);
+  float: right;
   color: var(--first-color-f3);
+  padding-top: 8px;
   font-size: 12px;
   font-weight: 600;
 }
@@ -449,6 +442,16 @@ body #gallery-display .prev-btn {
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-right: 20px solid var(--first-color-f3);
+}
+
+@media (max-width: 700px) {
+  #gallery-display .img-div {
+    max-width: 450px;
+  }
+  #gallery-display .next-btn,
+  #gallery-display .prev-btn {
+    z-index: 1;
+  }
 }
 
 #my-portfolio-content .menu {

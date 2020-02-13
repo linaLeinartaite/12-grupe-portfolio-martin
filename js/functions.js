@@ -364,7 +364,9 @@ function displayGallery(data) {
       // index = gallDisplay.src.indexOf("portfolio-");
 
       count = parseInt(
-        gallDisplay.src.slice(gallDisplay.src.indexOf("portfolio-") + 10)
+        gallDisplay.src.slice(
+          gallDisplay.src.indexOf("gallery/portfolio-") + 18
+        )
       );
       // console.log("index: ", index);
       console.log("gallDisplay.src: " + gallDisplay.src);

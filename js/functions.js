@@ -239,7 +239,6 @@ function renderGallery(data) {
   }
 
   //patikrinam data nera tuscia (jei tuscia pasalinam sekcija)
-
   if (data.length === 0) {
     console.error("ERROR: data is empty.");
     document.querySelector("#my-portfolio").remove();

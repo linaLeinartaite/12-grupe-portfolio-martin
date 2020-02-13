@@ -368,8 +368,16 @@ function displayGallery(data) {
           gallDisplay.src.indexOf("gallery/portfolio-") + 18
         )
       );
-      // console.log("index: ", index);
+      console.log("index: ", gallDisplay.src.indexOf("gallery/portfolio-"));
+
       console.log("gallDisplay.src: " + gallDisplay.src);
+
+      console.log(
+        gallDisplay.src.slice(
+          gallDisplay.src.indexOf("gallery/portfolio-") + 18
+        )
+      );
+      console.log("count: " + count);
       imgNo.innerHTML = count;
     });
   });

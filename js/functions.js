@@ -361,8 +361,13 @@ function displayGallery(data) {
 
       gallDisplayBlock.classList.remove("hide");
 
-      index = gallDisplay.src.indexOf("-");
-      count = parseInt(gallDisplay.src.slice(index + 1));
+      // index = gallDisplay.src.indexOf("portfolio-");
+
+      count = parseInt(
+        gallDisplay.src.slice(gallDisplay.src.indexOf("portfolio-") + 10)
+      );
+      // console.log("index: ", index);
+      console.log("gallDisplay.src: " + gallDisplay.src);
       imgNo.innerHTML = count;
     });
   });
@@ -438,19 +443,19 @@ function generateTestimonial(data) {
   }
 
   return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
-    <div class=" testimonial-list">
-    <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-    <div class="testimonial-text">${data.text}</div>
-    <div class="testimonial-autor">${data.autor}</div>
-    <div class="testimonial-pozition">${data.pozition}</div>
-    </div>
-    </div>
-    <div class="testimonials-controls unit-7-col">
-    <div class="i${a} is-0"></div>
-    <div class="i${b} is-1"></div>
-    <div class="i${c} is-2"></div>
-    <div class="i${d} is-3"></div>            
-    </div>`;
+      <div class=" testimonial-list">
+      <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+      <div class="testimonial-text">${data.text}</div>
+      <div class="testimonial-autor">${data.autor}</div>
+      <div class="testimonial-pozition">${data.pozition}</div>
+      </div>
+      </div>
+      <div class="testimonials-controls unit-7-col">
+      <div class="i${a} is-0"></div>
+      <div class="i${b} is-1"></div>
+      <div class="i${c} is-2"></div>
+      <div class="i${d} is-3"></div>            
+      </div>`;
 }
 function updateTestimonials() {
   console.log("tectim...");
@@ -461,18 +466,18 @@ function renderMyBlogs(data) {
   let HTML = "";
   for (let i = 0; i < data.length; i++) {
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
-      
-      <div class="blogs_img">
-      <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
-      </div>
-      <div class="blogs-make">
-      <span>${data[i].date}</span>
-      <span>${data[i].category}</span>
-      </div>
-      <a href="#" class="blogs-make">${data[i].purpose}</a>
-      <p class="title">${data[i].comment}</p>
-      <a href="#" class="blogs-read">Read more</a>
-      </div>`;
+        
+        <div class="blogs_img">
+        <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+        </div>
+        <div class="blogs-make">
+        <span>${data[i].date}</span>
+        <span>${data[i].category}</span>
+        </div>
+        <a href="#" class="blogs-make">${data[i].purpose}</a>
+        <p class="title">${data[i].comment}</p>
+        <a href="#" class="blogs-read">Read more</a>
+        </div>`;
     document.querySelector(`#my-blogs-body`).innerHTML = HTML;
   }
   return;

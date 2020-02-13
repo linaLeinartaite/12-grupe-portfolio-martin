@@ -41,8 +41,6 @@ function renderTitles(data) {
 
 // hero
 function renderHero(hero) {
-  console.log(hero);
-
   let HTML = "";
   for (let i = 0; i < hero.length; i++) {
     HTML += `<p>${hero[i].categ}</p>`;
@@ -223,6 +221,15 @@ function renderServices(data) {
 function renderGallery(data) {
   let menuHTML = ``;
   let galleryHTML = ``;
+  let displayHTML = `<div class="esc-btn">&times;</div>
+    <div class="next-btn"></div>
+    <div class="prev-btn"></div>
+    <div class="img-div">   
+    <img class="img-display" src="" alt="">
+    <div class="img-no"><span></span> of 9</div>
+    </div>
+    `;
+
   let menu = [];
   let categories = "";
 
@@ -248,8 +255,11 @@ function renderGallery(data) {
     //1.b. sujungiam arejus i bendra arreju (nesalinant atsikartojanciu elementu)
     menu = menu.concat(categories);
 
-    //2. su generuojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
+    //2. sugeneruojam galleryHTML: istatom atitinkama nuotrauka i <div><img></div>:
     galleryHTML += `<div class="gallery-item block block-img col  unit-4-col unit-6-col-sm unit-12-col-xxs"><img  src="./img/gallery/${item.img}" alt="${item.img}"><div class="cover"><div>Our Photography</div></div></div>`;
+
+    // 3.sugeneruojam displayHTML: istatom atitinkama nuotrauka i <div><img></div>:
+    // displayHTML += `<img class="img-display" src="./img/gallery/${item.img}" alt="${item.img}">`;
   });
 
   //1.c. baigiam construoti menu: naudojam .filter() kad paliktu tik unikalias categorijas ir sulipdom kiekviena kategorija  i menuHTML (<div>'uose);
@@ -269,6 +279,9 @@ function renderGallery(data) {
   //sujungiam menuHTML su galleryHTML ir istatom i reikiama vieta html'e:
   document.querySelector("#my-portfolio-content").innerHTML =
     menuHTML + galleryHTML;
+
+  //idedam displayHTML i html'a:
+  document.querySelector("#gallery-display").innerHTML = displayHTML;
 
   //pirmai menu kategorijai "all" (t.y. jos pabraukimui) pridedame klase .show), kad paleidus psl. kai rodo visas nuotraukas "all" butu pabrauktas:
   document.querySelector(".menu-item div.line").classList.add("show");
@@ -321,6 +334,68 @@ function renderGallery(data) {
   return;
 }
 
+function displayGallery(data) {
+  let escBtn = document.querySelector("#gallery-display .esc-btn");
+  let gallDisplay = document.querySelector(".img-display");
+  let gallDisplayBlock = document.querySelector("#gallery-display");
+  let galleryItems = document.querySelectorAll("#my-portfolio .cover");
+
+  let clickedImgP = "";
+  let clickedImg = "";
+  let imgNo = "";
+
+  let count = 0;
+  let index = 0;
+  let nextBtn = document.querySelector("#gallery-display .next-btn");
+  let prevBtn = document.querySelector("#gallery-display .prev-btn");
+
+  gallDisplayBlock.classList.add("hide");
+
+  galleryItems.forEach((item) => {
+    //paspaudus ant nuotraukos  ji padidinama;
+    item.addEventListener("click", (event) => {
+      clickedImgP = event.target.closest(".gallery-item ");
+      clickedImg = clickedImgP.querySelector("img");
+      imgNo = document.querySelector("#gallery-display .img-no>span");
+
+      gallDisplay.src = clickedImg.src;
+
+      gallDisplayBlock.classList.remove("hide");
+
+      index = gallDisplay.src.indexOf("-");
+      count = parseInt(gallDisplay.src.slice(index + 1));
+      imgNo.innerHTML = count;
+    });
+  });
+
+  //paspaudus ant mygtuku i prieki ir atgal nuotraukos pasislenka:
+  nextBtn.addEventListener("click", () => {
+    count += 1;
+    if (count > data.length) {
+      count = 1;
+    }
+    gallDisplay.src = `./img/gallery/portfolio-${count}.jpg`;
+    imgNo.innerHTML = count;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    count -= 1;
+    if (count < 1) {
+      count = data.length;
+    }
+
+    gallDisplay.src = `./img/gallery/portfolio-${count}.jpg`;
+    imgNo.innerHTML = count;
+  });
+
+  //paspaudus ant x-iuko nuotraukos neberodo;
+  escBtn.addEventListener("click", () => {
+    gallDisplayBlock.classList.add("hide");
+  });
+
+  return;
+}
+
 //my testimonial
 
 function renderTestimonial(data) {
@@ -364,19 +439,19 @@ function generateTestimonial(data) {
   }
 
   return `<div class=" testimonials-content unit-7-col unit-12-col-sm">
-            <div class=" testimonial-list">
-              <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
-              <div class="testimonial-text">${data.text}</div>
-              <div class="testimonial-autor">${data.autor}</div>
-              <div class="testimonial-pozition">${data.pozition}</div>
-            </div>
-          </div>
-          <div class="testimonials-controls unit-7-col">
-            <div class="i${a} is-0"></div>
-            <div class="i${b} is-1"></div>
-            <div class="i${c} is-2"></div>
-            <div class="i${d} is-3"></div>            
-          </div>`;
+    <div class=" testimonial-list">
+    <div class="testimonial-foto"><img src="./img/girls/${data.img}"></div>
+    <div class="testimonial-text">${data.text}</div>
+    <div class="testimonial-autor">${data.autor}</div>
+    <div class="testimonial-pozition">${data.pozition}</div>
+    </div>
+    </div>
+    <div class="testimonials-controls unit-7-col">
+    <div class="i${a} is-0"></div>
+    <div class="i${b} is-1"></div>
+    <div class="i${c} is-2"></div>
+    <div class="i${d} is-3"></div>            
+    </div>`;
 }
 function updateTestimonials() {
   console.log("tectim...");
@@ -387,18 +462,18 @@ function renderMyBlogs(data) {
   let HTML = "";
   for (let i = 0; i < data.length; i++) {
     HTML += `<div class="my_blogs col unit-4-col unit-12-col-sm">
-
-          <div class="blogs_img">
-            <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
-          </div>
-            <div class="blogs-make">
-                <span>${data[i].date}</span>
-                <span>${data[i].category}</span>
-            </div>
-            <a href="#" class="blogs-make">${data[i].purpose}</a>
-            <p class="title">${data[i].comment}</p>
-            <a href="#" class="blogs-read">Read more</a>
-        </div>`;
+      
+      <div class="blogs_img">
+      <img src="./img/gallery/blog-${data[i].img}" alt="Blog-${i + 1}">
+      </div>
+      <div class="blogs-make">
+      <span>${data[i].date}</span>
+      <span>${data[i].category}</span>
+      </div>
+      <a href="#" class="blogs-make">${data[i].purpose}</a>
+      <p class="title">${data[i].comment}</p>
+      <a href="#" class="blogs-read">Read more</a>
+      </div>`;
     document.querySelector(`#my-blogs-body`).innerHTML = HTML;
   }
   return;

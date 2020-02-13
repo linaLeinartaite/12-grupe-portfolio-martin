@@ -296,7 +296,6 @@
     }
   }
 }
-// clients
 
 // about me
 
@@ -363,32 +362,110 @@
 }
 
 // my-portfolio
-.menu {
-  align-items: center;
-  text-transform: uppercase;
-  // background-color: red;
-  .menu-item {
-    display: inline-block;
-    font-weight: bold;
-    position: relative;
-
-    & > div.line {
-      content: "";
-      // display: inline-block;
+//display photo on click
+body {
+  position: relative;
+  #gallery-display {
+    background-color: var(--fourth-color-tr);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    .img-div {
+      max-width: 550px;
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -10px;
-      width: 100%;
-      height: 3px;
-      background-color: var(--second-color);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .img-display {
+        height: calc(100% - 20px);
+        width: 100%;
+        display: block;
+      }
+      .img-no {
+        width: 40px;
+        float: right;
+        color: var(--first-color-f3);
+        padding-top: 8px;
+        font-size: 12px;
+        font-weight: 600;
+      }
     }
-    &:hover {
-      color: var(--second-color);
+    .esc-btn {
+      font-size: 30px;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      color: var(--first-color-f3);
       cursor: pointer;
     }
-    &:active::after {
+    .next-btn,
+    .prev-btn {
+      position: absolute;
+      top: 50vh;
+      width: 0;
+      height: 0;
+      cursor: pointer;
+    }
+    .next-btn {
+      right: 0%;
+      transform: translate(-100%, -100%);
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid var(--first-color-f3);
+    }
+    .prev-btn {
+      left: 0%;
+      transform: translate(100%, -100%);
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid var(--first-color-f3);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #gallery-display {
+    .img-div {
+      max-width: 450px;
+    }
+    .next-btn,
+    .prev-btn {
+      z-index: 1;
+    }
+  }
+}
+#my-portfolio-content {
+  .menu {
+    align-items: center;
+    text-transform: uppercase;
+
+    .menu-item {
       display: inline-block;
+      font-weight: bold;
+      position: relative;
+
+      & > div.line {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        width: 100%;
+        height: 3px;
+        background-color: var(--second-color);
+      }
+      &:hover {
+        color: var(--second-color);
+        cursor: pointer;
+      }
+      &:active::after {
+        display: inline-block;
+      }
     }
   }
 }
